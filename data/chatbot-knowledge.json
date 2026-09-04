@@ -35,16 +35,21 @@
   ],
 
   "mets_emblematiques": [
-    { "nom": "Ndolé", "region": "Sawa / national", "description": "Plat à base de feuilles de ndolé (légume amer), arachides, poisson ou viande — souvent considéré comme le plat national." },
+    { "nom": "Ndolé", "region": "Littoral (Sawa) / national", "description": "Plat souvent considéré comme national : feuilles de ndolé (légume amer), arachides pilées, poisson ou viande." },
     { "nom": "Eru", "region": "Sud-Ouest", "description": "Feuilles d'eru mijotées avec de l'huile de palme, du waterleaf et de la viande ou du poisson fumé." },
     { "nom": "Poulet DG (Directeur Général)", "region": "National", "description": "Poulet sauté avec plantains mûrs, légumes et épices, plat festif très populaire." },
     { "nom": "Achu", "region": "Grassfields (Nord-Ouest)", "description": "Purée de taro jaune accompagnée d'une sauce jaune épicée à base de nkui." },
-    { "nom": "Koki", "region": "National", "description": "Gâteau vapeur à base de haricots niébé écrasés et d'huile de palme, enveloppé dans des feuilles." },
+    { "nom": "Koki", "region": "Ouest / national", "description": "Gâteau vapeur à base de haricots niébé écrasés et d'huile de palme, enveloppé dans des feuilles." },
     { "nom": "Kondre", "region": "Sud-Ouest", "description": "Ragoût de plantain avec viande de bœuf ou de chèvre et huile de palme." },
     { "nom": "Folon", "region": "National", "description": "Légumes verts sautés, souvent servis avec du poisson ou de la viande, plat léger et courant." },
-    { "nom": "Bâton de manioc", "region": "National", "description": "Manioc fermenté et cuit à la vapeur dans des feuilles, accompagnement classique des grillades." }
+    { "nom": "Bâton de manioc", "region": "Centre / Littoral", "description": "Manioc fermenté et cuit à la vapeur dans des feuilles, accompagnement classique des grillades." },
+    { "nom": "Mbongo Tchobi", "region": "Littoral (Douala)", "description": "« Sauce noire » épicée à base d'épices grillées et de champignons noirs, mijotée avec du poisson." },
+    { "nom": "Okok", "region": "Centre (Fang-Beti)", "description": "Feuilles d'okok pilées, cuites à l'huile de palme, souvent avec arachides ou poisson." },
+    { "nom": "Nkui", "region": "Ouest (Bamiléké)", "description": "Sauce visqueuse et parfumée à base d'écorce de nkui, enrichie de viande et d'épices." },
+    { "nom": "Kilishi", "region": "Extrême-Nord / Nord", "description": "Fines lamelles de bœuf séché et épicé, spécialité sahélienne consommée en encas." },
+    { "nom": "Soya", "region": "National", "description": "Brochettes de bœuf épicées grillées au charbon, incontournable de la street food le soir." },
+    { "nom": "Miondo (Bobolo)", "region": "Centre / Littoral", "description": "Bâtonnets de manioc fermenté cuits vapeur dans des feuilles, plus fins que le bâton de manioc classique." }
   ],
-  "note_mets": "14 mets emblématiques au total prévus pour la page Culture & Gastronomie ; liste ci-dessus partielle (Phase 2).",
 
   "aires_culturelles": [
     { "nom": "Grassfields", "region": "Nord-Ouest / Ouest", "description": "Royaumes traditionnels (chefferies bamiléké et bamoun), art du bois, masques, danses royales." },

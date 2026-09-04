@@ -1,0 +1,42 @@
+[
+  {
+    "id": "grassfields",
+    "nom": "Grassfields",
+    "region": "Nord-Ouest / Ouest",
+    "icone": "👑",
+    "description": "Terre des royaumes traditionnels (chefferies bamiléké et bamoun), avec des « fons » (rois) toujours en place aujourd'hui. Région de hauts plateaux verdoyants.",
+    "traditions": ["Danses royales et masques", "Chefferies traditionnelles (fons)", "Palais royal de Foumban"],
+    "artisanat": "Sculpture sur bois, perlage, tissage du « toghu » (tenue royale)",
+    "evenement": "Festival Nguon (Foumban) — grande fête royale bamoun"
+  },
+  {
+    "id": "sawa",
+    "nom": "Sawa",
+    "region": "Littoral / Sud-Ouest côtier",
+    "icone": "🛶",
+    "description": "Peuples côtiers (Douala, Bakweri, Bassa...) vivant de la pêche et du commerce maritime depuis des siècles, au bord de l'océan Atlantique.",
+    "traditions": ["Régate traditionnelle Ngondo", "Rites liés à l'eau et aux ancêtres", "Musique makossa"],
+    "artisanat": "Pirogues sculptées, tissage de filets, vannerie",
+    "evenement": "Festival Ngondo (Douala, décembre)"
+  },
+  {
+    "id": "sudano-sahelienne",
+    "nom": "Sudano-Sahélienne",
+    "region": "Nord / Extrême-Nord",
+    "icone": "🐪",
+    "description": "Région semi-aride marquée par l'influence sahélienne : architecture en banco (terre séchée), grandes plaines et traditions équestres.",
+    "traditions": ["Cavalerie traditionnelle (fantasia)", "Architecture en banco (cases obus du Mandara)", "Sultanats du Nord"],
+    "artisanat": "Tissage et teinture, maroquinerie en cuir, poterie",
+    "evenement": "Fêtes traditionnelles des sultanats (Garoua, Maroua)"
+  },
+  {
+    "id": "fang-beti",
+    "nom": "Fang-Beti",
+    "region": "Centre / Sud / Est",
+    "icone": "🥁",
+    "description": "Peuples forestiers du sud du pays (Ewondo, Bulu, Fang...), vivant traditionnellement de l'agriculture et de la chasse en forêt équatoriale.",
+    "traditions": ["Rythme et danse du Bikutsi", "Rites initiatiques (Sso)", "Contes et légendes forestières"],
+    "artisanat": "Sculpture, vannerie forestière, instruments de musique (balafon, mvet)",
+    "evenement": "Festivals de Bikutsi (Yaoundé et région du Centre)"
+  }
+]
