@@ -1,0 +1,12 @@
+{
+  "name": "tourisme-ai-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Assistant Touristique IA du Cameroun — site pour le concours « L'IA dans le Tourisme » (JMT 2026)",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.4.3"
+  }
+}

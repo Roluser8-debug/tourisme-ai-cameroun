@@ -1,0 +1,60 @@
+{
+  "note": "Contenu de référence injecté dans les instructions du chatbot. Liste non exhaustive pour l'instant — sera enrichie en Phase 3, 4 et 5 avec le contenu complet des pages.",
+
+  "ecotourisme": [
+    {
+      "nom": "Parc national de Waza",
+      "region": "Extrême-Nord",
+      "description": "L'un des parcs les plus connus d'Afrique centrale, célèbre pour ses éléphants, lions et girafes, en zone de savane soudano-sahélienne.",
+      "conseil_durable": "Visites uniquement avec guide agréé du parc, pour protéger la faune et soutenir l'économie locale."
+    },
+    {
+      "nom": "Parc national de Korup",
+      "region": "Sud-Ouest",
+      "description": "Une des plus anciennes et plus riches forêts tropicales d'Afrique, avec une biodiversité exceptionnelle (primates, oiseaux, papillons).",
+      "conseil_durable": "Hébergement en écolodges gérés avec les communautés riveraines."
+    },
+    {
+      "nom": "Réserve de biosphère du Dja",
+      "region": "Sud / Est",
+      "description": "Classée au patrimoine mondial de l'UNESCO, forêt dense abritant gorilles, chimpanzés et éléphants de forêt.",
+      "conseil_durable": "Accès limité et encadré pour préserver l'écosystème ; le tourisme finance en partie la conservation."
+    },
+    {
+      "nom": "Parc national de Lobéké",
+      "region": "Est",
+      "description": "Forêt tropicale du bassin du Congo, connue pour ses clairières (« bais ») où observer éléphants et gorilles des plaines.",
+      "conseil_durable": "Écotourisme communautaire avec les populations Baka."
+    },
+    {
+      "nom": "Mont Cameroun",
+      "region": "Sud-Ouest",
+      "description": "Plus haut sommet d'Afrique de l'Ouest et volcan actif (4 040 m), célèbre pour son ascension et la course annuelle « Race of Hope ».",
+      "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés, sentiers balisés pour limiter l'érosion."
+    }
+  ],
+
+  "mets_emblematiques": [
+    { "nom": "Ndolé", "region": "Sawa / national", "description": "Plat à base de feuilles de ndolé (légume amer), arachides, poisson ou viande — souvent considéré comme le plat national." },
+    { "nom": "Eru", "region": "Sud-Ouest", "description": "Feuilles d'eru mijotées avec de l'huile de palme, du waterleaf et de la viande ou du poisson fumé." },
+    { "nom": "Poulet DG (Directeur Général)", "region": "National", "description": "Poulet sauté avec plantains mûrs, légumes et épices, plat festif très populaire." },
+    { "nom": "Achu", "region": "Grassfields (Nord-Ouest)", "description": "Purée de taro jaune accompagnée d'une sauce jaune épicée à base de nkui." },
+    { "nom": "Koki", "region": "National", "description": "Gâteau vapeur à base de haricots niébé écrasés et d'huile de palme, enveloppé dans des feuilles." },
+    { "nom": "Kondre", "region": "Sud-Ouest", "description": "Ragoût de plantain avec viande de bœuf ou de chèvre et huile de palme." },
+    { "nom": "Folon", "region": "National", "description": "Légumes verts sautés, souvent servis avec du poisson ou de la viande, plat léger et courant." },
+    { "nom": "Bâton de manioc", "region": "National", "description": "Manioc fermenté et cuit à la vapeur dans des feuilles, accompagnement classique des grillades." }
+  ],
+  "note_mets": "14 mets emblématiques au total prévus pour la page Culture & Gastronomie ; liste ci-dessus partielle (Phase 2).",
+
+  "aires_culturelles": [
+    { "nom": "Grassfields", "region": "Nord-Ouest / Ouest", "description": "Royaumes traditionnels (chefferies bamiléké et bamoun), art du bois, masques, danses royales." },
+    { "nom": "Sawa", "region": "Littoral / Sud-Ouest côtier", "description": "Peuples côtiers (Douala, Bakweri...), pêche traditionnelle, régate Ngondo." },
+    { "nom": "Sudano-Sahélienne", "region": "Nord / Extrême-Nord", "description": "Influence sahélienne, architecture en banco, artisanat du cuir et du tissage, cavalerie traditionnelle." },
+    { "nom": "Fang-Beti", "region": "Centre / Sud / Est", "description": "Peuples forestiers du sud, traditions du Bikutsi, sculpture, rites initiatiques." }
+  ],
+
+  "hotels_exemples": [
+    { "nom": "Hôtel exemple Yaoundé Centre", "ville": "Yaoundé", "budget": "Milieu de gamme", "note": "Exemple d'annuaire — sera remplacé par de vrais établissements en Phase 5." },
+    { "nom": "Hôtel exemple Douala Bord de mer", "ville": "Douala", "budget": "Haut de gamme", "note": "Exemple d'annuaire — sera remplacé par de vrais établissements en Phase 5." }
+  ]
+}
