@@ -59,7 +59,14 @@
   ],
 
   "hotels_exemples": [
-    { "nom": "Hôtel exemple Yaoundé Centre", "ville": "Yaoundé", "budget": "Milieu de gamme", "note": "Exemple d'annuaire — sera remplacé par de vrais établissements en Phase 5." },
-    { "nom": "Hôtel exemple Douala Bord de mer", "ville": "Douala", "budget": "Haut de gamme", "note": "Exemple d'annuaire — sera remplacé par de vrais établissements en Phase 5." }
-  ]
+    { "nom": "Hôtel Le Flamboyant", "ville": "Yaoundé", "budget": "Milieu de gamme", "note": "Central, proche des ministères et musées." },
+    { "nom": "Résidence Wouri", "ville": "Douala", "budget": "Haut de gamme", "note": "Vue sur le fleuve Wouri, proche du centre d'affaires." },
+    { "nom": "Auberge des Chutes", "ville": "Kribi", "budget": "Milieu de gamme", "note": "Près des plages et des chutes de la Lobé." },
+    { "nom": "Case Botanique Limbé", "ville": "Limbé", "budget": "Économique", "note": "Près du jardin botanique et des plages volcaniques, au pied du Mont Cameroun." },
+    { "nom": "Lodge des Collines", "ville": "Bamenda", "budget": "Milieu de gamme", "note": "Point de départ pour les chefferies Grassfields." },
+    { "nom": "Auberge du Sahel", "ville": "Maroua", "budget": "Économique", "note": "Proche des marchés artisanaux et des monts Mandara." },
+    { "nom": "Résidence Bamiléké", "ville": "Bafoussam", "budget": "Milieu de gamme", "note": "Au cœur de l'Ouest, proche des chefferies traditionnelles." },
+    { "nom": "Hôtel de la Bénoué", "ville": "Garoua", "budget": "Haut de gamme", "note": "Point de départ pour les safaris vers Bénoué et Faro." }
+  ],
+  "note_hotels": "Annuaire à titre indicatif (hôtels d'exemple pour la démo, pas de réservation en ligne)."
 }

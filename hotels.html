@@ -39,10 +39,29 @@
 
     <section>
       <div class="container">
+        <p class="hotels-disclaimer">ℹ️ Annuaire à titre indicatif — hôtels d'exemple pour la démo, sans réservation en ligne. Contactez directement l'établissement pour réserver.</p>
+
+        <div class="hotels-filters">
+          <label for="hotels-filter-ville">
+            Ville
+            <select id="hotels-filter-ville">
+              <option value="">Toutes les villes</option>
+            </select>
+          </label>
+          <label for="hotels-filter-budget">
+            Budget
+            <select id="hotels-filter-budget">
+              <option value="">Tous les budgets</option>
+              <option value="Économique">Économique</option>
+              <option value="Milieu de gamme">Milieu de gamme</option>
+              <option value="Haut de gamme">Haut de gamme</option>
+            </select>
+          </label>
+        </div>
+
         <div id="hotels-grid" class="card-grid">
           <div class="placeholder-block">
-            <strong>Annuaire d'hôtels — contenu à venir</strong>
-            Des exemples d'hôtels seront ajoutés ici à la Phase 5. Informations données à titre indicatif, sans réservation en ligne.
+            <strong>Chargement de l'annuaire d'hôtels…</strong>
           </div>
         </div>
       </div>
@@ -58,6 +77,7 @@
   <div id="chatbot-widget"></div>
 
   <script src="js/main.js"></script>
+  <script src="js/render-hotels.js"></script>
   <script src="js/chatbot-widget.js"></script>
 </body>
 </html>

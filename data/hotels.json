@@ -1,0 +1,66 @@
+[
+  {
+    "id": "yaounde-centre",
+    "nom": "Hôtel Le Flamboyant",
+    "ville": "Yaoundé",
+    "budget": "Milieu de gamme",
+    "description": "Établissement central proche des ministères et musées, pratique pour un séjour d'affaires ou de découverte de la capitale.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "douala-bord-de-mer",
+    "nom": "Résidence Wouri",
+    "ville": "Douala",
+    "budget": "Haut de gamme",
+    "description": "Hôtel avec vue sur le fleuve Wouri, à proximité du port et du centre d'affaires de la capitale économique.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "kribi-plage",
+    "nom": "Auberge des Chutes",
+    "ville": "Kribi",
+    "budget": "Milieu de gamme",
+    "description": "À deux pas des plages de sable fin et des chutes de la Lobé, idéal pour prolonger une visite écotouristique du Sud.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "limbe-cote",
+    "nom": "Case Botanique Limbé",
+    "ville": "Limbé",
+    "budget": "Économique",
+    "description": "Petit hébergement simple près du jardin botanique et des plages de sable noir volcanique, au pied du Mont Cameroun.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "bamenda-collines",
+    "nom": "Lodge des Collines",
+    "ville": "Bamenda",
+    "budget": "Milieu de gamme",
+    "description": "Hébergement dans les hauteurs du Nord-Ouest, point de départ pratique pour visiter les chefferies Grassfields.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "maroua-sahel",
+    "nom": "Auberge du Sahel",
+    "ville": "Maroua",
+    "budget": "Économique",
+    "description": "Hébergement simple en Extrême-Nord, proche des marchés artisanaux et des monts Mandara.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "bafoussam-ouest",
+    "nom": "Résidence Bamiléké",
+    "ville": "Bafoussam",
+    "budget": "Milieu de gamme",
+    "description": "Établissement au cœur de l'Ouest, à proximité des chefferies traditionnelles et des marchés artisanaux.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "garoua-nord",
+    "nom": "Hôtel de la Bénoué",
+    "ville": "Garoua",
+    "budget": "Haut de gamme",
+    "description": "Hôtel confortable dans le Nord, point de départ pour les safaris vers les parcs de la région (Bénoué, Faro).",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  }
+]
