@@ -14,13 +14,15 @@ Si tu veux juste voir les pages sans le chatbot, tu peux toujours ouvrir `index.
 
 ## Où en est le projet
 
-⚠️ La Journée Mondiale du Tourisme a lieu du **23 au 27 septembre 2026** — il reste très peu de temps. Priorité : chatbot fonctionnel d'abord, contenu ensuite.
+⚠️ La Journée Mondiale du Tourisme a lieu du **23 au 27 septembre 2026** — il reste très peu de temps.
+
+Site en ligne : **https://camtour-ai.netlify.app/**
 
 Plan complet : `C:\Users\Rol-User\.claude\plans\stateful-yawning-puppy.md`
 
 - [x] Phase 1 — Squelette et navigation
-- [x] Phase 2 — Chatbot IA multilingue (code prêt ; reste à créer les comptes GitHub/Netlify/Anthropic et déployer)
-- [ ] Phase 3 — Écotourisme (contenu)
+- [x] Phase 2 — Chatbot IA multilingue (testé et fonctionnel en ligne)
+- [~] Phase 3 — Écotourisme (contenu écrit, en attente de vérification)
 - [ ] Phase 4 — Culture, gastronomie, artisanat (contenu)
 - [ ] Phase 5 — Annuaire d'hôtels (contenu)
 - [ ] Phase 6 — Finitions et préparation démo

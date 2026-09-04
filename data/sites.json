@@ -1,0 +1,52 @@
+[
+  {
+    "id": "waza",
+    "nom": "Parc national de Waza",
+    "region": "Extrême-Nord",
+    "icone": "🐘",
+    "description": "L'un des parcs les plus connus d'Afrique centrale, en zone de savane soudano-sahélienne. Célèbre pour ses éléphants, ses lions et ses girafes, surtout visibles en saison sèche autour des points d'eau.",
+    "activites": ["Safari-photo en 4x4", "Observation des oiseaux", "Visite avec guide local agréé"],
+    "meilleure_periode": "Saison sèche (novembre à avril)",
+    "conseil_durable": "Visites uniquement avec un guide agréé du parc, pour protéger la faune et soutenir l'économie locale."
+  },
+  {
+    "id": "korup",
+    "nom": "Parc national de Korup",
+    "region": "Sud-Ouest",
+    "icone": "🌳",
+    "description": "Une des plus anciennes et plus riches forêts tropicales d'Afrique, avec une biodiversité exceptionnelle : primates, oiseaux rares, papillons et plus de 600 espèces d'arbres.",
+    "activites": ["Randonnée en forêt primaire", "Pont suspendu de canopée", "Observation des primates"],
+    "meilleure_periode": "Saison sèche (décembre à février)",
+    "conseil_durable": "Hébergement en écolodges gérés avec les communautés riveraines."
+  },
+  {
+    "id": "dja",
+    "nom": "Réserve de biosphère du Dja",
+    "region": "Sud / Est",
+    "icone": "🦍",
+    "description": "Classée au patrimoine mondial de l'UNESCO, cette forêt dense abrite gorilles, chimpanzés et éléphants de forêt. L'une des réserves les mieux préservées d'Afrique.",
+    "activites": ["Pistage de primates avec guide", "Immersion en forêt équatoriale", "Rencontre avec les communautés locales"],
+    "meilleure_periode": "Saison sèche (décembre à février, juin à août)",
+    "conseil_durable": "Accès limité et encadré pour préserver l'écosystème ; le tourisme finance en partie la conservation."
+  },
+  {
+    "id": "lobeke",
+    "nom": "Parc national de Lobéké",
+    "region": "Est",
+    "icone": "🦁",
+    "description": "Forêt tropicale du bassin du Congo, connue pour ses clairières naturelles (« bais ») où observer éléphants de forêt, gorilles des plaines et buffles.",
+    "activites": ["Observation depuis les bais (clairières)", "Écotourisme communautaire avec les Baka", "Randonnée guidée en forêt"],
+    "meilleure_periode": "Saison sèche (décembre à février)",
+    "conseil_durable": "Programmes d'écotourisme communautaire menés avec les populations Baka."
+  },
+  {
+    "id": "mont-cameroun",
+    "nom": "Mont Cameroun",
+    "region": "Sud-Ouest",
+    "icone": "🌋",
+    "description": "Plus haut sommet d'Afrique de l'Ouest et volcan actif (4 040 m). Célèbre pour son ascension sur plusieurs jours et la course annuelle « Race of Hope ».",
+    "activites": ["Ascension sur 2 à 3 jours", "Randonnée avec porteurs et guides locaux", "Course « Race of Hope » (février)"],
+    "meilleure_periode": "Saison sèche (novembre à mars)",
+    "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés, sur sentiers balisés pour limiter l'érosion."
+  }
+]
