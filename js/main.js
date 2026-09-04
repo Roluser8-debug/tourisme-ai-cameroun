@@ -1,6 +1,12 @@
 // Comportement partagé : menu mobile + surlignage du lien actif
 
 document.addEventListener("DOMContentLoaded", () => {
+  const skipLink = document.createElement("a");
+  skipLink.href = "#main-content";
+  skipLink.className = "skip-link";
+  skipLink.textContent = "Aller au contenu principal";
+  document.body.insertBefore(skipLink, document.body.firstChild);
+
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
 

@@ -11,9 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>🇨🇲 Assistant Cameroun Tourisme</span>
         <button class="chatbot-close" aria-label="Fermer">✕</button>
       </div>
-      <div class="chatbot-messages"></div>
+      <div class="chatbot-messages" role="log" aria-live="polite"></div>
       <form class="chatbot-form">
-        <input type="text" class="chatbot-input" placeholder="Posez votre question..." autocomplete="off" />
+        <label for="chatbot-input" class="sr-only">Votre question pour l'assistant</label>
+        <input id="chatbot-input" type="text" class="chatbot-input" placeholder="Posez votre question..." autocomplete="off" />
         <button type="submit" class="chatbot-send">Envoyer</button>
       </form>
     </div>
@@ -75,18 +76,23 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ messages: history }),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        throw new Error("Réponse inattendue du serveur.");
+      }
 
       if (!res.ok) {
         thinkingBubble.textContent =
-          data.error || "L'assistant IA est momentanément indisponible.";
+          data.error || "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant.";
       } else {
         thinkingBubble.textContent = data.reply;
         history.push({ role: "assistant", content: data.reply });
       }
     } catch (err) {
       thinkingBubble.textContent =
-        "Impossible de contacter l'assistant IA. Vérifiez votre connexion et réessayez.";
+        "Impossible de contacter l'assistant IA. Vérifiez votre connexion internet et réessayez dans un instant.";
     } finally {
       input.disabled = false;
       input.focus();
