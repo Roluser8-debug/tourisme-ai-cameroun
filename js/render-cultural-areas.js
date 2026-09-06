@@ -21,6 +21,9 @@ function renderAreaCard(area) {
 
   return `
     <div class="card">
+      <div class="card-image">
+        <img src="${area.image}" alt="${area.nom}" loading="lazy" />
+      </div>
       <div class="card-body">
         <span class="card-region-badge">${area.region}</span>
         <h3>${area.icone} ${area.nom}</h3>

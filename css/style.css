@@ -208,7 +208,9 @@ section {
 /* ---------- Hero ---------- */
 
 .hero {
-  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+  background:
+    linear-gradient(135deg, rgba(0, 122, 61, 0.82) 0%, rgba(0, 83, 42, 0.88) 100%),
+    url("../images/hero.jpg") center / cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 72px 20px;
@@ -274,6 +276,18 @@ section {
   box-shadow: var(--shadow);
 }
 
+.card-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card .card-body {
   padding: 18px;
 }
@@ -329,9 +343,9 @@ section {
   color: var(--color-green-dark);
 }
 
-/* ---------- Annuaire d'hôtels : disclaimer + filtres ---------- */
+/* ---------- Bandeau d'information (réutilisé sur plusieurs pages) ---------- */
 
-.hotels-disclaimer {
+.info-banner {
   background: #fff8e1;
   border: 1px solid var(--color-yellow);
   border-radius: var(--radius);
@@ -340,6 +354,8 @@ section {
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
+
+/* ---------- Annuaire d'hôtels : filtres ---------- */
 
 .hotels-filters {
   display: flex;
@@ -401,6 +417,26 @@ section {
 .section-title p {
   color: var(--color-text-light);
   margin: 0;
+}
+
+/* ---------- Crédits photos ---------- */
+
+.photo-credits {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  columns: 2;
+  column-gap: 24px;
+}
+
+.photo-credits li {
+  break-inside: avoid;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .photo-credits {
+    columns: 1;
+  }
 }
 
 /* ---------- Footer ---------- */

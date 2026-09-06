@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderDishCard(dish) {
   return `
     <div class="card">
+      <div class="card-image">
+        <img src="${dish.image}" alt="${dish.nom}" loading="lazy" />
+      </div>
       <div class="card-body">
         <span class="card-region-badge">${dish.region}</span>
         <h3>🍽️ ${dish.nom}</h3>

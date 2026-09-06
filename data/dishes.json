@@ -3,6 +3,7 @@
     "id": "ndole",
     "nom": "Ndolé",
     "region": "Littoral (Sawa) / national",
+    "image": "images/dishes/ndole.jpg",
     "description": "Souvent considéré comme le plat national : feuilles de ndolé (légume à l'amertume caractéristique) mijotées avec des arachides pilées, du poisson fumé ou de la viande.",
     "accompagnement": "Plantains, bâton de manioc ou riz"
   },
@@ -10,6 +11,7 @@
     "id": "eru",
     "nom": "Eru",
     "region": "Sud-Ouest",
+    "image": "images/dishes/eru.jpg",
     "description": "Feuilles d'eru finement émincées, mijotées avec de l'huile de palme, du waterleaf, et de la viande ou du poisson fumé.",
     "accompagnement": "Fufu (pâte de manioc)"
   },
@@ -17,6 +19,7 @@
     "id": "poulet-dg",
     "nom": "Poulet DG",
     "region": "National",
+    "image": "images/dishes/poulet-dg.jpg",
     "description": "Poulet sauté avec des plantains mûrs, carottes et poivrons ; plat festif très populaire, servi lors des grandes occasions.",
     "accompagnement": "Se mange seul, plat déjà complet"
   },
@@ -24,6 +27,7 @@
     "id": "achu",
     "nom": "Achu",
     "region": "Grassfields (Nord-Ouest)",
+    "image": "images/dishes/achu.jpg",
     "description": "Purée de taro jaune (« cocoyam »), servie avec une sauce jaune épicée à base de nkui, traditionnellement présentée lors de cérémonies.",
     "accompagnement": "Se mange avec les doigts, en trempant l'achu dans la sauce"
   },
@@ -31,6 +35,7 @@
     "id": "koki",
     "nom": "Koki",
     "region": "Ouest / national",
+    "image": "images/dishes/koki.jpg",
     "description": "Gâteau vapeur à base de haricots niébé écrasés et d'huile de palme rouge, enveloppé et cuit dans des feuilles de bananier.",
     "accompagnement": "Plantains bouillis ou beignets de maïs"
   },
@@ -38,6 +43,7 @@
     "id": "kondre",
     "nom": "Kondre",
     "region": "Sud-Ouest",
+    "image": "images/dishes/kondre.jpg",
     "description": "Ragoût de plantain mijoté avec de la viande de bœuf ou de chèvre et de l'huile de palme, plat copieux en une seule marmite.",
     "accompagnement": "Se mange seul"
   },
@@ -45,6 +51,7 @@
     "id": "folon",
     "nom": "Folon",
     "region": "National",
+    "image": "images/dishes/folon.jpg",
     "description": "Légumes verts sautés simplement, souvent accompagnés de poisson ou de viande ; plat léger et courant du quotidien.",
     "accompagnement": "Plantains, riz ou igname"
   },
@@ -52,6 +59,7 @@
     "id": "baton-de-manioc",
     "nom": "Bâton de manioc",
     "region": "Centre / Littoral",
+    "image": "images/dishes/baton-de-manioc.jpg",
     "description": "Manioc râpé, fermenté puis cuit à la vapeur dans des feuilles, jusqu'à obtenir une texture ferme et légèrement acidulée.",
     "accompagnement": "Accompagnement classique des grillades et braisés"
   },
@@ -59,6 +67,7 @@
     "id": "mbongo-tchobi",
     "nom": "Mbongo Tchobi",
     "region": "Littoral (Douala)",
+    "image": "images/dishes/mbongo-tchobi.jpg",
     "description": "« Sauce noire » emblématique de Douala, à base d'épices grillées et de champignons noirs, mijotée avec du poisson.",
     "accompagnement": "Plantains mûrs ou riz blanc"
   },
@@ -66,6 +75,7 @@
     "id": "okok",
     "nom": "Okok",
     "region": "Centre (Fang-Beti / Ewondo)",
+    "image": "images/dishes/okok.jpg",
     "description": "Feuilles d'okok (proches de l'eru) finement pilées, cuites avec de l'huile de palme et souvent des arachides ou du poisson.",
     "accompagnement": "Bâton de manioc ou plantain"
   },
@@ -73,6 +83,7 @@
     "id": "nkui",
     "nom": "Nkui",
     "region": "Ouest (Bamiléké)",
+    "image": "images/dishes/nkui.jpg",
     "description": "Sauce visqueuse et parfumée à base d'écorce de nkui, souvent enrichie de viande et d'épices traditionnelles bamiléké.",
     "accompagnement": "Purée de taro ou de plantain"
   },
@@ -80,6 +91,7 @@
     "id": "kilishi",
     "nom": "Kilishi",
     "region": "Extrême-Nord / Nord",
+    "image": "images/dishes/kilishi.jpg",
     "description": "Fines lamelles de viande de bœuf séchée et épicée, spécialité sahélienne proche du bœuf séché, se consomme en encas.",
     "accompagnement": "Se mange seul, en apéritif ou encas"
   },
@@ -87,6 +99,7 @@
     "id": "soya",
     "nom": "Soya",
     "region": "National",
+    "image": "images/dishes/soya.jpg",
     "description": "Brochettes de bœuf finement tranché, épicées et grillées sur charbon de bois ; incontournable de la street food camerounaise en soirée.",
     "accompagnement": "Oignons crus et piment en accompagnement"
   },
@@ -94,6 +107,7 @@
     "id": "miondo",
     "nom": "Miondo (Bobolo)",
     "region": "Centre / Littoral",
+    "image": "images/dishes/miondo.jpg",
     "description": "Bâtonnets de manioc fermenté cuits à la vapeur dans des feuilles, plus fins et souples que le bâton de manioc classique.",
     "accompagnement": "Poisson braisé, arachides grillées"
   }
