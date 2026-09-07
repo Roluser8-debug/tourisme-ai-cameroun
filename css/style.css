@@ -487,6 +487,11 @@ section {
   z-index: 200;
 }
 
+.chatbot-panel[hidden],
+.chatbot-launcher[hidden] {
+  display: none;
+}
+
 .chatbot-header {
   background: var(--color-green-dark);
   color: #fff;
