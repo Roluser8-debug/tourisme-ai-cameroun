@@ -31,6 +31,30 @@
       "region": "Sud-Ouest",
       "description": "Plus haut sommet d'Afrique de l'Ouest et volcan actif (4 040 m), célèbre pour son ascension et la course annuelle « Race of Hope ».",
       "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés, sentiers balisés pour limiter l'érosion."
+    },
+    {
+      "nom": "Parc national de la Bénoué",
+      "region": "Nord",
+      "description": "Vaste savane boisée le long du fleuve Bénoué, l'un des grands terrains de safari du Nord-Cameroun : éléphants, antilopes, hippopotames et une avifaune très riche.",
+      "conseil_durable": "Circuits encadrés par des guides agréés du parc, pour limiter le dérangement de la faune."
+    },
+    {
+      "nom": "Sanctuaire des gorilles de Mefou",
+      "region": "Centre",
+      "description": "À une heure de Yaoundé, ce sanctuaire recueille et protège des gorilles et chimpanzés orphelins ou victimes du braconnage, dans un cadre de forêt secondaire.",
+      "conseil_durable": "Les revenus des visites financent directement le sauvetage et le soin des animaux."
+    },
+    {
+      "nom": "Chutes de la Lobé",
+      "region": "Sud",
+      "description": "Cascades rares qui se jettent directement dans l'océan Atlantique, à quelques kilomètres de Kribi.",
+      "conseil_durable": "Privilégier les guides et pirogues des communautés de pêcheurs riveraines."
+    },
+    {
+      "nom": "Réserve du Lac Ossa",
+      "region": "Littoral",
+      "description": "Réseau de lacs et forêts marécageuses près d'Édéa, refuge pour les lamantins d'Afrique de l'Ouest, espèce menacée, ainsi que de nombreux oiseaux d'eau.",
+      "conseil_durable": "Sorties encadrées par des pêcheurs formés au projet de conservation des lamantins."
     }
   ],
 
@@ -66,7 +90,11 @@
     { "nom": "Lodge des Collines", "ville": "Bamenda", "budget": "Milieu de gamme", "note": "Point de départ pour les chefferies Grassfields." },
     { "nom": "Auberge du Sahel", "ville": "Maroua", "budget": "Économique", "note": "Proche des marchés artisanaux et des monts Mandara." },
     { "nom": "Résidence Bamiléké", "ville": "Bafoussam", "budget": "Milieu de gamme", "note": "Au cœur de l'Ouest, proche des chefferies traditionnelles." },
-    { "nom": "Hôtel de la Bénoué", "ville": "Garoua", "budget": "Haut de gamme", "note": "Point de départ pour les safaris vers Bénoué et Faro." }
+    { "nom": "Hôtel de la Bénoué", "ville": "Garoua", "budget": "Haut de gamme", "note": "Point de départ pour les safaris vers Bénoué et Faro." },
+    { "nom": "Auberge du Mont Fébé", "ville": "Buea", "budget": "Milieu de gamme", "note": "Au pied du Mont Cameroun, point d'accès au parc de Korup." },
+    { "nom": "Hôtel des Plateaux", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "note": "Terminus du train, porte d'entrée vers le Nord du pays." },
+    { "nom": "Résidence du Sud", "ville": "Ebolowa", "budget": "Économique", "note": "Proche du parc de Campo-Ma'an et de la réserve du Dja." },
+    { "nom": "Hôtel de l'Est", "ville": "Bertoua", "budget": "Milieu de gamme", "note": "Point de départ pour le parc de Lobéké." }
   ],
   "note_hotels": "Annuaire à titre indicatif (hôtels d'exemple pour la démo, pas de réservation en ligne)."
 }

@@ -62,5 +62,37 @@
     "budget": "Haut de gamme",
     "description": "Hôtel confortable dans le Nord, point de départ pour les safaris vers les parcs de la région (Bénoué, Faro).",
     "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "buea-mont-cameroun",
+    "nom": "Auberge du Mont Fébé",
+    "ville": "Buea",
+    "budget": "Milieu de gamme",
+    "description": "Au pied du Mont Cameroun, point de départ idéal pour l'ascension et point d'accès au parc de Korup.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "ngaoundere-adamaoua",
+    "nom": "Hôtel des Plateaux",
+    "ville": "Ngaoundéré",
+    "budget": "Milieu de gamme",
+    "description": "Étape sur les hauts plateaux de l'Adamaoua, terminus du train et porte d'entrée vers le Nord du pays.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "ebolowa-sud",
+    "nom": "Résidence du Sud",
+    "ville": "Ebolowa",
+    "budget": "Économique",
+    "description": "Hébergement simple dans le Sud forestier, à proximité du parc de Campo-Ma'an et de la réserve du Dja.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "bertoua-est",
+    "nom": "Hôtel de l'Est",
+    "ville": "Bertoua",
+    "budget": "Milieu de gamme",
+    "description": "Point de départ pratique pour rejoindre le parc de Lobéké et la forêt du bassin du Congo.",
+    "contact": "+237 6XX XXX XXX (exemple)"
   }
 ]

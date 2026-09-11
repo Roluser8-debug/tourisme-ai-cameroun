@@ -22,9 +22,9 @@ Plan complet : `C:\Users\Rol-User\.claude\plans\stateful-yawning-puppy.md`
 
 - [x] Phase 1 — Squelette et navigation
 - [x] Phase 2 — Chatbot IA multilingue (testé et fonctionnel en ligne)
-- [x] Phase 3 — Écotourisme (5 parcs/réserves)
+- [x] Phase 3 — Écotourisme (9 parcs/réserves)
 - [x] Phase 4 — Culture, gastronomie, artisanat (4 aires culturelles, 14 mets)
-- [x] Phase 5 — Annuaire d'hôtels (8 hôtels, recherche ville/budget)
+- [x] Phase 5 — Annuaire d'hôtels (12 hôtels, recherche ville/budget)
 - [x] Phase 6 — Finitions et préparation démo (côté code ; reste la répétition et la vidéo de secours côté utilisateur)
 
 ## Script de démo (5 minutes)

@@ -53,5 +53,49 @@
     "activites": ["Ascension sur 2 à 3 jours", "Randonnée avec porteurs et guides locaux", "Course « Race of Hope » (février)"],
     "meilleure_periode": "Saison sèche (novembre à mars)",
     "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés, sur sentiers balisés pour limiter l'érosion."
+  },
+  {
+    "id": "benoue",
+    "nom": "Parc national de la Bénoué",
+    "region": "Nord",
+    "icone": "🦒",
+    "image": "images/eco/benoue.jpg",
+    "description": "Vaste savane boisée le long du fleuve Bénoué, l'un des grands terrains de safari du Nord-Cameroun : éléphants, antilopes, hippopotames et une avifaune très riche.",
+    "activites": ["Safari-photo en 4x4", "Observation des hippopotames au bord du fleuve", "Camps de chasse-photo avec guides locaux"],
+    "meilleure_periode": "Saison sèche (décembre à mai)",
+    "conseil_durable": "Circuits encadrés par des guides agréés du parc, pour limiter le dérangement de la faune."
+  },
+  {
+    "id": "mefou",
+    "nom": "Sanctuaire des gorilles de Mefou",
+    "region": "Centre",
+    "icone": "🦍",
+    "image": "images/eco/mefou.jpg",
+    "description": "À une heure de Yaoundé, ce sanctuaire recueille et protège des gorilles et chimpanzés orphelins ou victimes du braconnage, dans un cadre de forêt secondaire.",
+    "activites": ["Visite guidée des enclos forestiers", "Sensibilisation à la protection des primates", "Balade nature à proximité de la capitale"],
+    "meilleure_periode": "Toute l'année",
+    "conseil_durable": "Les revenus des visites financent directement le sauvetage et le soin des animaux ; excursion facile en une demi-journée depuis Yaoundé, sans long trajet."
+  },
+  {
+    "id": "chutes-lobe",
+    "nom": "Chutes de la Lobé",
+    "region": "Sud",
+    "icone": "🌊",
+    "image": "images/eco/chutes-lobe.jpg",
+    "description": "Cascades rares qui se jettent directement dans l'océan Atlantique, à quelques kilomètres de Kribi. Un site emblématique de la côte sud, entouré de villages de pêcheurs.",
+    "activites": ["Baignade et pique-nique face aux chutes", "Sortie en pirogue avec des pêcheurs locaux", "Combiné avec les plages de Kribi"],
+    "meilleure_periode": "Toute l'année, débit plus impressionnant en saison des pluies (juin à octobre)",
+    "conseil_durable": "Privilégier les guides et pirogues des communautés de pêcheurs riveraines plutôt que des excursions non encadrées."
+  },
+  {
+    "id": "lac-ossa",
+    "nom": "Réserve du Lac Ossa",
+    "region": "Littoral",
+    "icone": "🐬",
+    "image": "images/eco/lac-ossa.jpg",
+    "description": "Réseau de lacs et forêts marécageuses près d'Édéa, refuge pour les lamantins d'Afrique de l'Ouest, espèce menacée, ainsi que de nombreux oiseaux d'eau.",
+    "activites": ["Sortie en pirogue à la recherche des lamantins", "Observation des oiseaux d'eau", "Rencontre avec les pêcheurs et projets de conservation locaux"],
+    "meilleure_periode": "Saison sèche (novembre à mars), eaux plus calmes",
+    "conseil_durable": "Sorties encadrées par des pêcheurs formés au projet de conservation des lamantins, pour ne pas perturber l'espèce."
   }
 ]
