@@ -47,9 +47,23 @@ Plan complet : `C:\Users\Rol-User\.claude\plans\stateful-yawning-puppy.md`
 - [ ] Répéter le script à voix haute au moins une fois avant le jour J.
 - [ ] Vérifier que le site est bien accessible publiquement (`https://camtour-ai.netlify.app/`) depuis un réseau différent de chez toi (ex. data mobile).
 
-## Reste à faire (idées, non bloquant)
+## État des photos — à vérifier / remplacer plus tard
 
-- Remplacer les icônes emoji par de vraies photos quand tu en auras (dossier `images/` à créer) — actuellement le site n'utilise aucune photo réelle, ce qui reste cohérent visuellement mais peut être enrichi si tu as des images libres de droits ou tes propres photos.
+Toutes les photos actuellement dans `images/` sont bien présentes et s'affichent (fichiers JPEG valides, vérifiés), mais **la plupart ne sont pas de vraies photos des lieux réels** — ce sont des photos libres de droits génériques qui illustrent le thème (ex. "éléphants en savane" pour Waza, pas une photo prise à Waza). Liste détaillée dans `a-propos.html` (section « Crédits photos »). À remplacer en priorité si tu trouves de vraies photos des lieux :
+
+**Photos génériques (illustration du thème, pas le lieu exact) :**
+- `images/eco/waza.jpg`, `korup.jpg`, `dja.jpg`, `lobeke.jpg`, `mont-cameroun.jpg`, `benoue.jpg`, `mefou.jpg`, `lac-ossa.jpg` — photos Pexels génériques (éléphants, gorille, canopée, paysage volcanique... pas forcément le bon pays ni le bon site)
+- `images/eco/chutes-lobe.jpg` — ⚠️ à remplacer en priorité : c'est en réalité une photo de la **côte californienne**, pas des chutes de la Lobé à Kribi
+- `images/dishes/*.jpg` et `images/culture/*.jpg` — illustrations génériques (plat ou scène similaire, pas forcément camerounais)
+- `images/hero.jpg` — photo "Douala au coucher du soleil" (Pexels), à vérifier si c'est vraiment Douala
+
+**Photos réelles du lieu exact (Wikimedia Commons, ajoutées en septembre 2026) :**
+- `images/eco/ekom-nkam.jpg` — vraies chutes d'Ekom-Nkam
+- `images/eco/campo-maan.jpg` — vrai gorille du programme d'habituation du parc de Campo-Ma'an
+- `images/eco/bamboutos.jpg` — vraie cascade dans les Monts Bamboutos
+- `images/eco/menchum.jpg` — vraies chutes de la Menchum
+
+**Note sur le téléchargement :** la connexion internet de l'environnement de travail a été instable pendant la récupération de ces 4 dernières photos (plusieurs tentatives ont échoué ou ont été coupées avant de réussir, et un premier essai pour les Bamboutos avait renvoyé une carte topographique au lieu d'une photo — écarté avant l'ajout au site). Le résultat final a été vérifié visuellement et techniquement (fichiers non corrompus), mais si tu remplaces des photos toi-même, vérifie que le fichier téléchargé s'ouvre bien avant de l'ajouter.
 
 ## Structure du projet
 
