@@ -97,5 +97,49 @@
     "activites": ["Sortie en pirogue à la recherche des lamantins", "Observation des oiseaux d'eau", "Rencontre avec les pêcheurs et projets de conservation locaux"],
     "meilleure_periode": "Saison sèche (novembre à mars), eaux plus calmes",
     "conseil_durable": "Sorties encadrées par des pêcheurs formés au projet de conservation des lamantins, pour ne pas perturber l'espèce."
+  },
+  {
+    "id": "campo-maan",
+    "nom": "Parc national de Campo-Ma'an",
+    "region": "Sud",
+    "icone": "🦍",
+    "image": "images/eco/campo-maan.jpg",
+    "description": "Vaste forêt tropicale côtière à la frontière avec la Guinée équatoriale, refuge pour gorilles des plaines, chimpanzés et éléphants de forêt, avec un projet d'habituation des gorilles au tourisme.",
+    "activites": ["Pistage de gorilles avec guide", "Randonnée en forêt côtière", "Rencontre avec les communautés Bagyeli"],
+    "meilleure_periode": "Saison sèche (décembre à février, juin à août)",
+    "conseil_durable": "Le programme d'habituation des gorilles est mené avec des guides locaux formés, pour un tourisme d'observation à faible impact."
+  },
+  {
+    "id": "ekom-nkam",
+    "nom": "Chutes d'Ekom-Nkam",
+    "region": "Littoral",
+    "icone": "🌊",
+    "image": "images/eco/ekom-nkam.jpg",
+    "description": "Chutes jumelles de 80 mètres qui plongent dans un canyon de forêt tropicale près de Nkongsamba, rendues célèbres par le film Greystoke (Tarzan). L'un des sites naturels les plus spectaculaires du pays.",
+    "activites": ["Point de vue depuis la plateforme surplombant les chutes", "Randonnée jusqu'au pied des chutes", "Photographie du canyon et de la forêt environnante"],
+    "meilleure_periode": "Saison des pluies (juillet à octobre) pour un débit impressionnant, saison sèche pour un accès plus facile",
+    "conseil_durable": "Visite avec guides locaux qui connaissent les sentiers sûrs et sensibilisent à la protection du site."
+  },
+  {
+    "id": "bamboutos",
+    "nom": "Monts Bamboutos",
+    "region": "Ouest",
+    "icone": "⛰️",
+    "image": "images/eco/bamboutos.jpg",
+    "description": "Chaîne de montagnes volcaniques de l'Ouest camerounais, entre prairies d'altitude, plantations de thé et forêts de brume parsemées de cascades, avec des points de vue sur la vallée du Noun.",
+    "activites": ["Randonnée sur les crêtes et sommets", "Visite des plantations de thé de Djuttitsa", "Découverte des cascades en forêt de montagne"],
+    "meilleure_periode": "Saison sèche (novembre à mars), air plus dégagé",
+    "conseil_durable": "Randonnées avec guides des villages environnants, qui profitent directement des visites et connaissent les sentiers les moins érodés."
+  },
+  {
+    "id": "menchum",
+    "nom": "Chutes de la Menchum",
+    "region": "Nord-Ouest",
+    "icone": "🌊",
+    "image": "images/eco/menchum.jpg",
+    "description": "Impressionnantes chutes d'eau près de Wum, où la rivière Menchum se jette dans une gorge rocheuse entourée de collines, un site marquant des hautes terres du Nord-Ouest.",
+    "activites": ["Point de vue panoramique sur la gorge", "Randonnée depuis Wum", "Combiné avec la découverte des chefferies Grassfields voisines"],
+    "meilleure_periode": "Saison des pluies (juillet à octobre) pour un débit maximal",
+    "conseil_durable": "Privilégier un guide local de Wum pour l'accès au site et le soutien à l'économie de la région."
   }
 ]

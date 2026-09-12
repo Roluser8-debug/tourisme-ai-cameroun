@@ -55,6 +55,30 @@
       "region": "Littoral",
       "description": "Réseau de lacs et forêts marécageuses près d'Édéa, refuge pour les lamantins d'Afrique de l'Ouest, espèce menacée, ainsi que de nombreux oiseaux d'eau.",
       "conseil_durable": "Sorties encadrées par des pêcheurs formés au projet de conservation des lamantins."
+    },
+    {
+      "nom": "Parc national de Campo-Ma'an",
+      "region": "Sud",
+      "description": "Forêt tropicale côtière à la frontière avec la Guinée équatoriale, refuge pour gorilles des plaines, chimpanzés et éléphants de forêt, avec un projet d'habituation des gorilles.",
+      "conseil_durable": "Programme d'habituation des gorilles mené avec des guides locaux formés, pour un tourisme d'observation à faible impact."
+    },
+    {
+      "nom": "Chutes d'Ekom-Nkam",
+      "region": "Littoral",
+      "description": "Chutes jumelles de 80 mètres plongeant dans un canyon de forêt tropicale près de Nkongsamba, rendues célèbres par le film Greystoke (Tarzan).",
+      "conseil_durable": "Visite avec guides locaux connaissant les sentiers sûrs et sensibilisant à la protection du site."
+    },
+    {
+      "nom": "Monts Bamboutos",
+      "region": "Ouest",
+      "description": "Chaîne de montagnes volcaniques entre prairies d'altitude, plantations de thé et forêts de brume parsemées de cascades.",
+      "conseil_durable": "Randonnées avec guides des villages environnants, qui profitent directement des visites."
+    },
+    {
+      "nom": "Chutes de la Menchum",
+      "region": "Nord-Ouest",
+      "description": "Chutes d'eau spectaculaires près de Wum, où la rivière Menchum se jette dans une gorge rocheuse entourée de collines.",
+      "conseil_durable": "Privilégier un guide local de Wum pour l'accès au site et le soutien à l'économie de la région."
     }
   ],
 
@@ -94,7 +118,11 @@
     { "nom": "Auberge du Mont Fébé", "ville": "Buea", "budget": "Milieu de gamme", "note": "Au pied du Mont Cameroun, point d'accès au parc de Korup." },
     { "nom": "Hôtel des Plateaux", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "note": "Terminus du train, porte d'entrée vers le Nord du pays." },
     { "nom": "Résidence du Sud", "ville": "Ebolowa", "budget": "Économique", "note": "Proche du parc de Campo-Ma'an et de la réserve du Dja." },
-    { "nom": "Hôtel de l'Est", "ville": "Bertoua", "budget": "Milieu de gamme", "note": "Point de départ pour le parc de Lobéké." }
+    { "nom": "Hôtel de l'Est", "ville": "Bertoua", "budget": "Milieu de gamme", "note": "Point de départ pour le parc de Lobéké." },
+    { "nom": "Auberge d'Ekom", "ville": "Nkongsamba", "budget": "Économique", "note": "Proche des chutes d'Ekom-Nkam." },
+    { "nom": "Résidence des Brumes", "ville": "Dschang", "budget": "Milieu de gamme", "note": "Point de départ pour les Monts Bamboutos et les plantations de thé." },
+    { "nom": "Case du Fon", "ville": "Bafut", "budget": "Économique", "note": "Proche des chutes de la Menchum et de la chefferie de Bafut." },
+    { "nom": "Auberge de Campo", "ville": "Campo", "budget": "Économique", "note": "Porte d'entrée du parc national de Campo-Ma'an." }
   ],
   "note_hotels": "Annuaire à titre indicatif (hôtels d'exemple pour la démo, pas de réservation en ligne)."
 }

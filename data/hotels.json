@@ -94,5 +94,37 @@
     "budget": "Milieu de gamme",
     "description": "Point de départ pratique pour rejoindre le parc de Lobéké et la forêt du bassin du Congo.",
     "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "nkongsamba-ekom",
+    "nom": "Auberge d'Ekom",
+    "ville": "Nkongsamba",
+    "budget": "Économique",
+    "description": "Hébergement simple à proximité des chutes d'Ekom-Nkam, pratique pour une étape entre Douala et l'Ouest.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "dschang-bamboutos",
+    "nom": "Résidence des Brumes",
+    "ville": "Dschang",
+    "budget": "Milieu de gamme",
+    "description": "Dans la ville universitaire au climat frais de l'Ouest, point de départ pour la randonnée dans les Monts Bamboutos et les plantations de thé.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "wum-menchum",
+    "nom": "Case du Fon",
+    "ville": "Bafut",
+    "budget": "Économique",
+    "description": "Hébergement simple près de la chefferie de Bafut, à proximité des chutes de la Menchum et des hautes terres du Nord-Ouest.",
+    "contact": "+237 6XX XXX XXX (exemple)"
+  },
+  {
+    "id": "campo-sud",
+    "nom": "Auberge de Campo",
+    "ville": "Campo",
+    "budget": "Économique",
+    "description": "Petit hébergement côtier près de l'embouchure du fleuve Ntem, porte d'entrée du parc national de Campo-Ma'an.",
+    "contact": "+237 6XX XXX XXX (exemple)"
   }
 ]
