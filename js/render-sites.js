@@ -25,9 +25,9 @@ function renderSiteCard(site) {
     <div class="card">
       <div class="card-image">
         <img src="${site.image}" alt="${site.nom}" loading="lazy" />
+        <span class="card-region-badge">${site.region}</span>
       </div>
       <div class="card-body">
-        <span class="card-region-badge">${site.region}</span>
         <h3>${site.icone} ${site.nom}</h3>
         <p>${site.description}</p>
         <ul class="card-list">${activites}</ul>

@@ -28,4 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const updateHeaderShadow = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    updateHeaderShadow();
+    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+  }
+
+  document.querySelectorAll(".chat-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const launcher = document.querySelector(".chatbot-launcher");
+      if (launcher) launcher.click();
+    });
+  });
 });

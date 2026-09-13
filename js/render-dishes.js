@@ -21,9 +21,9 @@ function renderDishCard(dish) {
     <div class="card">
       <div class="card-image">
         <img src="${dish.image}" alt="${dish.nom}" loading="lazy" />
+        <span class="card-region-badge">${dish.region}</span>
       </div>
       <div class="card-body">
-        <span class="card-region-badge">${dish.region}</span>
         <h3>🍽️ ${dish.nom}</h3>
         <p>${dish.description}</p>
         <p class="card-meta"><strong>Se déguste avec :</strong> ${dish.accompagnement}</p>
