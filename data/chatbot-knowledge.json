@@ -1,5 +1,22 @@
 {
-  "note": "Contenu de référence injecté dans les instructions du chatbot. Liste non exhaustive pour l'instant — sera enrichie en Phase 3, 4 et 5 avec le contenu complet des pages.",
+  "note": "Contenu de référence injecté dans les instructions du chatbot. Sources : contenu du site (Phases 3-5) + brochure officielle du Ministère du Tourisme et des Loisirs du Cameroun (MINTOUL), 'Le Cameroun, Quatre Zones touristiques complètes'.",
+
+  "zones_touristiques_officielles": [
+    { "nom": "Zone Soudano-Sahélienne", "regions": "Adamaoua, Nord, Extrême-Nord", "description": "Savane et steppe, safari-photo, parcs de Waza/Bénoué/Bouba Ndjidda/Faro, paysages lunaires des Kapsiki (Rhumsiki), lamidats et sultanats, Route du Coton et Route du Miel." },
+    { "nom": "Zone Forestière", "regions": "Centre, Sud, Est", "description": "Forêt équatoriale dense, gorilles et éléphants de forêt (Dja, Lobéké, Campo-Ma'an), peuples autochtones Baka et Bagyeli, Route du Cacao et des barrages hydroélectriques." },
+    { "nom": "Zone des Montagnes", "regions": "Ouest, Nord-Ouest", "description": "Route des Chefferies, artisanat (perlage, sculpture, bronze), grottes, lacs de cratère, Mont Oku et sa route du miel blanc, plantations de thé et de café arabica." },
+    { "nom": "Zone Côtière", "regions": "Sud-Ouest, Littoral, Sud", "description": "Tourisme balnéaire (Limbé, Kribi), Mont Cameroun (trekking), Parc de Korup, chutes de la Lobé, tortues marines d'Ebodjé, tourisme industriel et agrotourisme (poivre de Penja, Route du Café Robusta)." }
+  ],
+
+  "infos_pratiques_pays": {
+    "superficie": "475 442 km²",
+    "division_administrative": "10 régions, 58 départements, 360 arrondissements",
+    "langues_officielles": "Français et anglais",
+    "monnaie": "Franc CFA (XAF)",
+    "capitale": "Yaoundé",
+    "devise_nationale": "Paix - Travail - Patrie",
+    "meilleure_periode": "Le Cameroun se visite toute l'année, mais certaines routes sont difficiles en saison des pluies (prévoir un véhicule 4x4 dans le Nord et l'Ouest)."
+  },
 
   "ecotourisme": [
     {
@@ -11,7 +28,7 @@
     {
       "nom": "Parc national de Korup",
       "region": "Sud-Ouest",
-      "description": "Une des plus anciennes et plus riches forêts tropicales d'Afrique, avec une biodiversité exceptionnelle (primates, oiseaux, papillons).",
+      "description": "Une des plus anciennes et plus riches forêts tropicales d'Afrique, avec une biodiversité exceptionnelle (primates, oiseaux, papillons), pont suspendu de canopée.",
       "conseil_durable": "Hébergement en écolodges gérés avec les communautés riveraines."
     },
     {
@@ -23,14 +40,14 @@
     {
       "nom": "Parc national de Lobéké",
       "region": "Est",
-      "description": "Forêt tropicale du bassin du Congo, connue pour ses clairières (« bais ») où observer éléphants et gorilles des plaines.",
+      "description": "Forêt tropicale du bassin du Congo, connue pour ses clairières (« bais ») où observer éléphants et gorilles des plaines. Nuit au campement touristique de Djembé.",
       "conseil_durable": "Écotourisme communautaire avec les populations Baka."
     },
     {
       "nom": "Mont Cameroun",
       "region": "Sud-Ouest",
-      "description": "Plus haut sommet d'Afrique de l'Ouest et volcan actif (4 040 m), célèbre pour son ascension et la course annuelle « Race of Hope ».",
-      "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés, sentiers balisés pour limiter l'érosion."
+      "description": "Plus haut sommet d'Afrique de l'Ouest et volcan actif (environ 4 040 m), célèbre pour son ascension et la course annuelle « Race of Hope ».",
+      "conseil_durable": "Randonnée avec guides et porteurs locaux certifiés. Formalités de trekking auprès de Mont Ceo Buea, +237 677 58 45 93."
     },
     {
       "nom": "Parc national de la Bénoué",
@@ -47,7 +64,7 @@
     {
       "nom": "Chutes de la Lobé",
       "region": "Sud",
-      "description": "Cascades rares qui se jettent directement dans l'océan Atlantique, à quelques kilomètres de Kribi.",
+      "description": "Cascades rares qui se jettent directement dans l'océan Atlantique, à quelques kilomètres de Kribi, visibles en balade en pirogue.",
       "conseil_durable": "Privilégier les guides et pirogues des communautés de pêcheurs riveraines."
     },
     {
@@ -59,8 +76,8 @@
     {
       "nom": "Parc national de Campo-Ma'an",
       "region": "Sud",
-      "description": "Forêt tropicale côtière à la frontière avec la Guinée équatoriale, refuge pour gorilles des plaines, chimpanzés et éléphants de forêt, avec un projet d'habituation des gorilles.",
-      "conseil_durable": "Programme d'habituation des gorilles mené avec des guides locaux formés, pour un tourisme d'observation à faible impact."
+      "description": "Forêt tropicale côtière à la frontière avec la Guinée équatoriale, refuge pour gorilles des plaines, chimpanzés et éléphants de forêt, avec un projet d'habituation des gorilles (programme PCFC/MINFOF).",
+      "conseil_durable": "Programme d'habituation des gorilles mené avec des guides locaux formés. Contact trekking : Campement Mohombo, +237 696 48 37 63."
     },
     {
       "nom": "Chutes d'Ekom-Nkam",
@@ -71,7 +88,7 @@
     {
       "nom": "Monts Bamboutos",
       "region": "Ouest",
-      "description": "Chaîne de montagnes volcaniques entre prairies d'altitude, plantations de thé et forêts de brume parsemées de cascades.",
+      "description": "Chaîne de montagnes volcaniques entre prairies d'altitude, plantations de thé (Djuttitsa) et forêts de brume parsemées de cascades.",
       "conseil_durable": "Randonnées avec guides des villages environnants, qui profitent directement des visites."
     },
     {
@@ -79,6 +96,12 @@
       "region": "Nord-Ouest",
       "description": "Chutes d'eau spectaculaires près de Wum, où la rivière Menchum se jette dans une gorge rocheuse entourée de collines.",
       "conseil_durable": "Privilégier un guide local de Wum pour l'accès au site et le soutien à l'économie de la région."
+    },
+    {
+      "nom": "Mont Oku",
+      "region": "Nord-Ouest",
+      "description": "Sommet de 3 100 m abritant un lac de cratère (52 m de profondeur, 227 ha), des grottes, le palais royal du Fon d'Oku et la « Route du miel blanc », un miel rare en cours de labellisation IGP.",
+      "conseil_durable": "Trekking encadré par le programme écotouristique de BERUDEP à Bélo (+237 677 60 14 07, www.berudep.org), qui appuie les villages et cantons bororos de la région."
     }
   ],
 
@@ -100,29 +123,82 @@
   ],
 
   "aires_culturelles": [
-    { "nom": "Grassfields", "region": "Nord-Ouest / Ouest", "description": "Royaumes traditionnels (chefferies bamiléké et bamoun), art du bois, masques, danses royales." },
-    { "nom": "Sawa", "region": "Littoral / Sud-Ouest côtier", "description": "Peuples côtiers (Douala, Bakweri...), pêche traditionnelle, régate Ngondo." },
-    { "nom": "Sudano-Sahélienne", "region": "Nord / Extrême-Nord", "description": "Influence sahélienne, architecture en banco, artisanat du cuir et du tissage, cavalerie traditionnelle." },
-    { "nom": "Fang-Beti", "region": "Centre / Sud / Est", "description": "Peuples forestiers du sud, traditions du Bikutsi, sculpture, rites initiatiques." }
+    { "nom": "Grassfields", "region": "Nord-Ouest / Ouest", "description": "Royaumes traditionnels (chefferies bamiléké et bamoun), art du bois, masques, danses royales.", "evenement": "Festival Nguon à Foumban (biennal, décembre)" },
+    { "nom": "Sawa", "region": "Littoral / Sud-Ouest côtier", "description": "Peuples côtiers (Douala, Bakweri...), pêche traditionnelle, régate Ngondo.", "evenement": "Festival Ngondo à Douala (annuel, début décembre)" },
+    { "nom": "Sudano-Sahélienne", "region": "Nord / Extrême-Nord", "description": "Influence sahélienne, architecture en banco, artisanat du cuir et du tissage, cavalerie traditionnelle.", "evenement": "Festival Nyem-Nyem à Galim Tignère (biennal, avril)" },
+    { "nom": "Fang-Beti", "region": "Centre / Sud / Est", "description": "Peuples forestiers du sud, traditions du Bikutsi, sculpture, rites initiatiques ; forêt partagée avec les pygmées Baka et Bagyeli.", "evenement": "Nkanga Festival à Ayos (annuel, décembre)" }
+  ],
+
+  "circuits_recommandes": [
+    {
+      "nom": "Safari découverte du Nord Cameroun",
+      "duree": "13 jours / 14 nuits",
+      "zone": "Zone Soudano-Sahélienne",
+      "resume": "Ngaoundéré, ranchs de l'Adamaoua, parc de Bouba Ndjidda, Lamidat de Rey Bouba, parc de la Bénoué, Mont Alantika (peuple Koma), Garoua, Guider, Maroua, Rhumsiki (sorcier au crabe), Oudjila, Waza (safari-photo et pirogue), sultanats de Pouss et Mindif."
+    },
+    {
+      "nom": "Randonnée aux parcs de Bouba Ndjidda et de la Bénoué",
+      "duree": "4 jours / 3 nuits",
+      "zone": "Zone Soudano-Sahélienne",
+      "resume": "Ngaoundéré (train couchette depuis Yaoundé), parc de Bouba Ndjidda, palais du Lamido de Rey Bouba, parc national de la Bénoué et sa mare aux hippopotames."
+    },
+    {
+      "nom": "Expédition au parc de Lobéké et séjour chez les pygmées",
+      "duree": "9 jours / 8 nuits",
+      "zone": "Zone Forestière",
+      "resume": "Sangmélima, barrage de Mékin, réserve du Dja, Bertoua, Yokadouma, parc de Lobéké (éléphants, gorilles, bongos dans les clairières), campements et musée patrimonial baka de Mayos."
+    },
+    {
+      "nom": "Excursion autour de Yaoundé",
+      "duree": "1 journée",
+      "zone": "Zone Forestière",
+      "resume": "Parc de la Mefou, Mbalmayo (centre d'art appliqué), Ebogo (balade en pirogue sur le Nyong, arbre tricentenaire), massif de Mbam Minkom (picathartes), chutes de Natchigal, plantations de canne à sucre."
+    },
+    {
+      "nom": "La route des côtes camerounaises et des parcs nationaux",
+      "duree": "5 jours / 4 nuits",
+      "zone": "Zone Côtière",
+      "resume": "Trekking au Mont Cameroun, route du thé de Tolé, route des esclaves de Bimbia, Yoyo, Dizangue, Kribi, chutes de la Lobé, Ebodjé (tortues marines), parc de Campo-Ma'an (gorilles, île Dipikar)."
+    },
+    {
+      "nom": "Route des chefferies de l'Ouest Cameroun",
+      "duree": "5 jours / 4 nuits",
+      "zone": "Zone des Montagnes",
+      "resume": "Chutes d'Ekom-Nkam, Dschang, Bamenda, chefferies de Mankon et Bafut, village bororo de Sabga, Bamessing, Babungo, Foumban (palais royal et artisans), Bafoussam, Bandjoun, Batoufam."
+    },
+    {
+      "nom": "Trekking au Mont Oku et route du miel",
+      "duree": "Week-end (vendredi à dimanche)",
+      "zone": "Zone des Montagnes",
+      "resume": "Dschang, chefferies de Foto et Bafou, Bamenda, Bélo (programme écotouristique BERUDEP), trekking au Mont Oku (lac de cratère, grottes, palais royal), route du miel blanc, retour par Mankon ou Bafut."
+    }
+  ],
+
+  "agences_voyage": [
+    { "nom": "Cameroun Tours and Safaris", "ville": "Yaoundé", "contact": "+237 222 20 50 70" },
+    { "nom": "Sofitoul SA", "ville": "Yaoundé", "contact": "+237 697 78 81 93" },
+    { "nom": "Global Bush", "ville": "Douala", "contact": "+237 677 24 66 24" },
+    { "nom": "Cameroon Extrême-Nord Safaris", "ville": "Maroua", "contact": "+237 76 39 56 12" },
+    { "nom": "Flora Travel Tour", "ville": "Limbé / Kribi", "contact": "+237 677 68 00 68" },
+    { "nom": "Zwinkels Tours Cameroon", "ville": "Bamenda", "contact": "+237 677 242 009" },
+    { "nom": "Association Ebotour (tortues d'Ebodjé)", "ville": "Kribi / Ebodjé", "contact": "+237 697 67 20 14" },
+    { "nom": "BERUDEP (tourisme solidaire de Bélo)", "ville": "Bélo, Nord-Ouest", "contact": "+237 677 60 14 07 — www.berudep.org" },
+    { "nom": "Tockem (tourisme solidaire de Bafou)", "ville": "Bafou, Dschang", "contact": "+237 699 62 40 75" }
   ],
 
   "hotels_exemples": [
-    { "nom": "Hôtel Le Flamboyant", "ville": "Yaoundé", "budget": "Milieu de gamme", "note": "Central, proche des ministères et musées." },
-    { "nom": "Résidence Wouri", "ville": "Douala", "budget": "Haut de gamme", "note": "Vue sur le fleuve Wouri, proche du centre d'affaires." },
-    { "nom": "Auberge des Chutes", "ville": "Kribi", "budget": "Milieu de gamme", "note": "Près des plages et des chutes de la Lobé." },
-    { "nom": "Case Botanique Limbé", "ville": "Limbé", "budget": "Économique", "note": "Près du jardin botanique et des plages volcaniques, au pied du Mont Cameroun." },
-    { "nom": "Lodge des Collines", "ville": "Bamenda", "budget": "Milieu de gamme", "note": "Point de départ pour les chefferies Grassfields." },
-    { "nom": "Auberge du Sahel", "ville": "Maroua", "budget": "Économique", "note": "Proche des marchés artisanaux et des monts Mandara." },
-    { "nom": "Résidence Bamiléké", "ville": "Bafoussam", "budget": "Milieu de gamme", "note": "Au cœur de l'Ouest, proche des chefferies traditionnelles." },
-    { "nom": "Hôtel de la Bénoué", "ville": "Garoua", "budget": "Haut de gamme", "note": "Point de départ pour les safaris vers Bénoué et Faro." },
-    { "nom": "Auberge du Mont Fébé", "ville": "Buea", "budget": "Milieu de gamme", "note": "Au pied du Mont Cameroun, point d'accès au parc de Korup." },
-    { "nom": "Hôtel des Plateaux", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "note": "Terminus du train, porte d'entrée vers le Nord du pays." },
-    { "nom": "Résidence du Sud", "ville": "Ebolowa", "budget": "Économique", "note": "Proche du parc de Campo-Ma'an et de la réserve du Dja." },
-    { "nom": "Hôtel de l'Est", "ville": "Bertoua", "budget": "Milieu de gamme", "note": "Point de départ pour le parc de Lobéké." },
-    { "nom": "Auberge d'Ekom", "ville": "Nkongsamba", "budget": "Économique", "note": "Proche des chutes d'Ekom-Nkam." },
-    { "nom": "Résidence des Brumes", "ville": "Dschang", "budget": "Milieu de gamme", "note": "Point de départ pour les Monts Bamboutos et les plantations de thé." },
-    { "nom": "Case du Fon", "ville": "Bafut", "budget": "Économique", "note": "Proche des chutes de la Menchum et de la chefferie de Bafut." },
-    { "nom": "Auberge de Campo", "ville": "Campo", "budget": "Économique", "note": "Porte d'entrée du parc national de Campo-Ma'an." }
+    { "nom": "Hôtel Hilton Yaoundé", "ville": "Yaoundé", "budget": "Haut de gamme", "note": "5 étoiles, centre-ville, l'une des adresses les plus reconnues de la capitale." },
+    { "nom": "Akwa Palace", "ville": "Douala", "budget": "Haut de gamme", "note": "Hôtel historique du quartier Akwa, boulevard de la Liberté." },
+    { "nom": "Hôtel Copacabana", "ville": "Kribi", "budget": "Haut de gamme", "note": "Face à la plage, idéal pour prolonger une visite écotouristique du Sud." },
+    { "nom": "Atlantic Beach Hotel", "ville": "Limbé", "budget": "Haut de gamme", "note": "Centre-ville, proche des plages de sable noir volcanique." },
+    { "nom": "Mountain Hotel", "ville": "Buea", "budget": "Haut de gamme", "note": "Point de départ classique pour l'ascension du Mont Cameroun." },
+    { "nom": "Ayaba Hotel", "ville": "Bamenda", "budget": "Haut de gamme", "note": "Établissement emblématique, point de départ pour les chefferies Grassfields." },
+    { "nom": "Ngambia François Hôtel", "ville": "Foumban", "budget": "Milieu de gamme", "note": "Proche du palais royal Bamoun et du musée du roi Njoya." },
+    { "nom": "Hôtel Le Sahel", "ville": "Maroua", "budget": "Milieu de gamme", "note": "Centre-ville, proche des marchés artisanaux et des monts Mandara." },
+    { "nom": "Hôtel Le Ribadou", "ville": "Garoua", "budget": "Haut de gamme", "note": "Point de départ pour les safaris vers Bénoué et Faro." },
+    { "nom": "Ranch de Ngaoundaba", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "note": "Ancien campement de chasse rénové, dans les grands espaces de l'Adamaoua." },
+    { "nom": "Hôtel Bengo", "ville": "Ebolowa", "budget": "Haut de gamme", "note": "Proche du parc de Campo-Ma'an et de la réserve du Dja." },
+    { "nom": "Mansa Hotel", "ville": "Bertoua", "budget": "Milieu de gamme", "note": "Point de départ pratique pour rejoindre le parc de Lobéké." }
   ],
-  "note_hotels": "Annuaire à titre indicatif (hôtels d'exemple pour la démo, pas de réservation en ligne)."
+  "note_hotels": "Annuaire d'hébergements réels à titre indicatif (source : brochure officielle MINTOUL), sans réservation en ligne — voir data/hotels.json pour la liste complète."
 }

@@ -1,130 +1,58 @@
 [
-  {
-    "id": "yaounde-centre",
-    "nom": "Hôtel Le Flamboyant",
-    "ville": "Yaoundé",
-    "budget": "Milieu de gamme",
-    "description": "Établissement central proche des ministères et musées, pratique pour un séjour d'affaires ou de découverte de la capitale.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "douala-bord-de-mer",
-    "nom": "Résidence Wouri",
-    "ville": "Douala",
-    "budget": "Haut de gamme",
-    "description": "Hôtel avec vue sur le fleuve Wouri, à proximité du port et du centre d'affaires de la capitale économique.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "kribi-plage",
-    "nom": "Auberge des Chutes",
-    "ville": "Kribi",
-    "budget": "Milieu de gamme",
-    "description": "À deux pas des plages de sable fin et des chutes de la Lobé, idéal pour prolonger une visite écotouristique du Sud.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "limbe-cote",
-    "nom": "Case Botanique Limbé",
-    "ville": "Limbé",
-    "budget": "Économique",
-    "description": "Petit hébergement simple près du jardin botanique et des plages de sable noir volcanique, au pied du Mont Cameroun.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "bamenda-collines",
-    "nom": "Lodge des Collines",
-    "ville": "Bamenda",
-    "budget": "Milieu de gamme",
-    "description": "Hébergement dans les hauteurs du Nord-Ouest, point de départ pratique pour visiter les chefferies Grassfields.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "maroua-sahel",
-    "nom": "Auberge du Sahel",
-    "ville": "Maroua",
-    "budget": "Économique",
-    "description": "Hébergement simple en Extrême-Nord, proche des marchés artisanaux et des monts Mandara.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "bafoussam-ouest",
-    "nom": "Résidence Bamiléké",
-    "ville": "Bafoussam",
-    "budget": "Milieu de gamme",
-    "description": "Établissement au cœur de l'Ouest, à proximité des chefferies traditionnelles et des marchés artisanaux.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "garoua-nord",
-    "nom": "Hôtel de la Bénoué",
-    "ville": "Garoua",
-    "budget": "Haut de gamme",
-    "description": "Hôtel confortable dans le Nord, point de départ pour les safaris vers les parcs de la région (Bénoué, Faro).",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "buea-mont-cameroun",
-    "nom": "Auberge du Mont Fébé",
-    "ville": "Buea",
-    "budget": "Milieu de gamme",
-    "description": "Au pied du Mont Cameroun, point de départ idéal pour l'ascension et point d'accès au parc de Korup.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "ngaoundere-adamaoua",
-    "nom": "Hôtel des Plateaux",
-    "ville": "Ngaoundéré",
-    "budget": "Milieu de gamme",
-    "description": "Étape sur les hauts plateaux de l'Adamaoua, terminus du train et porte d'entrée vers le Nord du pays.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "ebolowa-sud",
-    "nom": "Résidence du Sud",
-    "ville": "Ebolowa",
-    "budget": "Économique",
-    "description": "Hébergement simple dans le Sud forestier, à proximité du parc de Campo-Ma'an et de la réserve du Dja.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "bertoua-est",
-    "nom": "Hôtel de l'Est",
-    "ville": "Bertoua",
-    "budget": "Milieu de gamme",
-    "description": "Point de départ pratique pour rejoindre le parc de Lobéké et la forêt du bassin du Congo.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "nkongsamba-ekom",
-    "nom": "Auberge d'Ekom",
-    "ville": "Nkongsamba",
-    "budget": "Économique",
-    "description": "Hébergement simple à proximité des chutes d'Ekom-Nkam, pratique pour une étape entre Douala et l'Ouest.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "dschang-bamboutos",
-    "nom": "Résidence des Brumes",
-    "ville": "Dschang",
-    "budget": "Milieu de gamme",
-    "description": "Dans la ville universitaire au climat frais de l'Ouest, point de départ pour la randonnée dans les Monts Bamboutos et les plantations de thé.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "wum-menchum",
-    "nom": "Case du Fon",
-    "ville": "Bafut",
-    "budget": "Économique",
-    "description": "Hébergement simple près de la chefferie de Bafut, à proximité des chutes de la Menchum et des hautes terres du Nord-Ouest.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  },
-  {
-    "id": "campo-sud",
-    "nom": "Auberge de Campo",
-    "ville": "Campo",
-    "budget": "Économique",
-    "description": "Petit hébergement côtier près de l'embouchure du fleuve Ntem, porte d'entrée du parc national de Campo-Ma'an.",
-    "contact": "+237 6XX XXX XXX (exemple)"
-  }
+  { "id": "yaounde-hilton", "nom": "Hôtel Hilton Yaoundé", "ville": "Yaoundé", "budget": "Haut de gamme", "description": "Établissement 5 étoiles au centre-ville, l'une des adresses les plus reconnues de la capitale, proche des ministères et musées.", "contact": "+237 222 23 36 46" },
+  { "id": "yaounde-montfebe", "nom": "Hôtel Mont Fébé", "ville": "Yaoundé", "budget": "Haut de gamme", "description": "Sur les hauteurs du Mont Fébé, avec vue sur la ville, proche du golf et des ambassades.", "contact": "+237 222 21 40 02" },
+  { "id": "yaounde-bouns", "nom": "Boun's Hôtel Resort & Spa", "ville": "Yaoundé", "budget": "Milieu de gamme", "description": "Établissement central rue Narvick, avec spa, pratique pour un séjour d'affaires ou de découverte de la capitale.", "contact": "+237 691 000 600" },
+
+  { "id": "douala-akwapalace", "nom": "Akwa Palace", "ville": "Douala", "budget": "Haut de gamme", "description": "Hôtel 5 étoiles historique du quartier Akwa, boulevard de la Liberté, au cœur de la capitale économique.", "contact": "+237 233 42 26 01" },
+  { "id": "douala-onomo", "nom": "Onomo Hôtel", "ville": "Douala", "budget": "Haut de gamme", "description": "Hôtel moderne du quartier Bonanjo, avenue de Gaulle, proche du port et du centre d'affaires.", "contact": "+237 695 00 00 00" },
+  { "id": "douala-ibis", "nom": "Ibis Douala", "ville": "Douala", "budget": "Milieu de gamme", "description": "Hôtel de chaîne internationale à Bonanjo, pratique et central pour un séjour d'affaires.", "contact": "+237 233 42 58 00" },
+  { "id": "douala-lewat", "nom": "Lewat Hotel", "ville": "Douala", "budget": "Économique", "description": "Établissement simple du quartier Deïdo, face à la station Total de Bessengue.", "contact": "+237 233 40 00 24" },
+
+  { "id": "kribi-copacabana", "nom": "Hôtel Copacabana", "ville": "Kribi", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles face à la plage de Kribi, idéal pour prolonger une visite écotouristique du Sud.", "contact": "+237 655 55 51 22" },
+  { "id": "kribi-framotel", "nom": "Hôtel Framotel", "ville": "Kribi", "budget": "Milieu de gamme", "description": "Établissement 3 étoiles situé derrière le lycée de Kribi, proche du centre-ville et des chutes de la Lobé.", "contact": "+237 675 29 24 59" },
+  { "id": "kribi-residencejuly", "nom": "Résidence July", "ville": "Kribi", "budget": "Économique", "description": "Résidence hôtelière route Kienké, à Kribi, avec chambres, suites et appartements.", "contact": "+237 679 40 43 72" },
+
+  { "id": "limbe-atlanticbeach", "nom": "Atlantic Beach Hotel", "ville": "Limbé", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles au centre-ville de Limbé, proche des plages de sable noir volcanique.", "contact": "+237 233 33 23 32" },
+  { "id": "limbe-semenewbeach", "nom": "Seme New Beach Hotel", "ville": "Limbé", "budget": "Milieu de gamme", "description": "Établissement en bordure de plage à Bakingili, à 25 km du centre de Limbé, au pied du Mont Cameroun.", "contact": "+237 243 64 24 85" },
+  { "id": "limbe-trinity", "nom": "Trinity Hotel", "ville": "Limbé", "budget": "Économique", "description": "Petit hôtel du centre-ville, face à la BICEC, pratique pour un séjour simple.", "contact": "+237 233 33 37 68" },
+
+  { "id": "buea-mountainhotel", "nom": "Mountain Hotel", "ville": "Buea", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles historique de Buea, point de départ classique pour l'ascension du Mont Cameroun.", "contact": "+237 233 32 22 99" },
+  { "id": "buea-wdc", "nom": "WDC Apparthotel", "ville": "Buea", "budget": "Milieu de gamme", "description": "Appart-hôtel du quartier Bolifamba, formule chambres et appartements.", "contact": "+237 690 02 53 30" },
+  { "id": "buea-chariot", "nom": "Chariot Hotel", "ville": "Buea", "budget": "Économique", "description": "Établissement simple de Buea, pratique comme base pour le trekking au Mont Cameroun et l'accès au parc de Korup.", "contact": "+237 233 32 32 33" },
+
+  { "id": "bamenda-ayaba", "nom": "Ayaba Hotel", "ville": "Bamenda", "budget": "Haut de gamme", "description": "Établissement emblématique de Bamenda, à deux minutes de Commercial Avenue, point de départ pour visiter les chefferies Grassfields.", "contact": "+237 233 36 13 56" },
+  { "id": "bamenda-azam", "nom": "Azam Hotel", "ville": "Bamenda", "budget": "Milieu de gamme", "description": "Hôtel de Bali Road, avec chambres, appartements et suites.", "contact": "+237 233 36 38 16" },
+  { "id": "bamenda-mansfield", "nom": "Mansfield Plaza Hotel", "ville": "Bamenda", "budget": "Économique", "description": "Petit établissement 2 étoiles face au bureau des finances, avec wifi.", "contact": "+237 233 36 41 04" },
+
+  { "id": "bafoussam-zingana", "nom": "Zingana Hotel", "ville": "Bafoussam", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles de Bafoussam, au cœur de l'Ouest, proche des chefferies traditionnelles.", "contact": "+237 233 44 50 52" },
+  { "id": "bafoussam-talotel", "nom": "Talhotel", "ville": "Bafoussam", "budget": "Milieu de gamme", "description": "Établissement du centre-ville de Bafoussam, proche de la mairie.", "contact": "+237 233 44 41 85" },
+  { "id": "bafoussam-altitel", "nom": "Altitel Hotel", "ville": "Bafoussam", "budget": "Économique", "description": "Hôtel simple sur la route de Bamenda, à Bafoussam.", "contact": "+237 233 44 51 11" },
+
+  { "id": "foumban-ngambia", "nom": "Ngambia François Hôtel", "ville": "Foumban", "budget": "Milieu de gamme", "description": "Hôtel 3 étoiles derrière le Lycée Technique de Foumban, proche du palais royal Bamoun.", "contact": "+237 680 67 58 93" },
+  { "id": "foumban-cristal", "nom": "Hôtel Cristal Foua Ndigong", "ville": "Foumban", "budget": "Économique", "description": "Établissement du centre-ville de Foumban, à deux pas du musée du palais du roi Njoya.", "contact": "+237 233 48 91 16" },
+  { "id": "foumban-villaboutanga", "nom": "Villa Boutanga (Bangoulap)", "ville": "Foumban", "budget": "Milieu de gamme", "description": "Centre écotouristique de la Fondation Ngacha Lucien, à Bangoulap près de Foumban.", "contact": "+237 695 85 60 95" },
+
+  { "id": "bafut-saddlehill", "nom": "SHR Saddle Hill Ranch", "ville": "Bafut", "budget": "Milieu de gamme", "description": "Cadre calme près de la chefferie de Bafut, indiqué pour le repos et le ressourcement.", "contact": "+237 673 47 99 54" },
+  { "id": "mbengwi-abifalls", "nom": "Abi Falls Resort", "ville": "Mbengwi", "budget": "Milieu de gamme", "description": "Construit face aux chutes d'Abi, l'une des principales attractions du Nord-Ouest, avec appartements, suites et bungalows.", "contact": "+237 670 63 07 20" },
+
+  { "id": "maroua-lesahel", "nom": "Hôtel Le Sahel", "ville": "Maroua", "budget": "Milieu de gamme", "description": "Hôtel du centre-ville de Maroua, quartier Domayo, proche des marchés artisanaux et des monts Mandara.", "contact": "+237 696 575 931" },
+  { "id": "maroua-relaisportemayo", "nom": "Relais Porte Mayo", "ville": "Maroua", "budget": "Économique", "description": "Établissement du camp SIC à Maroua, porte d'entrée vers Rhumsiki et les paysages lunaires des Kapsiki.", "contact": "+237 699 84 15 73" },
+  { "id": "maroua-mizao", "nom": "Hôtel Le Mizao", "ville": "Maroua", "budget": "Haut de gamme", "description": "Hôtel 3 étoiles de Maroua, dans l'Extrême-Nord.", "contact": "+237 222 29 13 00" },
+
+  { "id": "garoua-leribadou", "nom": "Hôtel Le Ribadou", "ville": "Garoua", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles de Garoua, point de départ pour les safaris vers les parcs de la Bénoué et du Faro.", "contact": "+237 692 69 93 92" },
+  { "id": "garoua-benoue", "nom": "Hôtel Bénoué", "ville": "Garoua", "budget": "Haut de gamme", "description": "Hôtel 4 étoiles du centre-ville de Garoua, face au zoo.", "contact": "+237 692 40 24 94" },
+  { "id": "garoua-shalomcity", "nom": "Shalom City Hotel", "ville": "Garoua", "budget": "Économique", "description": "Établissement du quartier du Plateau à Garoua.", "contact": "+237 620 815 220" },
+
+  { "id": "ngaoundere-transcam", "nom": "Transcam Hotel", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "description": "Hôtel 3 étoiles de Ngaoundéré, terminus du train et porte d'entrée vers le Nord du pays.", "contact": "+237 696 03 95 68" },
+  { "id": "ngaoundere-ranchngaoundaba", "nom": "Ranch de Ngaoundaba", "ville": "Ngaoundéré", "budget": "Milieu de gamme", "description": "Ancien campement de chasse rénové, dans les grands espaces de l'Adamaoua.", "contact": "+237 655 556 055" },
+  { "id": "ngaoundere-adamaoua", "nom": "Adamaoua Hotel", "ville": "Ngaoundéré", "budget": "Économique", "description": "Hôtel 2 étoiles de Ngaoundéré, sur les hauts plateaux de l'Adamaoua.", "contact": "+237 222 25 12 55" },
+
+  { "id": "ebolowa-bengo", "nom": "Hôtel Bengo", "ville": "Ebolowa", "budget": "Haut de gamme", "description": "Hôtel 3 étoiles du carrefour Elat, à Ebolowa, avec salle de réunions.", "contact": "+237 699 062 998" },
+  { "id": "ebolowa-florence", "nom": "Florence Hotel", "ville": "Ebolowa", "budget": "Milieu de gamme", "description": "Établissement 2 étoiles d'Ebolowa, proche du parc de Campo-Ma'an et de la réserve du Dja.", "contact": "+237 698 935 771" },
+  { "id": "ebolowa-nullepart", "nom": "Nulle Part Ailleurs", "ville": "Ebolowa", "budget": "Économique", "description": "Petit hôtel du centre-ville d'Ebolowa, face aux Brasseries.", "contact": "+237 693 520 255" },
+
+  { "id": "bertoua-mansa", "nom": "Mansa Hotel", "ville": "Bertoua", "budget": "Milieu de gamme", "description": "Hôtel 3 étoiles de Bertoua, point de départ pratique pour rejoindre le parc de Lobéké.", "contact": "+237 222 24 16 50" },
+  { "id": "bertoua-martino", "nom": "Hôtel Martino", "ville": "Bertoua", "budget": "Économique", "description": "Établissement 3 étoiles du quartier Koumé Bonis, à Bertoua.", "contact": "+237 670 23 07 07" },
+
+  { "id": "edea-sanaga", "nom": "Hostellerie de la Sanaga", "ville": "Edéa", "budget": "Milieu de gamme", "description": "Hôtel 3 étoiles d'Édéa, étape pratique entre Douala et Yaoundé, proche de la réserve du Lac Ossa.", "contact": "+237 233 46 49 62" }
 ]

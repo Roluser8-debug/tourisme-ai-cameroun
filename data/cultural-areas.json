@@ -7,8 +7,8 @@
     "image": "images/culture/grassfields.jpg",
     "description": "Terre des royaumes traditionnels (chefferies bamiléké et bamoun), avec des « fons » (rois) toujours en place aujourd'hui. Région de hauts plateaux verdoyants.",
     "traditions": ["Danses royales et masques", "Chefferies traditionnelles (fons)", "Palais royal de Foumban"],
-    "artisanat": "Sculpture sur bois, perlage, tissage du « toghu » (tenue royale)",
-    "evenement": "Festival Nguon (Foumban) — grande fête royale bamoun"
+    "artisanat": "Perlage et tissage (Baham, Bandjoun, Bafut), sculpture sur bois (Batoufam, Babungo, Dschang), tissage du « toghu » (tenue royale) et du ndop, forge, bronze, vannerie et poterie (Foumban)",
+    "evenement": "Festival Nguon (Foumban, biennal, décembre) — grande fête royale bamoun ; journées culturelles TSO (Bandjoun, biennal, novembre) ; Afo Akom (Fundong, peuple Kom, décembre)"
   },
   {
     "id": "sawa",
@@ -19,7 +19,7 @@
     "description": "Peuples côtiers (Douala, Bakweri, Bassa...) vivant de la pêche et du commerce maritime depuis des siècles, au bord de l'océan Atlantique.",
     "traditions": ["Régate traditionnelle Ngondo", "Rites liés à l'eau et aux ancêtres", "Musique makossa"],
     "artisanat": "Pirogues sculptées, tissage de filets, vannerie",
-    "evenement": "Festival Ngondo (Douala, décembre)"
+    "evenement": "Festival Ngondo (Douala, annuel, début décembre) — grande fête des peuples Sawa ; Mpo'o (Édéa, annuel, une semaine après le Ngondo)"
   },
   {
     "id": "sudano-sahelienne",
@@ -28,9 +28,9 @@
     "icone": "🐪",
     "image": "images/culture/sudano-sahelienne.jpg",
     "description": "Région semi-aride marquée par l'influence sahélienne : architecture en banco (terre séchée), grandes plaines et traditions équestres.",
-    "traditions": ["Cavalerie traditionnelle (fantasia)", "Architecture en banco (cases obus du Mandara)", "Sultanats du Nord"],
-    "artisanat": "Tissage et teinture, maroquinerie en cuir, poterie",
-    "evenement": "Fêtes traditionnelles des sultanats (Garoua, Maroua)"
+    "traditions": ["Cavalerie traditionnelle (fantasia)", "Architecture en banco (cases obus du Mandara)", "Sultanats et lamidats du Nord (Rey Bouba, Maroua, Kousseri, Banyo)"],
+    "artisanat": "Tissage et teinture, maroquinerie en cuir, poterie, tannerie et centre artisanal de Maroua",
+    "evenement": "Festival Nyem-Nyem (Galim Tignère, Adamaoua, biennal, avril) ; Sadaka (Mora, annuel, oct-nov) ; Douwaida (Yagoua, annuel, oct-nov) ; Festival Bororo (Garoua, annuel)"
   },
   {
     "id": "fang-beti",
@@ -38,9 +38,9 @@
     "region": "Centre / Sud / Est",
     "icone": "🥁",
     "image": "images/culture/fang-beti.jpg",
-    "description": "Peuples forestiers du sud du pays (Ewondo, Bulu, Fang...), vivant traditionnellement de l'agriculture et de la chasse en forêt équatoriale.",
-    "traditions": ["Rythme et danse du Bikutsi", "Rites initiatiques (Sso)", "Contes et légendes forestières"],
-    "artisanat": "Sculpture, vannerie forestière, instruments de musique (balafon, mvet)",
-    "evenement": "Festivals de Bikutsi (Yaoundé et région du Centre)"
+    "description": "Peuples forestiers du sud du pays (Ewondo, Bulu, Fang...), vivant traditionnellement de l'agriculture et de la chasse en forêt équatoriale. La forêt abrite aussi les peuples autochtones Baka et Bagyeli.",
+    "traditions": ["Rythme et danse du Bikutsi", "Rites initiatiques (Sso)", "Contes et légendes forestières", "Culture des pygmées Baka (chasse-cueillette, architecture des cases « moungoulou »)"],
+    "artisanat": "Sculpture, vannerie forestière, instruments de musique (balafon, mvet), musée-vannerie de Mbalmayo",
+    "evenement": "Nkanga Festival (Ayos, Centre, annuel, décembre) ; Festival Baka Bantou (Mambélé, Est, biennal, juillet) ; Baka Dreams Days (Mintom et Djoum, Sud, annuel, septembre)"
   }
 ]
