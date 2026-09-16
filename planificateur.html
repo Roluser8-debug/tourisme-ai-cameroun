@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon voyage — CAMTOUR AI</title>
+  <meta name="description" content="Construisez votre voyage au Cameroun avec l'intelligence artificielle : itinéraire personnalisé et budget estimé selon vos envies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="planificateur">
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="flag-dot" aria-hidden="true"></span>
+        CAMTOUR AI
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" data-page="accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+        </ul>
+        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="page-header">
+      <div class="container">
+        <span class="eyebrow">Planificateur IA</span>
+        <h1>🧳 Construire mon voyage</h1>
+        <p>Dites-nous ce que vous aimez, CAMTOUR AI construit votre itinéraire.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <p class="info-banner">ℹ️ L'itinéraire et le budget proposés sont générés par l'IA à partir du contenu réel du site (parcs, mets, hôtels, circuits) — le budget reste une estimation indicative, à confirmer sur place.</p>
+
+        <form id="trip-form" class="trip-form">
+          <div class="trip-step" data-step="1">
+            <h2>1. Où êtes-vous ?</h2>
+            <label class="sr-only" for="trip-depart">Ville de départ</label>
+            <input id="trip-depart" name="depart" type="text" placeholder="Ex. Yaoundé, Douala..." required />
+          </div>
+
+          <div class="trip-step" data-step="2" hidden>
+            <h2>2. Combien de temps ?</h2>
+            <label class="sr-only" for="trip-duree">Durée du séjour en jours</label>
+            <input id="trip-duree" name="duree" type="number" min="1" max="14" placeholder="Ex. 3" required />
+          </div>
+
+          <div class="trip-step" data-step="3" hidden>
+            <h2>3. Quel budget ?</h2>
+            <label class="sr-only" for="trip-budget">Budget total en FCFA</label>
+            <input id="trip-budget" name="budget" type="number" min="0" step="5000" placeholder="Ex. 150000 (FCFA)" required />
+          </div>
+
+          <div class="trip-step" data-step="4" hidden>
+            <h2>4. Avec qui voyagez-vous ?</h2>
+            <div class="trip-choices">
+              <label><input type="radio" name="profil" value="Seul(e)" required /> Seul(e)</label>
+              <label><input type="radio" name="profil" value="En couple" /> En couple</label>
+              <label><input type="radio" name="profil" value="En famille" /> En famille</label>
+              <label><input type="radio" name="profil" value="Entre amis" /> Entre amis</label>
+            </div>
+          </div>
+
+          <div class="trip-step" data-step="5" hidden>
+            <h2>5. Vos centres d'intérêt</h2>
+            <div class="trip-choices">
+              <label><input type="checkbox" name="interets" value="Nature" /> 🌿 Nature</label>
+              <label><input type="checkbox" name="interets" value="Culture" /> 🏛️ Culture</label>
+              <label><input type="checkbox" name="interets" value="Gastronomie" /> 🍲 Gastronomie</label>
+              <label><input type="checkbox" name="interets" value="Aventure" /> 🧗 Aventure</label>
+              <label><input type="checkbox" name="interets" value="Artisanat" /> 🎨 Artisanat</label>
+              <label><input type="checkbox" name="interets" value="Histoire" /> 🏺 Histoire</label>
+            </div>
+          </div>
+
+          <div class="trip-form-nav">
+            <button type="button" id="trip-prev" class="btn btn-outline-dark" hidden>Précédent</button>
+            <button type="button" id="trip-next" class="btn btn-gold">Suivant</button>
+            <button type="submit" id="trip-submit" class="btn btn-gold" hidden>✨ Créer mon voyage</button>
+          </div>
+        </form>
+
+        <div id="trip-result" class="trip-result" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="brand">
+        <span class="flag-dot" aria-hidden="true"></span>
+        CAMTOUR AI
+      </div>
+      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+    </div>
+  </footer>
+
+  <div id="chatbot-widget"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/trip-planner.js"></script>
+  <script src="js/chatbot-widget.js"></script>
+</body>
+</html>

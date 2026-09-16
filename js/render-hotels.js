@@ -14,7 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((hotels) => {
       allHotels = hotels;
       fillFilterOptions(villeSelect, hotels.map((h) => h.ville));
-      renderHotels(hotels);
+
+      const villeParam = new URLSearchParams(window.location.search).get("ville");
+      if (villeParam && villeSelect) {
+        villeSelect.value = villeParam;
+      }
+
+      applyFilters();
     })
     .catch((err) => {
       console.error("Erreur de chargement de l'annuaire d'hôtels :", err);

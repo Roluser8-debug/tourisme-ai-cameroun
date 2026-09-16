@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assistant Touristique IA du Cameroun</title>
-  <meta name="description" content="Découvrez le Cameroun autrement : écotourisme, culture, gastronomie et hôtels, guidés par un assistant IA multilingue." />
+  <title>CAMTOUR AI — Votre voyage au Cameroun, construit par l'IA</title>
+  <meta name="description" content="Dites-nous ce que vous aimez, CAMTOUR AI construit votre voyage au Cameroun : itinéraire personnalisé, écotourisme, culture, gastronomie et hôtels, guidés par une IA multilingue." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,7 +16,7 @@
     <div class="container">
       <a href="index.html" class="brand">
         <span class="flag-dot" aria-hidden="true"></span>
-        Cameroun Tourisme IA
+        CAMTOUR AI
       </a>
       <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
@@ -24,9 +24,11 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html" data-page="accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
           <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
           <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
           <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
           <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
         </ul>
         <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
@@ -39,14 +41,15 @@
       <div class="container">
         <div class="hero-inner">
           <span class="eyebrow">Journée Mondiale du Tourisme 2026</span>
-          <h1>Le Cameroun, l'Afrique en miniature, réinventé par l'intelligence artificielle</h1>
+          <h1>Découvrez le Cameroun avec l'intelligence artificielle</h1>
           <p>
-            Un assistant multilingue pour découvrir les parcs naturels, la richesse culturelle,
-            la gastronomie et les hôtels du Cameroun — posez vos questions, où que vous soyez.
+            Votre voyage. Vos envies. Votre Cameroun.
+            Dites-nous ce que vous aimez : CAMTOUR AI construit votre itinéraire, jour par jour,
+            avec un budget estimé — ou posez simplement vos questions à l'assistant.
           </p>
           <div class="hero-actions">
-            <a href="eco-tourisme.html" class="btn btn-gold">Explorer le pays</a>
-            <button type="button" class="btn btn-outline-light chat-trigger">💬 Parler à l'assistant</button>
+            <a href="planificateur.html" class="btn btn-gold">🧳 Construire mon voyage</a>
+            <button type="button" class="btn btn-outline-light chat-trigger">🤖 Parler à CAMTOUR AI</button>
           </div>
         </div>
       </div>
@@ -67,10 +70,10 @@
             <span class="quick-link-icon">🏨</span>
             Hôtels
           </a>
-          <button type="button" class="quick-link chat-trigger">
-            <span class="quick-link-icon">💬</span>
-            Assistant IA
-          </button>
+          <a class="quick-link" href="carte.html">
+            <span class="quick-link-icon">📍</span>
+            Carte
+          </a>
         </div>
       </div>
     </div>
@@ -83,34 +86,74 @@
           <p>Ce site rassemble en un seul endroit ce dont un visiteur a besoin.</p>
         </div>
         <div class="feature-grid">
-          <div class="card feature-card">
+          <a class="card feature-card" href="eco-tourisme.html">
             <div class="card-body">
               <div class="feature-icon">🌿</div>
-              <h3>Écotourisme</h3>
+              <h3>Nature</h3>
               <p>Parcs nationaux, réserves naturelles et tourisme durable, région par région.</p>
             </div>
-          </div>
-          <div class="card feature-card">
+          </a>
+          <a class="card feature-card" href="culture-gastronomie.html">
+            <div class="card-body">
+              <div class="feature-icon">🏛️</div>
+              <h3>Culture</h3>
+              <p>Les 4 grandes aires socioculturelles, leurs traditions, festivals et chefferies.</p>
+            </div>
+          </a>
+          <a class="card feature-card" href="culture-gastronomie.html#mets">
             <div class="card-body">
               <div class="feature-icon">🍲</div>
-              <h3>Culture &amp; Gastronomie</h3>
-              <p>Les 14 mets emblématiques et les 4 grandes aires culturelles du pays.</p>
+              <h3>Gastronomie</h3>
+              <p>Les 14 mets emblématiques officiels, classés par aire socioculturelle.</p>
             </div>
-          </div>
-          <div class="card feature-card">
+          </a>
+          <a class="card feature-card" href="culture-gastronomie.html#artisanat">
             <div class="card-body">
-              <div class="feature-icon">🏨</div>
-              <h3>Hôtels</h3>
-              <p>Un annuaire d'hébergements pour préparer votre séjour.</p>
+              <div class="feature-icon">🎨</div>
+              <h3>Artisanat</h3>
+              <p>La route des artisans : sculpture, perlage, tissage et bronze, localité par localité.</p>
             </div>
-          </div>
-          <div class="card feature-card">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Explorer</span>
+          <h2>Où voulez-vous aller ?</h2>
+          <p>Les 4 grandes zones touristiques officielles du Cameroun.</p>
+        </div>
+        <div class="feature-grid">
+          <a class="card feature-card" href="carte.html">
             <div class="card-body">
-              <div class="feature-icon">💬</div>
-              <h3>Assistant IA multilingue</h3>
-              <p>Posez vos questions en français, anglais ou une autre langue — il vous répond.</p>
+              <div class="feature-icon">🏔️</div>
+              <h3>Zone des Montagnes</h3>
+              <p>Ouest &amp; Nord-Ouest — route des chefferies, artisanat, lacs et grottes.</p>
             </div>
-          </div>
+          </a>
+          <a class="card feature-card" href="carte.html">
+            <div class="card-body">
+              <div class="feature-icon">🏖️</div>
+              <h3>Zone Côtière</h3>
+              <p>Sud-Ouest, Littoral &amp; Sud — plages, Mont Cameroun, tortues marines.</p>
+            </div>
+          </a>
+          <a class="card feature-card" href="carte.html">
+            <div class="card-body">
+              <div class="feature-icon">🌳</div>
+              <h3>Zone Forestière</h3>
+              <p>Centre, Sud &amp; Est — forêt équatoriale, gorilles, peuples Baka et Bagyeli.</p>
+            </div>
+          </a>
+          <a class="card feature-card" href="carte.html">
+            <div class="card-body">
+              <div class="feature-icon">🐪</div>
+              <h3>Zone Soudano-Sahélienne</h3>
+              <p>Adamaoua, Nord &amp; Extrême-Nord — safaris, paysages lunaires, sultanats.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -121,7 +164,7 @@
     <div class="container">
       <div class="brand">
         <span class="flag-dot" aria-hidden="true"></span>
-        Cameroun Tourisme IA
+        CAMTOUR AI
       </div>
       <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>

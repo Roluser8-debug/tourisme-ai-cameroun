@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hôtels — CAMTOUR AI</title>
+  <title>Carte — CAMTOUR AI</title>
+  <meta name="description" content="Explorez le Cameroun sur une carte interactive : sites écotouristiques, aires culturelles et villes hôtelières." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body data-page="hotels">
+<body data-page="carte">
 
   <header class="site-header">
     <div class="container">
@@ -38,39 +40,23 @@
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <span class="eyebrow">Séjourner</span>
-        <h1>🏨 Hôtels</h1>
-        <p>Un annuaire d'hébergements pour préparer votre séjour au Cameroun.</p>
+        <span class="eyebrow">Explorer</span>
+        <h1>📍 Carte du Cameroun</h1>
+        <p>Sites écotouristiques, aires culturelles et villes hôtelières, en un coup d'œil.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
-        <p class="info-banner">ℹ️ Annuaire d'hébergements réels, à titre indicatif (source : brochure officielle du Ministère du Tourisme et des Loisirs du Cameroun) — sans réservation en ligne. Contactez directement l'établissement pour réserver et vérifier les tarifs et disponibilités.</p>
+        <p class="info-banner">ℹ️ Les sites et aires culturelles sont géolocalisés précisément ; les hôtels sont regroupés par ville (les adresses exactes ne sont pas toutes disponibles).</p>
 
-        <div class="hotels-filters">
-          <label for="hotels-filter-ville">
-            Ville
-            <select id="hotels-filter-ville">
-              <option value="">Toutes les villes</option>
-            </select>
-          </label>
-          <label for="hotels-filter-budget">
-            Budget
-            <select id="hotels-filter-budget">
-              <option value="">Tous les budgets</option>
-              <option value="Économique">Économique</option>
-              <option value="Milieu de gamme">Milieu de gamme</option>
-              <option value="Haut de gamme">Haut de gamme</option>
-            </select>
-          </label>
+        <div class="map-filters">
+          <button type="button" class="map-filter-btn active" data-filter="sites">🌿 Nature</button>
+          <button type="button" class="map-filter-btn active" data-filter="culture">🏛️ Culture</button>
+          <button type="button" class="map-filter-btn active" data-filter="hotels">🏨 Hébergement</button>
         </div>
 
-        <div id="hotels-grid" class="card-grid">
-          <div class="placeholder-block">
-            <strong>Chargement de l'annuaire d'hôtels…</strong>
-          </div>
-        </div>
+        <div id="carte-cameroun" class="map-container"></div>
       </div>
     </section>
   </main>
@@ -88,7 +74,8 @@
   <div id="chatbot-widget"></div>
 
   <script src="js/main.js"></script>
-  <script src="js/render-hotels.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/map.js"></script>
   <script src="js/chatbot-widget.js"></script>
 </body>
 </html>

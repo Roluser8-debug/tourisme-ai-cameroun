@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <button class="chatbot-launcher" aria-label="Ouvrir l'assistant IA">💬</button>
     <div class="chatbot-panel" hidden>
       <div class="chatbot-header">
-        <span>🇨🇲 Assistant Cameroun Tourisme</span>
+        <span>🤖 Assistant CAMTOUR AI</span>
         <button class="chatbot-close" aria-label="Fermer">✕</button>
       </div>
       <div class="chatbot-messages" role="log" aria-live="polite"></div>

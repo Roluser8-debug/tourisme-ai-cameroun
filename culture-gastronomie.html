@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Culture &amp; Gastronomie — Cameroun Tourisme IA</title>
+  <title>Culture &amp; Gastronomie — CAMTOUR AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
     <div class="container">
       <a href="index.html" class="brand">
         <span class="flag-dot" aria-hidden="true"></span>
-        Cameroun Tourisme IA
+        CAMTOUR AI
       </a>
       <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
@@ -23,9 +23,11 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html" data-page="accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
           <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
           <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
           <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
           <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
         </ul>
         <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
@@ -59,16 +61,31 @@
       </div>
     </section>
 
-    <section>
+    <section id="mets">
       <div class="container">
         <div class="section-title">
           <span class="eyebrow">Gastronomie</span>
           <h2>Mets emblématiques</h2>
-          <p>14 plats représentant les 10 régions du Cameroun</p>
+          <p>Les 14 mets officiels du Cameroun, par aire socioculturelle</p>
         </div>
         <div id="dishes-grid" class="card-grid">
           <div class="placeholder-block">
             <strong>Chargement des mets emblématiques…</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artisanat">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Savoir-faire</span>
+          <h2>🎨 Route des artisans</h2>
+          <p>Les spécialités artisanales des 4 aires socioculturelles</p>
+        </div>
+        <div id="artisanat-grid" class="card-grid">
+          <div class="placeholder-block">
+            <strong>Chargement de l'artisanat…</strong>
           </div>
         </div>
       </div>
@@ -79,7 +96,7 @@
     <div class="container">
       <div class="brand">
         <span class="flag-dot" aria-hidden="true"></span>
-        Cameroun Tourisme IA
+        CAMTOUR AI
       </div>
       <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
@@ -90,6 +107,7 @@
   <script src="js/main.js"></script>
   <script src="js/render-cultural-areas.js"></script>
   <script src="js/render-dishes.js"></script>
+  <script src="js/render-artisanat.js"></script>
   <script src="js/chatbot-widget.js"></script>
 </body>
 </html>
