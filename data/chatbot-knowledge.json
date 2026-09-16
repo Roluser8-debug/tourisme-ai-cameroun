@@ -108,21 +108,22 @@
   ],
 
   "mets_emblematiques": [
-    { "nom": "Ndolé", "region": "Littoral (Sawa) / national", "description": "Plat souvent considéré comme national : feuilles de ndolé (légume amer), arachides pilées, poisson ou viande." },
-    { "nom": "Eru", "region": "Sud-Ouest", "description": "Feuilles d'eru mijotées avec de l'huile de palme, du waterleaf et de la viande ou du poisson fumé." },
-    { "nom": "Poulet DG (Directeur Général)", "region": "National", "description": "Poulet sauté avec plantains mûrs, légumes et épices, plat festif très populaire." },
-    { "nom": "Achu", "region": "Grassfields (Nord-Ouest)", "description": "Purée de taro jaune accompagnée d'une sauce jaune épicée à base de nkui." },
-    { "nom": "Koki", "region": "Ouest / national", "description": "Gâteau vapeur à base de haricots niébé écrasés et d'huile de palme, enveloppé dans des feuilles." },
-    { "nom": "Kondre", "region": "Sud-Ouest", "description": "Ragoût de plantain avec viande de bœuf ou de chèvre et huile de palme." },
-    { "nom": "Folon", "region": "National", "description": "Légumes verts sautés, souvent servis avec du poisson ou de la viande, plat léger et courant." },
-    { "nom": "Bâton de manioc", "region": "Centre / Littoral", "description": "Manioc fermenté et cuit à la vapeur dans des feuilles, accompagnement classique des grillades." },
-    { "nom": "Mbongo Tchobi", "region": "Littoral (Douala)", "description": "« Sauce noire » épicée à base d'épices grillées et de champignons noirs, mijotée avec du poisson." },
-    { "nom": "Okok", "region": "Centre (Fang-Beti)", "description": "Feuilles d'okok pilées, cuites à l'huile de palme, souvent avec arachides ou poisson." },
-    { "nom": "Nkui", "region": "Ouest (Bamiléké)", "description": "Sauce visqueuse et parfumée à base d'écorce de nkui, enrichie de viande et d'épices." },
-    { "nom": "Kilishi", "region": "Extrême-Nord / Nord", "description": "Fines lamelles de bœuf séché et épicé, spécialité sahélienne consommée en encas." },
-    { "nom": "Soya", "region": "National", "description": "Brochettes de bœuf épicées grillées au charbon, incontournable de la street food le soir." },
-    { "nom": "Miondo (Bobolo)", "region": "Centre / Littoral", "description": "Bâtonnets de manioc fermenté cuits vapeur dans des feuilles, plus fins que le bâton de manioc classique." }
+    { "nom": "Achu", "region": "Aire socioculturelle Grassfields", "description": "Purée de taro jaune accompagnée d'une sauce jaune épicée à base de nkui." },
+    { "nom": "Kondrè", "region": "Aire socioculturelle Grassfields", "description": "Ragoût de plantain avec viande de bœuf ou de chèvre et huile de palme." },
+    { "nom": "Sanga", "region": "Aire socioculturelle Fang-Béti", "description": "Mélange de maïs frais, haricots et parfois arachides, mijoté à l'huile de palme." },
+    { "nom": "Nnam Ngön", "region": "Aire socioculturelle Fang-Béti", "description": "Gâteau à base de graines de courge ou de pistache pilées, souvent enveloppé dans des feuilles." },
+    { "nom": "Domba", "region": "Aire socioculturelle Fang-Béti", "description": "Poisson ou viande mariné aux légumes et épices, cuit à l'étouffée dans des feuilles de bananier." },
+    { "nom": "Bitoso ri kipen ki bazi", "region": "Aire socioculturelle Fang-Béti", "description": "Spécialité traditionnelle du Centre/Sud/Est, au nom issu des langues locales." },
+    { "nom": "Okok", "region": "Aire socioculturelle Fang-Béti", "description": "Feuilles d'okok pilées, cuites à l'huile de palme, souvent avec arachides ou poisson." },
+    { "nom": "Ndolé", "region": "Aire socioculturelle Sawa", "description": "Plat souvent considéré comme national : feuilles de ndolé (légume amer), arachides pilées, poisson ou viande." },
+    { "nom": "Bongo'o Tchobi", "region": "Aire socioculturelle Sawa", "description": "« Sauce noire » épicée à base d'épices grillées et de champignons noirs, mijotée avec du poisson." },
+    { "nom": "Ekoki (Ekwang)", "region": "Aire socioculturelle Sawa", "description": "Macabo finement râpé, enveloppé dans des feuilles de taro et cuit avec poisson ou viande." },
+    { "nom": "Eru", "region": "Aire socioculturelle Sawa", "description": "Feuilles d'eru mijotées avec de l'huile de palme, du waterleaf et de la viande ou du poisson fumé." },
+    { "nom": "Kilichi", "region": "Aire socioculturelle Soudano-Sahélienne", "description": "Fines lamelles de bœuf séché et épicé, spécialité sahélienne consommée en encas." },
+    { "nom": "Nèè Gouo Hè", "region": "Aire socioculturelle Soudano-Sahélienne", "description": "Plat traditionnel du Nord, lié au couscous de mil rouge, blanc ou jaune." },
+    { "nom": "Mbokko Bè Ngniiri", "region": "Aire socioculturelle Soudano-Sahélienne", "description": "Plat traditionnel du Nord, préparé avec du couscous de maïs ou de mil." }
   ],
+  "note_mets": "Liste officielle des 14 mets emblématiques par aire socioculturelle, tirée du dépliant institutionnel du MINTOUL.",
 
   "aires_culturelles": [
     { "nom": "Grassfields", "region": "Nord-Ouest / Ouest", "description": "Royaumes traditionnels (chefferies bamiléké et bamoun), art du bois, masques, danses royales.", "evenement": "Festival Nguon à Foumban (biennal, décembre)" },
