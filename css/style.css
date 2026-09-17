@@ -185,17 +185,16 @@ section {
   white-space: nowrap;
 }
 
-.brand .flag-dot {
-  display: inline-flex;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--color-green) 0 33%,
-    var(--color-rust) 33% 66%,
-    var(--color-gold) 66% 100%
-  );
+.brand .brand-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
   flex-shrink: 0;
+}
+
+.site-footer .brand-logo {
+  height: 44px;
+  width: 44px;
 }
 
 .nav-toggle {
