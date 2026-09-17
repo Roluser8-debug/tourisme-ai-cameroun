@@ -11,7 +11,7 @@ const knowledge = JSON.parse(
   fs.readFileSync(path.join(__dirname, "../../data/chatbot-knowledge.json"), "utf-8")
 );
 
-const SYSTEM_PROMPT = `Tu es l'assistant touristique officiel du site "CAMTOUR AI", créé pour la Journée Mondiale du Tourisme 2026 à Yaoundé.
+const SYSTEM_PROMPT = `Tu es l'assistant touristique officiel du site "CAMTOUR AI".
 
 Règles :
 - Réponds TOUJOURS dans la langue utilisée par le visiteur dans son dernier message (français, anglais, espagnol, allemand, chinois, etc.), même si les informations de référence ci-dessous sont en français.

@@ -12,7 +12,7 @@ const knowledge = JSON.parse(
   fs.readFileSync(path.join(__dirname, "../../data/chatbot-knowledge.json"), "utf-8")
 );
 
-const SYSTEM_PROMPT = `Tu es le planificateur de voyage IA du site "CAMTOUR AI", pour la Journée Mondiale du Tourisme 2026 à Yaoundé.
+const SYSTEM_PROMPT = `Tu es le planificateur de voyage IA du site "CAMTOUR AI".
 
 Ta mission : construire un itinéraire de voyage personnalisé au Cameroun à partir des préférences du visiteur (point de départ, durée, budget, avec qui il voyage, centres d'intérêt), en t'appuyant uniquement sur les informations de référence fournies ci-dessous (parcs, mets, aires culturelles, hôtels, circuits).
 

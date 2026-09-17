@@ -70,7 +70,9 @@ Plan complet : `C:\Users\Rol-User\.claude\plans\stateful-yawning-puppy.md`
 - `images/eco/bamboutos.jpg` — vraie cascade dans les Monts Bamboutos
 - `images/eco/menchum.jpg` — vraies chutes de la Menchum
 
-**Photos encore génériques (illustration du thème, pas le lieu exact) :** `images/eco/korup.jpg`, `dja.jpg`, `mefou.jpg`, `lac-ossa.jpg`, `images/culture/sawa.jpg`, `images/dishes/*.jpg`, `images/hero.jpg` — à remplacer si d'autres vraies photos deviennent disponibles. Liste des crédits dans `a-propos.html`.
+**Photos réelles des 14 mets emblématiques (ajoutées le 17/09/2026) :** `images/dishes/*.jpg` — toutes remplacées par de vraies photos des plats.
+
+**Photos encore génériques (illustration du thème, pas le lieu exact) :** `images/eco/korup.jpg`, `dja.jpg`, `mefou.jpg`, `lac-ossa.jpg`, `images/culture/sawa.jpg`, `images/hero.jpg` — à remplacer si d'autres vraies photos deviennent disponibles. Liste des crédits dans `a-propos.html`.
 
 ## Structure du projet
 
