@@ -64,22 +64,49 @@ document.addEventListener("DOMContentLoaded", () => {
     return `Je pars de ${depart} pour ${duree} jour(s), avec un budget total d'environ ${budget} FCFA. Je voyage : ${profil}. Mes centres d'intérêt : ${interets.length ? interets.join(", ") : "pas de préférence particulière"}.`;
   }
 
+  const POLL_INTERVAL_MS = 2500;
+  const POLL_MAX_WAIT_MS = 3 * 60 * 1000;
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  // Écrire un voyage prend plus de 10 s : le serveur travaille en tâche de fond,
+  // et on vient demander régulièrement si le résultat est prêt.
   async function callTripPlan() {
-    const res = await fetch("/api/trip-plan", {
+    const jobId = crypto.randomUUID();
+
+    const startRes = await fetch("/api/trip-plan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: history }),
+      body: JSON.stringify({ jobId, messages: history }),
     });
-
-    let data;
-    try {
-      data = await res.json();
-    } catch (err) {
-      throw new Error("Réponse inattendue du serveur.");
+    if (!startRes.ok) {
+      throw new Error("Le planificateur est momentanément indisponible. Merci de réessayer dans un instant.");
     }
 
-    if (!res.ok) {
-      throw new Error(data.error || "Le planificateur est momentanément indisponible.");
+    let data;
+    const startedAt = Date.now();
+    while (true) {
+      await wait(POLL_INTERVAL_MS);
+
+      try {
+        const res = await fetch(`/api/trip-plan-status?id=${encodeURIComponent(jobId)}`);
+        data = await res.json();
+        if (!res.ok) data = { status: "pending" };
+      } catch (err) {
+        data = { status: "pending" }; // coupure réseau passagère : on réessaie
+      }
+
+      if (data.status === "done") break;
+      if (data.status === "error") {
+        throw new Error(data.error || "Le planificateur est momentanément indisponible.");
+      }
+      if (Date.now() - startedAt > POLL_MAX_WAIT_MS) {
+        throw new Error(
+          "La création du voyage prend plus de temps que prévu. Merci de réessayer dans un instant."
+        );
+      }
     }
 
     let itinerary;

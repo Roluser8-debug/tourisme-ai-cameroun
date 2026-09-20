@@ -1,9 +1,17 @@
-// Fonction serveur (Netlify Function) qui construit un itinéraire personnalisé avec l'API Claude.
+// Fonction serveur "en tâche de fond" (Netlify Background Function) qui construit un itinéraire
+// personnalisé avec l'API Claude.
+//
+// Pourquoi en tâche de fond : écrire un voyage détaillé prend plus de 10 secondes, et Netlify coupe
+// les fonctions normales à 10 secondes. Une fonction "-background" répond tout de suite (202) et peut
+// travailler jusqu'à 15 minutes. Le résultat est rangé dans Netlify Blobs sous l'identifiant du
+// voyage, et la page vient le chercher avec trip-plan-status.js.
+//
 // Même principe que chat.js : on injecte le contenu de data/chatbot-knowledge.json dans le prompt
 // système, pour que l'IA s'appuie sur nos vraies informations plutôt que d'inventer.
 
 const Anthropic = require("@anthropic-ai/sdk");
-const { apiErrorResponse } = require("../lib/api-error");
+const { connectLambda, getStore } = require("@netlify/blobs");
+const { visitorError } = require("../lib/api-error");
 const { loadKnowledge } = require("../lib/knowledge");
 
 const anthropic = new Anthropic();
@@ -36,6 +44,8 @@ Règles :
 Informations de référence (JSON) :
 ${JSON.stringify(knowledge)}`;
 
+const JOB_ID_PATTERN = /^[0-9a-f-]{36}$/;
+
 // Extrait l'objet JSON de la réponse, même si l'IA l'a entouré de texte ou de balises ```json.
 // Renvoie null si aucun JSON valide n'est trouvé (par exemple réponse coupée).
 function extractJson(text) {
@@ -52,19 +62,28 @@ function extractJson(text) {
 }
 
 exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: JSON.stringify({ error: "Méthode non autorisée." }) };
-  }
+  connectLambda(event);
+  const store = getStore({ name: "trip-jobs" });
 
+  let jobId;
   let messages;
   try {
     const body = JSON.parse(event.body || "{}");
+    jobId = body.jobId;
     messages = body.messages;
+    if (typeof jobId !== "string" || !JOB_ID_PATTERN.test(jobId)) {
+      throw new Error("Identifiant de voyage invalide.");
+    }
     if (!Array.isArray(messages) || messages.length === 0) {
       throw new Error("Liste de messages manquante ou vide.");
     }
   } catch (err) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Requête invalide." }) };
+    console.error("[trip-plan] Requête invalide :", err.message);
+    // Sans identifiant valide, personne ne peut lire le résultat : on s'arrête là.
+    if (typeof jobId === "string" && JOB_ID_PATTERN.test(jobId)) {
+      await store.setJSON(jobId, { status: "error", error: "Requête invalide." });
+    }
+    return { statusCode: 400 };
   }
 
   try {
@@ -86,24 +105,23 @@ exports.handler = async (event) => {
       console.error(
         `[trip-plan] Réponse non exploitable (stop_reason=${response.stop_reason}). Début : ${raw.slice(0, 300)} … Fin : ${raw.slice(-300)}`
       );
-      return {
-        statusCode: 502,
-        body: JSON.stringify({
-          error:
-            "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de réessayer ou de reformuler votre demande.",
-        }),
-      };
+      await store.setJSON(jobId, {
+        status: "error",
+        error:
+          "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de réessayer ou de reformuler votre demande.",
+      });
+      return { statusCode: 200 };
     }
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ reply }),
-    };
+    await store.setJSON(jobId, { status: "done", reply });
+    return { statusCode: 200 };
   } catch (err) {
-    return apiErrorResponse(
+    const error = visitorError(
       "trip-plan",
       err,
       "Le planificateur est momentanément indisponible. Merci de réessayer dans un instant."
     );
+    await store.setJSON(jobId, { status: "error", error });
+    return { statusCode: 200 };
   }
 };

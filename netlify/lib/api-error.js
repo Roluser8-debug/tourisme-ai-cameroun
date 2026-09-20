@@ -26,17 +26,24 @@ function diagnose(err) {
   }
 }
 
-// Écrit la vraie cause dans les journaux, et renvoie la réponse HTTP pour le visiteur.
-// En local (netlify dev), la cause est aussi ajoutée dans la réponse pour la voir dans le chat.
-function apiErrorResponse(label, err, visitorMessage) {
+// Écrit la vraie cause dans les journaux et renvoie le message à montrer au visiteur.
+// En local (netlify dev), la cause est aussi ajoutée au message pour la voir à l'écran.
+function visitorError(label, err, visitorMessage) {
   const reason = diagnose(err);
   console.error(`[${label}] ${reason}`, err);
 
-  const body = { error: visitorMessage };
   if (process.env.NETLIFY_DEV === "true") {
-    body.error = `${visitorMessage} (Diagnostic local : ${reason})`;
+    return `${visitorMessage} (Diagnostic local : ${reason})`;
   }
-  return { statusCode: 502, body: JSON.stringify(body) };
+  return visitorMessage;
 }
 
-module.exports = { apiErrorResponse };
+// Même chose, sous forme de réponse HTTP 502 (pour les fonctions qui répondent directement).
+function apiErrorResponse(label, err, visitorMessage) {
+  return {
+    statusCode: 502,
+    body: JSON.stringify({ error: visitorError(label, err, visitorMessage) }),
+  };
+}
+
+module.exports = { apiErrorResponse, visitorError };

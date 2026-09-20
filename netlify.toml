@@ -12,5 +12,10 @@
 
 [[redirects]]
   from = "/api/trip-plan"
-  to = "/.netlify/functions/trip-plan"
+  to = "/.netlify/functions/trip-plan-background"
+  status = 200
+
+[[redirects]]
+  from = "/api/trip-plan-status"
+  to = "/.netlify/functions/trip-plan-status"
   status = 200
