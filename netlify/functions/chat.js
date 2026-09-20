@@ -2,15 +2,12 @@
 // La clé API reste ici, côté serveur : elle n'est jamais envoyée au navigateur.
 
 const Anthropic = require("@anthropic-ai/sdk");
-const fs = require("fs");
-const path = require("path");
 const { apiErrorResponse } = require("../lib/api-error");
+const { loadKnowledge } = require("../lib/knowledge");
 
 const anthropic = new Anthropic();
 
-const knowledge = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../../data/chatbot-knowledge.json"), "utf-8")
-);
+const knowledge = loadKnowledge();
 
 const SYSTEM_PROMPT = `Tu es l'assistant touristique officiel du site "CAMTOUR AI".
 

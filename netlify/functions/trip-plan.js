@@ -3,15 +3,12 @@
 // système, pour que l'IA s'appuie sur nos vraies informations plutôt que d'inventer.
 
 const Anthropic = require("@anthropic-ai/sdk");
-const fs = require("fs");
-const path = require("path");
 const { apiErrorResponse } = require("../lib/api-error");
+const { loadKnowledge } = require("../lib/knowledge");
 
 const anthropic = new Anthropic();
 
-const knowledge = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../../data/chatbot-knowledge.json"), "utf-8")
-);
+const knowledge = loadKnowledge();
 
 const SYSTEM_PROMPT = `Tu es le planificateur de voyage IA du site "CAMTOUR AI".
 
