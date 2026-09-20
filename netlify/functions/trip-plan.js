@@ -5,6 +5,7 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const fs = require("fs");
 const path = require("path");
+const { apiErrorResponse } = require("../lib/api-error");
 
 const anthropic = new Anthropic();
 
@@ -73,13 +74,10 @@ exports.handler = async (event) => {
       body: JSON.stringify({ reply }),
     };
   } catch (err) {
-    console.error("Erreur API Claude (trip-plan) :", err);
-    return {
-      statusCode: 502,
-      body: JSON.stringify({
-        error:
-          "Le planificateur est momentanément indisponible. Merci de réessayer dans un instant.",
-      }),
-    };
+    return apiErrorResponse(
+      "trip-plan",
+      err,
+      "Le planificateur est momentanément indisponible. Merci de réessayer dans un instant."
+    );
   }
 };

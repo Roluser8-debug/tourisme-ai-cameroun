@@ -4,6 +4,7 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const fs = require("fs");
 const path = require("path");
+const { apiErrorResponse } = require("../lib/api-error");
 
 const anthropic = new Anthropic();
 
@@ -59,13 +60,10 @@ exports.handler = async (event) => {
       body: JSON.stringify({ reply }),
     };
   } catch (err) {
-    console.error("Erreur API Claude :", err);
-    return {
-      statusCode: 502,
-      body: JSON.stringify({
-        error:
-          "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant.",
-      }),
-    };
+    return apiErrorResponse(
+      "chat",
+      err,
+      "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant."
+    );
   }
 };
