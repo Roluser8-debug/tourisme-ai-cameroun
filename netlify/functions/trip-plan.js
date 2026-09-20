@@ -36,6 +36,21 @@ Règles :
 Informations de référence (JSON) :
 ${JSON.stringify(knowledge)}`;
 
+// Extrait l'objet JSON de la réponse, même si l'IA l'a entouré de texte ou de balises ```json.
+// Renvoie null si aucun JSON valide n'est trouvé (par exemple réponse coupée).
+function extractJson(text) {
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start === -1 || end <= start) return null;
+  const candidate = text.slice(start, end + 1);
+  try {
+    JSON.parse(candidate);
+    return candidate;
+  } catch (err) {
+    return null;
+  }
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: JSON.stringify({ error: "Méthode non autorisée." }) };
@@ -55,16 +70,30 @@ exports.handler = async (event) => {
   try {
     const response = await anthropic.messages.create({
       model: "claude-opus-5",
-      max_tokens: 2048,
+      max_tokens: 8000,
       output_config: { effort: "medium" },
       system: SYSTEM_PROMPT,
       messages,
     });
 
-    const reply = response.content
+    const raw = response.content
       .filter((block) => block.type === "text")
       .map((block) => block.text)
       .join("");
+
+    const reply = extractJson(raw);
+    if (!reply) {
+      console.error(
+        `[trip-plan] Réponse non exploitable (stop_reason=${response.stop_reason}). Début : ${raw.slice(0, 300)} … Fin : ${raw.slice(-300)}`
+      );
+      return {
+        statusCode: 502,
+        body: JSON.stringify({
+          error:
+            "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de réessayer ou de reformuler votre demande.",
+        }),
+      };
+    }
 
     return {
       statusCode: 200,
