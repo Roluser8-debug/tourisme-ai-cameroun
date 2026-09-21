@@ -43,7 +43,7 @@
       <div class="container">
         <span class="eyebrow">Planificateur IA</span>
         <h1>🧳 Construire mon voyage</h1>
-        <p>Dites-nous ce que vous aimez, CAMTOUR AI construit votre itinéraire.</p>
+        <p>Dites-nous ce que vous aimez, CAMTOUR AI construit votre expérience.</p>
       </div>
     </div>
 
@@ -52,44 +52,61 @@
         <p class="info-banner">ℹ️ L'itinéraire et le budget proposés sont générés par l'IA à partir du contenu réel du site (parcs, mets, hôtels, circuits) — le budget reste une estimation indicative, à confirmer sur place.</p>
 
         <form id="trip-form" class="trip-form">
-          <div class="trip-step" data-step="1">
-            <h2>1. Où êtes-vous ?</h2>
-            <label class="sr-only" for="trip-depart">Ville de départ</label>
-            <input id="trip-depart" name="depart" type="text" placeholder="Ex. Yaoundé, Douala..." required />
+          <div class="trip-progress" aria-live="polite">
+            <p id="trip-progress-label" class="trip-progress-label">Étape 1 sur 4</p>
+            <div class="trip-progress-bar"><span id="trip-progress-fill"></span></div>
           </div>
 
-          <div class="trip-step" data-step="2" hidden>
-            <h2>2. Combien de temps ?</h2>
-            <label class="sr-only" for="trip-duree">Durée du séjour en jours</label>
-            <input id="trip-duree" name="duree" type="number" min="1" max="14" placeholder="Ex. 3" required />
-          </div>
-
-          <div class="trip-step" data-step="3" hidden>
-            <h2>3. Quel budget ?</h2>
-            <label class="sr-only" for="trip-budget">Budget total en FCFA</label>
-            <input id="trip-budget" name="budget" type="number" min="0" step="5000" placeholder="Ex. 150000 (FCFA)" required />
-          </div>
-
-          <div class="trip-step" data-step="4" hidden>
-            <h2>4. Avec qui voyagez-vous ?</h2>
-            <div class="trip-choices">
-              <label><input type="radio" name="profil" value="Seul(e)" required /> Seul(e)</label>
-              <label><input type="radio" name="profil" value="En couple" /> En couple</label>
-              <label><input type="radio" name="profil" value="En famille" /> En famille</label>
-              <label><input type="radio" name="profil" value="Entre amis" /> Entre amis</label>
-            </div>
-          </div>
-
-          <div class="trip-step" data-step="5" hidden>
-            <h2>5. Vos centres d'intérêt</h2>
-            <div class="trip-choices">
+          <div class="trip-step" data-step="1" data-min-checked="1">
+            <h2>Quel voyage souhaitez-vous vivre au Cameroun ?</h2>
+            <p class="trip-step-hint">Je veux découvrir :</p>
+            <div class="trip-choices trip-choices--big">
               <label><input type="checkbox" name="interets" value="Nature" /> 🌿 Nature</label>
               <label><input type="checkbox" name="interets" value="Culture" /> 🏛️ Culture</label>
               <label><input type="checkbox" name="interets" value="Gastronomie" /> 🍲 Gastronomie</label>
-              <label><input type="checkbox" name="interets" value="Aventure" /> 🧗 Aventure</label>
               <label><input type="checkbox" name="interets" value="Artisanat" /> 🎨 Artisanat</label>
+              <label><input type="checkbox" name="interets" value="Faune" /> 🐘 Faune</label>
+              <label><input type="checkbox" name="interets" value="Plages" /> 🏖️ Plages</label>
+              <label><input type="checkbox" name="interets" value="Montagnes" /> 🏔️ Montagnes</label>
               <label><input type="checkbox" name="interets" value="Histoire" /> 🏺 Histoire</label>
             </div>
+            <p class="trip-step-error" hidden>Choisissez au moins une envie pour continuer.</p>
+          </div>
+
+          <div class="trip-step" data-step="2" hidden>
+            <h2>Avec qui voyagez-vous ?</h2>
+            <div class="trip-choices trip-choices--big">
+              <label><input type="radio" name="profil" value="Seul(e)" required /> 🧍 Seul</label>
+              <label><input type="radio" name="profil" value="En couple" /> 💑 Couple</label>
+              <label><input type="radio" name="profil" value="En famille" /> 👨‍👩‍👧 Famille</label>
+              <label><input type="radio" name="profil" value="Entre amis" /> 🧑‍🤝‍🧑 Amis</label>
+              <label><input type="radio" name="profil" value="Voyage professionnel" /> 💼 Voyage professionnel</label>
+            </div>
+            <p class="trip-step-error" hidden>Choisissez avec qui vous voyagez pour continuer.</p>
+          </div>
+
+          <div class="trip-step" data-step="3" hidden>
+            <h2>D'où partez-vous, et pour combien de temps ?</h2>
+            <label class="trip-field-label" for="trip-depart">Ville de départ</label>
+            <input id="trip-depart" name="depart" type="text" placeholder="Ex. Yaoundé, Douala..." required />
+            <label class="trip-field-label" for="trip-duree">Durée du séjour (en jours)</label>
+            <input id="trip-duree" name="duree" type="number" min="1" max="14" placeholder="Ex. 3" required />
+            <p class="trip-step-error" hidden>Indiquez une ville de départ et une durée entre 1 et 14 jours.</p>
+          </div>
+
+          <div class="trip-step" data-step="4" hidden>
+            <h2>Votre budget</h2>
+            <label class="sr-only" for="trip-budget">Budget total en FCFA</label>
+            <input id="trip-budget" name="budget" type="number" min="10000" step="1000" placeholder="Ex. 150000 (FCFA)" required />
+            <div class="trip-budget-chips" aria-label="Budgets rapides">
+              <button type="button" data-budget="50000">50 000</button>
+              <button type="button" data-budget="100000">100 000</button>
+              <button type="button" data-budget="150000">150 000</button>
+              <button type="button" data-budget="300000">300 000</button>
+              <button type="button" data-budget="500000">500 000</button>
+            </div>
+            <div id="trip-budget-preview" class="trip-budget-preview" hidden></div>
+            <p class="trip-step-error" hidden>Indiquez un budget d'au moins 10 000 FCFA.</p>
           </div>
 
           <div class="trip-form-nav">

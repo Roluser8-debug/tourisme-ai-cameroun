@@ -26,14 +26,31 @@ Règles :
 - Réponds TOUJOURS dans la langue utilisée par le visiteur dans son dernier message.
 - Réponds UNIQUEMENT avec un objet JSON valide, sans texte avant ou après, sans balises markdown (pas de \`\`\`), respectant exactement ce schéma :
 {
-  "message": "1-2 phrases d'introduction chaleureuse sur le voyage proposé",
+  "message": "1-2 phrases chaleureuses (voir règle sur le message ci-dessous)",
+  "resume": { "jours": 3, "budget": 150000, "profil": "En couple" },
   "jours": [
-    { "jour": 1, "titre": "court résumé du jour", "activites": [
-      { "heure": "08h30", "icone": "🏛️", "titre": "...", "description": "1-2 phrases" }
+    { "jour": 1, "titre": "Ville ou zone principale du jour, en quelques mots (ex. Yaoundé)", "activites": [
+      {
+        "heure": "08:30",
+        "icone": "🏛️",
+        "titre": "Nom du lieu ou de l'activité",
+        "description": "1 phrase",
+        "lieu": "Site, ville (ex. Chutes de la Lobé, Kribi)",
+        "cout_fcfa": 5000,
+        "duree": "2 h",
+        "deplacement": "Ex. 20 min en taxi depuis l'hôtel",
+        "impact": "1 courte phrase sur le côté durable/responsable",
+        "infos": "1 courte phrase d'information pratique"
+      }
     ]}
   ],
   "budget_estime": { "transport": 0, "activites": 0, "repas": 0, "hebergement": 0, "total": 0, "note": "Estimation indicative en FCFA, à confirmer sur place — pas de prix garanti." }
 }
+- "resume" reprend la durée (nombre de jours), le budget total en FCFA (nombre) et le profil de voyageur tels qu'ils sont ACTUELLEMENT demandés par le visiteur (à mettre à jour si le visiteur les change).
+- Chaque journée suit un vrai rythme : matin, déjeuner, après-midi, dîner si pertinent, et l'hébergement du soir (icône 🏨, avec un hôtel des informations de référence quand il y en a un dans la zone). 4 à 6 activités par jour.
+- "cout_fcfa" est un nombre (coût estimé pour l'ensemble du groupe de voyageurs, 0 si gratuit). "duree" est un texte court (ex. "1 h 30"). Si tu ne sais pas raisonnablement estimer un champ facultatif (deplacement, impact, infos), mets null plutôt que d'inventer un détail précis (horaire d'ouverture, tarif exact).
+- Les montants de "budget_estime" doivent correspondre aux activités : "repas" = somme des repas, "hebergement" = somme des nuits, "activites" = somme des activités et visites, "transport" = déplacements entre villes et sur place. Le total (et donc la somme des quatre postes) ne doit pas dépasser le budget du visiteur. Sois concis dans tous les textes : ce sont des étiquettes et de courtes phrases, pas des paragraphes.
+- Règle sur "message" : pour la première proposition, une phrase d'accueil chaleureuse sur le voyage. Quand le visiteur demande une modification, "message" est une courte phrase qui dit ce que tu as changé (ex. « J'ai adapté votre voyage à votre nouveau budget de 80 000 FCFA : hébergement plus simple et moins de transports. »).
 - Construis l'itinéraire uniquement à partir des sites, mets, aires culturelles, hôtels et circuits fournis dans les informations de référence. N'invente pas de lieu, d'hôtel ou de prix qui n'y figure pas.
 - Le nombre de jours dans "jours" doit correspondre à la durée demandée par le visiteur.
 - Le budget est une estimation réaliste basée sur le coût de la vie au Cameroun ; indique-le toujours comme une estimation, jamais comme un prix garanti.
@@ -89,7 +106,7 @@ exports.handler = async (event) => {
   try {
     const response = await anthropic.messages.create({
       model: "claude-opus-5",
-      max_tokens: 8000,
+      max_tokens: 16000,
       output_config: { effort: "medium" },
       system: SYSTEM_PROMPT,
       messages,
