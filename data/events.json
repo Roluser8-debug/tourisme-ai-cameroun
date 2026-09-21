@@ -1,0 +1,17 @@
+[
+  { "id": "nguon", "nom": "Festival Nguon", "ville": "Foumban", "aire": "Grassfields", "frequence": "Biennal", "periode": "Décembre", "description": "Grande fête royale bamoun.", "lat": 5.7167, "lng": 10.9000 },
+  { "id": "tso", "nom": "Journées culturelles TSO", "ville": "Bandjoun", "aire": "Grassfields", "frequence": "Biennal", "periode": "Novembre", "description": "Journées culturelles de la chefferie de Bandjoun.", "lat": 5.3667, "lng": 10.4167 },
+  { "id": "afo-akom", "nom": "Afo Akom", "ville": "Fundong", "aire": "Grassfields", "frequence": "Annuel", "periode": "Décembre", "description": "Fête du peuple Kom.", "lat": 6.2500, "lng": 10.2667 },
+
+  { "id": "ngondo", "nom": "Festival Ngondo", "ville": "Douala", "aire": "Sawa", "frequence": "Annuel", "periode": "Début décembre", "description": "Grande fête des peuples Sawa.", "lat": 4.0511, "lng": 9.7679 },
+  { "id": "mpoo", "nom": "Mpo'o", "ville": "Édéa", "aire": "Sawa", "frequence": "Annuel", "periode": "Une semaine après le Ngondo", "description": "Cérémonie traditionnelle des Sawa, une semaine après le Ngondo.", "lat": 3.8000, "lng": 10.1333 },
+
+  { "id": "nyem-nyem", "nom": "Festival Nyem-Nyem", "ville": "Galim Tignère", "aire": "Sudano-Sahélienne", "frequence": "Biennal", "periode": "Avril", "description": "Festival de l'Adamaoua.", "lat": 7.0500, "lng": 12.4333 },
+  { "id": "sadaka", "nom": "Sadaka", "ville": "Mora", "aire": "Sudano-Sahélienne", "frequence": "Annuel", "periode": "Octobre – novembre", "description": "Fête traditionnelle de la région de Mora.", "lat": 11.0500, "lng": 14.1500 },
+  { "id": "douwaida", "nom": "Douwaida", "ville": "Yagoua", "aire": "Sudano-Sahélienne", "frequence": "Annuel", "periode": "Octobre – novembre", "description": "Fête traditionnelle de la région de Yagoua.", "lat": 10.3400, "lng": 15.2400 },
+  { "id": "bororo", "nom": "Festival Bororo", "ville": "Garoua", "aire": "Sudano-Sahélienne", "frequence": "Annuel", "periode": "", "description": "Festival des éleveurs Bororo.", "lat": 9.3017, "lng": 13.3921 },
+
+  { "id": "nkanga", "nom": "Nkanga Festival", "ville": "Ayos", "aire": "Fang-Beti", "frequence": "Annuel", "periode": "Décembre", "description": "Festival culturel de la région du Centre.", "lat": 3.9000, "lng": 12.5167 },
+  { "id": "baka-bantou", "nom": "Festival Baka Bantou", "ville": "Mambélé", "aire": "Fang-Beti", "frequence": "Biennal", "periode": "Juillet", "description": "Festival de la région de l'Est.", "lat": 4.5833, "lng": 13.6833, "approximatif": true },
+  { "id": "baka-dreams", "nom": "Baka Dreams Days", "ville": "Djoum et Mintom", "aire": "Fang-Beti", "frequence": "Annuel", "periode": "Septembre", "description": "Journées culturelles Baka, dans le Sud.", "lat": 2.6700, "lng": 12.6833 }
+]

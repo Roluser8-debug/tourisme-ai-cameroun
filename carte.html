@@ -44,19 +44,42 @@
       <div class="container">
         <span class="eyebrow">Explorer</span>
         <h1>📍 Carte du Cameroun</h1>
-        <p>Sites écotouristiques, aires culturelles et villes hôtelières, en un coup d'œil.</p>
+        <p>Explorez autour de vous, découvrez un lieu, puis ajoutez-le à votre voyage.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
-        <div class="map-filters">
-          <button type="button" class="map-filter-btn active" data-filter="sites">🌿 Nature</button>
-          <button type="button" class="map-filter-btn active" data-filter="culture">🏛️ Culture</button>
-          <button type="button" class="map-filter-btn active" data-filter="hotels">🏨 Hébergement</button>
+        <div class="map-explore">
+          <button type="button" id="map-locate" class="btn btn-gold">📍 Explorer autour de moi</button>
+          <span class="map-explore-or">ou</span>
+          <label class="sr-only" for="map-city">Choisir une ville</label>
+          <select id="map-city">
+            <option value="">Choisir une ville…</option>
+          </select>
+          <p id="map-locate-status" class="map-locate-status" aria-live="polite"></p>
         </div>
 
-        <div id="carte-cameroun" class="map-container"></div>
+        <div class="map-filters">
+          <button type="button" class="map-filter-btn active" data-filter="nature">🌿 Nature</button>
+          <button type="button" class="map-filter-btn active" data-filter="culture">🏛️ Culture</button>
+          <button type="button" class="map-filter-btn active" data-filter="gastronomie">🍲 Gastronomie</button>
+          <button type="button" class="map-filter-btn active" data-filter="artisanat">🎨 Artisanat</button>
+          <button type="button" class="map-filter-btn active" data-filter="hotels">🏨 Hôtels</button>
+          <button type="button" class="map-filter-btn active" data-filter="evenements">🎉 Événements</button>
+        </div>
+
+        <div class="map-layout">
+          <div id="carte-cameroun" class="map-container"></div>
+          <aside class="map-panel" aria-live="polite">
+            <div id="map-detail" class="map-detail">
+              <p class="map-panel-hint">👆 Cliquez sur un lieu de la carte pour voir sa fiche, ou lancez « Explorer autour de moi ».</p>
+            </div>
+            <div id="map-nearby" class="map-nearby" hidden></div>
+          </aside>
+        </div>
+
+        <div id="map-tray" class="map-tray" hidden></div>
       </div>
     </section>
   </main>

@@ -132,6 +132,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ---------- Lieux choisis sur la carte ----------
+
+  const placesEl = document.getElementById("trip-places");
+
+  function renderSelectedPlaces() {
+    if (!placesEl) return;
+    const list = window.CamtourTrip.get();
+    if (!list.length) {
+      placesEl.hidden = true;
+      placesEl.innerHTML = "";
+      return;
+    }
+    placesEl.innerHTML = `
+      <h3>📍 Lieux choisis sur la carte (${list.length})</h3>
+      <p>CAMTOUR AI les intégrera à votre itinéraire.</p>
+      <ul class="trip-places-list">
+        ${list
+          .map(
+            (p) => `
+          <li>${esc(p.icone)} ${esc(p.nom)}
+            <button type="button" data-remove="${esc(p.id)}" aria-label="Retirer ${esc(p.nom)}">✕</button>
+          </li>`
+          )
+          .join("")}
+      </ul>
+      <a href="carte.html">➕ Ajouter d'autres lieux depuis la carte</a>
+    `;
+    placesEl.hidden = false;
+    placesEl.querySelectorAll("[data-remove]").forEach((btn) => {
+      btn.addEventListener("click", () => window.CamtourTrip.remove(btn.dataset.remove));
+    });
+  }
+
+  renderSelectedPlaces();
+  window.addEventListener("camtour-trip-changed", renderSelectedPlaces);
+
   // ---------- Demande à l'IA ----------
 
   function buildPreferencesMessage(formData) {
@@ -140,8 +176,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const budget = formData.get("budget");
     const profil = formData.get("profil");
     const interets = formData.getAll("interets");
+    const lieux = window.CamtourTrip.get();
 
-    return `Je pars de ${depart} pour ${duree} jour(s), avec un budget total d'environ ${budget} FCFA. Je voyage : ${profil}. Ce que je veux découvrir : ${interets.length ? interets.join(", ") : "pas de préférence particulière"}.`;
+    let message = `Je pars de ${depart} pour ${duree} jour(s), avec un budget total d'environ ${budget} FCFA. Je voyage : ${profil}. Ce que je veux découvrir : ${interets.length ? interets.join(", ") : "pas de préférence particulière"}.`;
+    if (lieux.length) {
+      message += ` Lieux que je veux absolument visiter : ${lieux.map((p) => `${p.nom} (${p.lieu})`).join(" ; ")}.`;
+    }
+    return message;
   }
 
   const POLL_INTERVAL_MS = 2500;
