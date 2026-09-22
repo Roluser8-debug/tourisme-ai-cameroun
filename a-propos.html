@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos — CAMTOUR AI</title>
+  <title data-i18n="apropos_title">À propos — CAMTOUR AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
 </head>
-<body data-page="apropos">
+<body data-page="apropos" data-i18n-title="apropos_title">
 
   <header class="site-header">
     <div class="container">
@@ -19,20 +19,20 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </a>
-      <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" data-i18n-aria="nav_toggle_aria">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" data-page="accueil">Accueil</a></li>
-          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
-          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
-          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
-          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
-          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
-          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+          <li><a href="index.html" data-page="accueil" data-i18n="nav_accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur" data-i18n="nav_planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco" data-i18n="nav_eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture" data-i18n-html="nav_culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels" data-i18n="nav_hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte" data-i18n="nav_carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos" data-i18n="nav_apropos">À propos</a></li>
         </ul>
-        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+        <button type="button" class="nav-cta chat-trigger" data-i18n="nav_assistant">💬 Assistant IA</button>
       </nav>
     </div>
   </header>
@@ -40,40 +40,40 @@
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <span class="eyebrow">Le projet</span>
-        <h1>À propos de ce projet</h1>
-        <p>Réalisé pour le concours « L'IA dans le Tourisme ».</p>
+        <span class="eyebrow" data-i18n="apropos_eyebrow">Le projet</span>
+        <h1 data-i18n="apropos_h1">À propos de ce projet</h1>
+        <p data-i18n="apropos_p">Réalisé pour le concours « L'IA dans le Tourisme ».</p>
       </div>
     </div>
 
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Comment ce projet répond aux critères du jury</h2>
+          <h2 data-i18n="apropos_criteria_h2">Comment ce projet répond aux critères du jury</h2>
         </div>
         <div class="card-grid">
           <div class="card">
             <div class="card-body">
-              <h3>✅ Faisabilité technique</h3>
-              <p>Le site est en ligne et fonctionne réellement : les 4 sections (écotourisme, culture, gastronomie, hôtels) sont consultables, et l'assistant IA répond en direct grâce à l'API Claude d'Anthropic. Hébergement Netlify gratuit et stable, sans base de données à gérer.</p>
+              <h3 data-i18n="apropos_c1_h3">✅ Faisabilité technique</h3>
+              <p data-i18n="apropos_c1_p">Le site est en ligne et fonctionne réellement : les 4 sections (écotourisme, culture, gastronomie, hôtels) sont consultables, et l'assistant IA répond en direct grâce à l'API Claude d'Anthropic. Hébergement Netlify gratuit et stable, sans base de données à gérer.</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
-              <h3>🌍 Image du Cameroun</h3>
-              <p>Le Cameroun est présenté comme « l'Afrique en miniature » : ses parcs nationaux, ses 4 grandes aires culturelles (Grassfields, Sawa, Sudano-Sahélienne, Fang-Beti) et ses 14 mets emblématiques sont mis en valeur avec un ton chaleureux et positif, y compris par l'assistant IA.</p>
+              <h3 data-i18n="apropos_c2_h3">🌍 Image du Cameroun</h3>
+              <p data-i18n="apropos_c2_p">Le Cameroun est présenté comme « l'Afrique en miniature » : ses parcs nationaux, ses 4 grandes aires culturelles (Grassfields, Sawa, Sudano-Sahélienne, Fang-Beti) et ses 14 mets emblématiques sont mis en valeur avec un ton chaleureux et positif, y compris par l'assistant IA.</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
-              <h3>🙂 Facilité d'utilisation</h3>
-              <p>Aucune application à installer : tout se passe dans le navigateur, sur téléphone comme sur ordinateur. Navigation simple en 5 pages, et un assistant conversationnel qui répond dans la langue du visiteur (français, anglais, et bien d'autres).</p>
+              <h3 data-i18n="apropos_c3_h3">🙂 Facilité d'utilisation</h3>
+              <p data-i18n="apropos_c3_p">Aucune application à installer : tout se passe dans le navigateur, sur téléphone comme sur ordinateur. Navigation simple en 5 pages, et un assistant conversationnel qui répond dans la langue du visiteur (français, anglais, et bien d'autres).</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
-              <h3>🌱 Développement durable</h3>
-              <p>Chaque site écotouristique présente un conseil de tourisme durable (guides certifiés, écotourisme communautaire). L'assistant IA a pour consigne de toujours privilégier le tourisme responsable dans ses réponses, et l'annuaire d'hôtels reste informatif — sans pousser à la surconsommation touristique.</p>
+              <h3 data-i18n="apropos_c4_h3">🌱 Développement durable</h3>
+              <p data-i18n="apropos_c4_p">Chaque site écotouristique présente un conseil de tourisme durable (guides certifiés, écotourisme communautaire). L'assistant IA a pour consigne de toujours privilégier le tourisme responsable dans ses réponses, et l'annuaire d'hôtels reste informatif — sans pousser à la surconsommation touristique.</p>
             </div>
           </div>
         </div>
@@ -83,9 +83,9 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Le projet en bref</h2>
+          <h2 data-i18n="apropos_brief_h2">Le projet en bref</h2>
         </div>
-        <p>
+        <p data-i18n-html="apropos_brief_p1">
           « CAMTOUR AI » est une solution unique qui répond aux 4 axes du concours
           « L'IA dans le Tourisme » plutôt que de traiter chacun séparément : guidage touristique
           multilingue, écotourisme, culture &amp; gastronomie, et aide à la gestion hôtelière.
@@ -94,7 +94,7 @@
           honnête et dans sa propre langue — à toute heure, sans agence ni guide humain disponible
           immédiatement.
         </p>
-        <p>
+        <p data-i18n="apropos_brief_p2">
           Le contenu du site (sites naturels, mets, aires culturelles, hôtels) sert de socle de
           connaissances fiable pour l'assistant IA : il répond en s'appuyant sur ces informations
           plutôt qu'en inventant, et oriente le visiteur vers la bonne page du site quand c'est
@@ -107,9 +107,9 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Sources des données</h2>
-          <p>Les sites touristiques, hôtels, festivals et circuits présentés s'appuient sur des documents officiels du Ministère du Tourisme et des Loisirs (MINTOUL) : la brochure « Le Cameroun, Quatre Zones touristiques complètes », qui documente les 4 zones touristiques du pays (Soudano-Sahélienne, Forestière, Côtière, Zone des Montagnes), ainsi que le dépliant institutionnel du ministère. Plusieurs photos du site proviennent aussi directement des archives photographiques du MINTOUL. Les coordonnées d'hôtels et d'agences affichées sont donc réelles — à vérifier directement auprès de l'établissement avant réservation, les tarifs et disponibilités pouvant évoluer.</p>
-          <p class="card-meta">Contact officiel MINTOUL : +237 222 23 29 36 — infos@mintoul.gov.cm — <a href="https://www.mintoul.gov.cm" target="_blank" rel="noopener">www.mintoul.gov.cm</a></p>
+          <h2 data-i18n="apropos_sources_h2">Sources des données</h2>
+          <p data-i18n="apropos_sources_p">Les sites touristiques, hôtels, festivals et circuits présentés s'appuient sur des documents officiels du Ministère du Tourisme et des Loisirs (MINTOUL) : la brochure « Le Cameroun, Quatre Zones touristiques complètes », qui documente les 4 zones touristiques du pays (Soudano-Sahélienne, Forestière, Côtière, Zone des Montagnes), ainsi que le dépliant institutionnel du ministère. Plusieurs photos du site proviennent aussi directement des archives photographiques du MINTOUL. Les coordonnées d'hôtels et d'agences affichées sont donc réelles — à vérifier directement auprès de l'établissement avant réservation, les tarifs et disponibilités pouvant évoluer.</p>
+          <p class="card-meta" data-i18n="apropos_sources_contact">Contact officiel MINTOUL : +237 222 23 29 36 — infos@mintoul.gov.cm — <a href="https://www.mintoul.gov.cm" target="_blank" rel="noopener">www.mintoul.gov.cm</a></p>
         </div>
       </div>
     </section>
@@ -117,8 +117,8 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Photos officielles (MINTOUL)</h2>
-          <p>Ces photos proviennent des archives photographiques du Ministère du Tourisme et des Loisirs du Cameroun, remises directement pour ce projet — ce sont de vrais lieux camerounais, pas des illustrations génériques.</p>
+          <h2 data-i18n="apropos_photos_h2">Photos officielles (MINTOUL)</h2>
+          <p data-i18n="apropos_photos_p">Ces photos proviennent des archives photographiques du Ministère du Tourisme et des Loisirs du Cameroun, remises directement pour ce projet — ce sont de vrais lieux camerounais, pas des illustrations génériques.</p>
         </div>
         <ul class="photo-credits">
           <li>Chutes de la Lobé (Kribi) — MINTOUL</li>
@@ -136,8 +136,8 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Crédits photos</h2>
-          <p>Photos libres de droits, via Pexels et Wikimedia Commons (Creative Commons / domaine public). Certaines sont des illustrations génériques (ex. plat similaire) en attendant de vraies photos des lieux et mets camerounais.</p>
+          <h2 data-i18n="apropos_credits_h2">Crédits photos</h2>
+          <p data-i18n="apropos_credits_p">Photos libres de droits, via Pexels et Wikimedia Commons (Creative Commons / domaine public). Certaines sont des illustrations génériques (ex. plat similaire) en attendant de vraies photos des lieux et mets camerounais.</p>
         </div>
         <ul class="photo-credits">
           <li><a href="https://www.pexels.com/photo/12251151/" target="_blank" rel="noopener">Douala au coucher du soleil</a> — Messina</li>
@@ -175,12 +175,13 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </div>
-      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+      <p data-i18n-html="footer_text">&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
   </footer>
 
   <div id="chatbot-widget"></div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/chatbot-widget.js"></script>
 </body>

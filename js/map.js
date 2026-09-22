@@ -1,10 +1,14 @@
 // Carte intelligente (Leaflet.js) : 6 catégories de lieux, fiche détaillée au clic,
 // « Explorer autour de moi » (position ou ville choisie) et « Ajouter à mon voyage ».
 // Les lieux ajoutés sont mémorisés par window.CamtourTrip (voir main.js) et repris par la page Mon voyage.
+// Bilingue : chaque lieu garde sa source (raw) et son texte est reconstruit dans la langue courante
+// par describePlace(), plutôt que d'être figé au chargement.
 
 document.addEventListener("DOMContentLoaded", () => {
   const mapEl = document.getElementById("carte-cameroun");
   if (!mapEl || typeof L === "undefined") return;
+
+  const { t, tf } = window.CamtourI18n;
 
   const detailEl = document.getElementById("map-detail");
   const nearbyEl = document.getElementById("map-nearby");
@@ -23,13 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // "decalage" (en pixels) écarte les pastilles de catégories différentes qui partagent le même point
   // (par exemple culture, gastronomie et artisanat d'une même aire culturelle).
   const CATEGORIES = {
-    nature: { label: "Nature", icone: "🌿", decalage: [0, 0] },
-    culture: { label: "Culture", icone: "🏛️", decalage: [-30, -16] },
-    gastronomie: { label: "Gastronomie", icone: "🍲", decalage: [0, -32] },
-    artisanat: { label: "Artisanat", icone: "🎨", decalage: [30, -16] },
-    evenements: { label: "Événements", icone: "🎉", decalage: [-20, 26] },
-    hotels: { label: "Hôtels", icone: "🏨", decalage: [20, 26] },
+    nature: { key: "cat_nature", icone: "🌿", decalage: [0, 0] },
+    culture: { key: "cat_culture", icone: "🏛️", decalage: [-30, -16] },
+    gastronomie: { key: "cat_gastronomie", icone: "🍲", decalage: [0, -32] },
+    artisanat: { key: "cat_artisanat", icone: "🎨", decalage: [30, -16] },
+    evenements: { key: "cat_evenements", icone: "🎉", decalage: [-20, 26] },
+    hotels: { key: "cat_hotels", icone: "🏨", decalage: [20, 26] },
   };
+  const BUDGET_KEY = { "Économique": "budget_economique", "Milieu de gamme": "budget_milieu", "Haut de gamme": "budget_haut" };
+  const budgetLabel = (b) => (BUDGET_KEY[b] ? t(BUDGET_KEY[b]) : b);
 
   const layers = {};
   Object.keys(CATEGORIES).forEach((cat) => {
@@ -37,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const activeCats = new Set(Object.keys(CATEGORIES));
 
-  const places = [];
+  const places = []; // { id, cat, lat, lng, icone, kind, raw, extra }
   const markers = {};
   let selectedId = null;
-  let origin = null; // { lat, lng, label, marker }
+  let origin = null; // { lat, lng, label, marker, fromGps }
 
   // ---------- Outils ----------
 
@@ -81,119 +87,131 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addPlace(place) {
     if (typeof place.lat !== "number" || typeof place.lng !== "number") return;
-    place.lignes = (place.lignes || []).filter(([, text]) => text);
     places.push(place);
   }
 
   function buildPlaces({ sites, areas, villes, hotels, dishes, events }) {
     sites.forEach((site) =>
-      addPlace({
-        id: `site-${site.id}`,
-        cat: "nature",
-        nom: site.nom,
-        icone: site.icone || "🌿",
-        lieu: site.region,
-        lat: site.lat,
-        lng: site.lng,
-        resume: site.description,
-        lignes: [
-          ["🧭", site.activites && `Activités : ${site.activites.join(", ")}`],
-          ["🗓️", site.meilleure_periode && `Meilleure période : ${site.meilleure_periode}`],
-          ["🌱", site.conseil_durable],
-        ],
-        lien: { href: "eco-tourisme.html", label: "Voir la fiche" },
-      })
+      addPlace({ id: `site-${site.id}`, cat: "nature", lat: site.lat, lng: site.lng, icone: site.icone || "🌿", kind: "site", raw: site })
     );
 
     areas.forEach((area) => {
-      addPlace({
-        id: `culture-${area.id}`,
-        cat: "culture",
-        nom: `Aire culturelle ${area.nom}`,
-        icone: area.icone || "🏛️",
-        lieu: area.region,
-        lat: area.lat,
-        lng: area.lng,
-        resume: area.description,
-        lignes: [["🎭", area.traditions && `Traditions : ${area.traditions.join(", ")}`]],
-        lien: { href: "culture-gastronomie.html", label: "Voir la fiche" },
-      });
+      addPlace({ id: `culture-${area.id}`, cat: "culture", lat: area.lat, lng: area.lng, icone: area.icone || "🏛️", kind: "area-culture", raw: area });
 
       const areaDishes = dishes.filter((d) => norm(d.region).includes(norm(area.nom)));
       if (areaDishes.length) {
         addPlace({
           id: `gastronomie-${area.id}`,
           cat: "gastronomie",
-          nom: `Cuisine ${area.nom}`,
-          icone: "🍲",
-          lieu: area.region,
           lat: area.lat,
           lng: area.lng,
-          resume: `${areaDishes.length} mets emblématiques : ${areaDishes.map((d) => d.nom).join(", ")}.`,
-          lignes: areaDishes.map((d) => ["🍲", `${d.nom} — ${d.description}`]),
-          lien: { href: "culture-gastronomie.html", label: "Voir les mets" },
+          icone: "🍲",
+          kind: "area-food",
+          raw: area,
+          extra: { dishes: areaDishes },
         });
       }
 
       if (area.artisanat) {
-        addPlace({
-          id: `artisanat-${area.id}`,
-          cat: "artisanat",
-          nom: `Artisanat ${area.nom}`,
-          icone: "🎨",
-          lieu: area.region,
-          lat: area.lat,
-          lng: area.lng,
-          resume: area.artisanat,
-          lignes: [],
-          lien: { href: "culture-gastronomie.html", label: "Voir la route des artisans" },
-        });
+        addPlace({ id: `artisanat-${area.id}`, cat: "artisanat", lat: area.lat, lng: area.lng, icone: "🎨", kind: "area-craft", raw: area });
       }
     });
 
-    events.forEach((ev) =>
-      addPlace({
-        id: `event-${ev.id}`,
-        cat: "evenements",
-        nom: ev.nom,
-        icone: "🎉",
-        lieu: `${ev.ville} · ${ev.aire}`,
-        lat: ev.lat,
-        lng: ev.lng,
-        resume: ev.description,
-        lignes: [
-          ["📅", [ev.frequence, ev.periode].filter(Boolean).join(" — ")],
-          ["⚠️", ev.approximatif && "Position approximative : vérifiez le lieu exact avant de partir."],
-          ["ℹ️", "Dates exactes à confirmer auprès des organisateurs ou de l'office de tourisme."],
-        ],
-        lien: { href: "culture-gastronomie.html", label: "Voir la culture de la région" },
-      })
-    );
+    events.forEach((ev) => addPlace({ id: `event-${ev.id}`, cat: "evenements", lat: ev.lat, lng: ev.lng, icone: "🎉", kind: "event", raw: ev }));
 
     const hotelsByVille = {};
     hotels.forEach((h) => {
       (hotelsByVille[h.ville] = hotelsByVille[h.ville] || []).push(h);
     });
-    const budgetOrder = ["Économique", "Milieu de gamme", "Haut de gamme"];
 
     villes.forEach((v) => {
       const list = hotelsByVille[v.ville];
       if (!list) return;
-      const budgets = budgetOrder.filter((b) => list.some((h) => h.budget === b));
       addPlace({
         id: `hotels-${v.ville}`,
         cat: "hotels",
-        nom: `Hôtels à ${v.ville}`,
-        icone: "🏨",
-        lieu: v.ville,
         lat: v.lat,
         lng: v.lng,
-        resume: `${list.length} hôtel${list.length > 1 ? "s" : ""} référencé${list.length > 1 ? "s" : ""} dans cette ville.`,
-        lignes: list.slice(0, 4).map((h) => ["🏨", `${h.nom} (${h.budget})`]),
-        budget: budgets.length ? `Hébergement : ${budgets.join(", ")}` : null,
-        lien: { href: `hotels.html?ville=${encodeURIComponent(v.ville)}`, label: "Voir les hôtels" },
+        icone: "🏨",
+        kind: "hotel-group",
+        raw: v,
+        extra: { hotels: list },
       });
     });
+  }
+
+  // ---------- Texte affiché, reconstruit dans la langue courante ----------
+
+  function describePlace(place) {
+    const { raw, extra, kind } = place;
+    switch (kind) {
+      case "site":
+        return {
+          nom: tf(raw, "nom"),
+          lieu: tf(raw, "region"),
+          resume: tf(raw, "description"),
+          lignes: [
+            [place.icone, (tf(raw, "activites") || []).length ? `${t("map_activites_label")} ${tf(raw, "activites").join(", ")}` : null],
+            ["🗓️", tf(raw, "meilleure_periode") ? `${t("map_periode_label")} ${tf(raw, "meilleure_periode")}` : null],
+            ["🌱", tf(raw, "conseil_durable")],
+          ],
+          lien: { href: "eco-tourisme.html", label: t("map_link_site") },
+        };
+      case "area-culture":
+        return {
+          nom: t("map_area_nom", { nom: tf(raw, "nom") }),
+          lieu: tf(raw, "region"),
+          resume: tf(raw, "description"),
+          lignes: [["🎭", (tf(raw, "traditions") || []).length ? `${t("map_traditions_label")} ${tf(raw, "traditions").join(", ")}` : null]],
+          lien: { href: "culture-gastronomie.html", label: t("map_link_site") },
+        };
+      case "area-food": {
+        const dishes = extra.dishes;
+        return {
+          nom: t("map_cuisine_nom", { nom: tf(raw, "nom") }),
+          lieu: tf(raw, "region"),
+          resume: t("map_dishes_intro", { n: dishes.length, list: dishes.map((d) => d.nom).join(", ") }),
+          lignes: dishes.map((d) => ["🍲", `${d.nom} — ${tf(d, "description")}`]),
+          lien: { href: "culture-gastronomie.html", label: t("map_link_dishes") },
+        };
+      }
+      case "area-craft":
+        return {
+          nom: t("map_artisanat_nom", { nom: tf(raw, "nom") }),
+          lieu: tf(raw, "region"),
+          resume: tf(raw, "artisanat"),
+          lignes: [],
+          lien: { href: "culture-gastronomie.html", label: t("map_link_crafts") },
+        };
+      case "event":
+        return {
+          nom: raw.nom,
+          lieu: `${raw.ville} · ${tf(raw, "aire")}`,
+          resume: tf(raw, "description"),
+          lignes: [
+            ["📅", [tf(raw, "frequence"), tf(raw, "periode")].filter(Boolean).join(" — ")],
+            ["⚠️", raw.approximatif ? t("map_event_approx") : null],
+            ["ℹ️", t("map_event_dates")],
+          ],
+          lien: { href: "culture-gastronomie.html", label: t("map_link_culture") },
+        };
+      case "hotel-group": {
+        const list = extra.hotels;
+        const budgetOrder = ["Économique", "Milieu de gamme", "Haut de gamme"];
+        const budgets = budgetOrder.filter((b) => list.some((h) => h.budget === b)).map(budgetLabel);
+        const n = list.length;
+        return {
+          nom: t("map_hotels_nom", { ville: raw.ville }),
+          lieu: raw.ville,
+          resume: n > 1 ? t("map_hotels_count_plural", { n }) : t("map_hotels_count", { n }),
+          lignes: list.slice(0, 4).map((h) => ["🏨", `${h.nom} (${budgetLabel(h.budget)})`]),
+          budget: budgets.length ? t("map_hebergement_label", { list: budgets.join(", ") }) : null,
+          lien: { href: `hotels.html?ville=${encodeURIComponent(raw.ville)}`, label: t("map_link_hotels") },
+        };
+      }
+      default:
+        return { nom: "", lieu: "", resume: "", lignes: [], lien: null };
+    }
   }
 
   // ---------- Marqueurs ----------
@@ -210,11 +228,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addMarkers() {
     places.forEach((place) => {
-      const marker = L.marker([place.lat, place.lng], { icon: makeIcon(place, false), title: place.nom })
-        .bindTooltip(place.nom, { direction: "top", offset: [0, -14] })
+      const nom = describePlace(place).nom;
+      const marker = L.marker([place.lat, place.lng], { icon: makeIcon(place, false), title: nom })
+        .bindTooltip(nom, { direction: "top", offset: [0, -14] })
         .on("click", () => showPlace(place))
         .addTo(layers[place.cat]);
       markers[place.id] = marker;
+    });
+  }
+
+  function refreshMarkerTooltips() {
+    places.forEach((place) => {
+      markers[place.id].setTooltipContent(describePlace(place).nom);
     });
   }
 
@@ -230,31 +255,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fly) map.flyTo([place.lat, place.lng], Math.max(map.getZoom(), 9));
 
     const cat = CATEGORIES[place.cat];
+    const info = describePlace(place);
     const d = withDistance(place);
     const added = window.CamtourTrip.has(place.id);
 
     detailEl.innerHTML = `
-      <span class="map-badge">${cat.icone} ${cat.label}</span>
-      <h3>${esc(place.icone)} ${esc(place.nom)}</h3>
-      <p class="map-detail-place">📍 ${esc(place.lieu)}${d !== null ? ` · à environ ${Math.round(d)} km` : ""}</p>
-      ${place.resume ? `<p class="map-detail-resume">${esc(place.resume)}</p>` : ""}
+      <span class="map-badge">${cat.icone} ${t(cat.key)}</span>
+      <h3>${esc(place.icone)} ${esc(info.nom)}</h3>
+      <p class="map-detail-place">📍 ${esc(info.lieu)}${d !== null ? t("map_distance", { km: Math.round(d) }) : ""}</p>
+      ${info.resume ? `<p class="map-detail-resume">${esc(info.resume)}</p>` : ""}
       ${
-        place.lignes.length
-          ? `<ul class="map-detail-lines">${place.lignes
+        info.lignes.filter(([, text]) => text).length
+          ? `<ul class="map-detail-lines">${info.lignes
+              .filter(([, text]) => text)
               .map(([icon, text]) => `<li><span>${icon}</span> ${esc(text)}</li>`)
               .join("")}</ul>`
           : ""
       }
-      <p class="map-detail-budget">💰 ${
-        place.budget
-          ? esc(place.budget)
-          : "Budget : estimé par CAMTOUR AI dans votre itinéraire, une fois le lieu ajouté à votre voyage."
-      }</p>
+      <p class="map-detail-budget">💰 ${info.budget ? esc(info.budget) : t("map_budget_est")}</p>
       <div class="map-detail-actions">
-        <button type="button" id="map-add" class="btn ${added ? "btn-outline-dark" : "btn-gold"}">${
-          added ? "✓ Ajouté — retirer" : "➕ Ajouter à mon voyage"
-        }</button>
-        ${place.lien ? `<a class="btn btn-outline-dark" href="${esc(place.lien.href)}">${esc(place.lien.label)}</a>` : ""}
+        <button type="button" id="map-add" class="btn ${added ? "btn-outline-dark" : "btn-gold"}">${added ? t("map_added") : t("map_add")}</button>
+        ${info.lien ? `<a class="btn btn-outline-dark" href="${esc(info.lien.href)}">${esc(info.lien.label)}</a>` : ""}
       </div>
     `;
 
@@ -262,13 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.CamtourTrip.has(place.id)) {
         window.CamtourTrip.remove(place.id);
       } else {
-        window.CamtourTrip.add({
-          id: place.id,
-          cat: place.cat,
-          nom: place.nom,
-          icone: place.icone,
-          lieu: place.lieu,
-        });
+        window.CamtourTrip.add({ id: place.id, cat: place.cat, nom: info.nom, icone: place.icone, lieu: info.lieu });
       }
     });
 
@@ -291,23 +306,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .slice(0, 8);
 
     if (!nearest.length) {
-      nearbyEl.innerHTML = '<p class="map-panel-hint">Aucune catégorie active : activez au moins un filtre.</p>';
+      nearbyEl.innerHTML = `<p class="map-panel-hint">${t("map_no_active_filter")}</p>`;
       nearbyEl.hidden = false;
-      return;
+      return nearest;
     }
 
     nearbyEl.innerHTML = `
-      <h3>📍 Autour de ${esc(origin.label)}</h3>
+      <h3>${t("map_nearby_title", { label: esc(origin.label) })}</h3>
       <ol class="map-nearby-list">
         ${nearest
-          .map(
-            ({ place, d }) => `
+          .map(({ place, d }) => {
+            const info = describePlace(place);
+            return `
           <li><button type="button" data-id="${esc(place.id)}">
             <span class="map-nearby-icon">${esc(place.icone)}</span>
-            <span class="map-nearby-name">${esc(place.nom)}<small>${CATEGORIES[place.cat].label} · ${esc(place.lieu)}</small></span>
+            <span class="map-nearby-name">${esc(info.nom)}<small>${t(CATEGORIES[place.cat].key)} · ${esc(info.lieu)}</small></span>
             <span class="map-nearby-dist">${Math.round(d)} km</span>
-          </button></li>`
-          )
+          </button></li>`;
+          })
           .join("")}
       </ol>
     `;
@@ -320,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setOrigin(lat, lng, label, { fromGps = false } = {}) {
     if (origin && origin.marker) map.removeLayer(origin.marker);
-    origin = { lat, lng, label };
+    origin = { lat, lng, label, fromGps };
     origin.marker = L.circleMarker([lat, lng], {
       radius: 9,
       color: "#fff",
@@ -328,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fillColor: "#2f6b45",
       fillOpacity: 1,
     })
-      .bindTooltip(fromGps ? "Vous êtes ici" : label)
+      .bindTooltip(fromGps ? t("map_here_tooltip") : label)
       .addTo(map);
 
     const nearest = refreshNearby();
@@ -337,28 +353,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nearest[0].d > 300) {
       // Loin du Cameroun : on montre les lieux les plus proches plutôt que la position
       map.fitBounds(L.latLngBounds(nearest.map(({ place }) => [place.lat, place.lng])), { padding: [40, 40] });
-      statusEl.textContent = fromGps
-        ? `Vous semblez être à plus de ${Math.round(nearest[0].d)} km du lieu le plus proche. Choisissez une ville du Cameroun dans la liste pour explorer autour d'elle.`
-        : "";
+      statusEl.textContent = fromGps ? t("map_locate_far", { km: Math.round(nearest[0].d) }) : "";
     } else {
       map.flyTo([lat, lng], 9);
-      statusEl.textContent = `${nearest.length} lieux à découvrir autour de ${label}.`;
+      statusEl.textContent = t("map_locate_nearby", { n: nearest.length, label });
     }
   }
 
   locateBtn.addEventListener("click", () => {
     if (!navigator.geolocation) {
-      statusEl.textContent = "Votre navigateur ne sait pas vous localiser. Choisissez une ville dans la liste.";
+      statusEl.textContent = t("map_locate_no_geoloc");
       return;
     }
-    statusEl.textContent = "Localisation en cours…";
+    statusEl.textContent = t("map_locate_loading");
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         citySelect.value = "";
-        setOrigin(pos.coords.latitude, pos.coords.longitude, "vous", { fromGps: true });
+        setOrigin(pos.coords.latitude, pos.coords.longitude, t("map_here"), { fromGps: true });
       },
       () => {
-        statusEl.textContent = "Impossible de vous localiser (accès refusé ou indisponible). Choisissez une ville dans la liste.";
+        statusEl.textContent = t("map_locate_denied");
       },
       { timeout: 10000 }
     );
@@ -374,20 +388,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     trayEl.innerHTML = `
-      <h3>🧳 Mon voyage : ${list.length} lieu${list.length > 1 ? "x" : ""} choisi${list.length > 1 ? "s" : ""}</h3>
+      <h3>${list.length > 1 ? t("map_tray_title_plural", { n: list.length }) : t("map_tray_title", { n: list.length })}</h3>
       <ul class="map-tray-list">
         ${list
           .map(
             (p) => `
           <li>${esc(p.icone)} ${esc(p.nom)}
-            <button type="button" data-remove="${esc(p.id)}" aria-label="Retirer ${esc(p.nom)}">✕</button>
+            <button type="button" data-remove="${esc(p.id)}" aria-label="${esc(t("remove_place_aria", { nom: p.nom }))}">✕</button>
           </li>`
           )
           .join("")}
       </ul>
       <div class="map-tray-actions">
-        <a class="btn btn-gold" href="planificateur.html">✨ Créer mon voyage avec ces lieux</a>
-        <button type="button" id="map-tray-clear" class="btn btn-outline-dark">Vider la liste</button>
+        <a class="btn btn-gold" href="planificateur.html">${t("map_tray_cta")}</a>
+        <button type="button" id="map-tray-clear" class="btn btn-outline-dark">${t("map_tray_clear")}</button>
       </div>
     `;
     trayEl.hidden = false;
@@ -401,6 +415,14 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTray();
     const selected = places.find((p) => p.id === selectedId);
     if (selected) showPlace(selected); // remet à jour le bouton Ajouter / Retirer
+  });
+
+  window.addEventListener("camtour-lang-changed", () => {
+    refreshMarkerTooltips();
+    renderTray();
+    refreshNearby();
+    const selected = places.find((p) => p.id === selectedId);
+    if (selected) showPlace(selected);
   });
 
   // ---------- Filtres ----------
@@ -450,7 +472,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => {
       console.error("Erreur de chargement des données de la carte :", err);
-      detailEl.innerHTML =
-        '<p class="map-panel-hint">Impossible de charger les lieux de la carte. Merci de réessayer plus tard.</p>';
+      detailEl.innerHTML = `<p class="map-panel-hint">${t("map_load_error")}</p>`;
     });
 });

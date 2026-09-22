@@ -7,32 +7,33 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/sites.json")
     .then((res) => res.json())
     .then((sites) => {
-      grid.innerHTML = sites.map(renderSiteCard).join("");
+      const render = () => (grid.innerHTML = sites.map(renderSiteCard).join(""));
+      render();
+      window.addEventListener("camtour-lang-changed", render);
     })
     .catch((err) => {
       console.error("Erreur de chargement des sites écotouristiques :", err);
-      grid.innerHTML =
-        '<div class="placeholder-block"><strong>Impossible de charger les sites</strong>Merci de réessayer plus tard.</div>';
+      const t = window.CamtourI18n.t;
+      grid.innerHTML = `<div class="placeholder-block"><strong>${t("eco_error")}</strong>${t("retry_later")}</div>`;
     });
 });
 
 function renderSiteCard(site) {
-  const activites = site.activites
-    .map((a) => `<li>${a}</li>`)
-    .join("");
+  const { tf, t } = window.CamtourI18n;
+  const activites = (tf(site, "activites") || []).map((a) => `<li>${a}</li>`).join("");
 
   return `
     <div class="card">
       <div class="card-image">
-        <img src="${site.image}" alt="${site.nom}" loading="lazy" />
-        <span class="card-region-badge">${site.region}</span>
+        <img src="${site.image}" alt="${tf(site, "nom")}" loading="lazy" />
+        <span class="card-region-badge">${tf(site, "region")}</span>
       </div>
       <div class="card-body">
-        <h3>${site.icone} ${site.nom}</h3>
-        <p>${site.description}</p>
+        <h3>${site.icone} ${tf(site, "nom")}</h3>
+        <p>${tf(site, "description")}</p>
         <ul class="card-list">${activites}</ul>
-        <p class="card-meta"><strong>Meilleure période :</strong> ${site.meilleure_periode}</p>
-        <p class="card-eco-tip">🌱 ${site.conseil_durable}</p>
+        <p class="card-meta"><strong>${t("eco_best_period")}</strong> ${tf(site, "meilleure_periode")}</p>
+        <p class="card-eco-tip">🌱 ${tf(site, "conseil_durable")}</p>
       </div>
     </div>
   `;

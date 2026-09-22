@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carte — CAMTOUR AI</title>
+  <title data-i18n="carte_title">Carte — CAMTOUR AI</title>
   <meta name="description" content="Explorez le Cameroun sur une carte interactive : sites écotouristiques, aires culturelles et villes hôtelières." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
 </head>
-<body data-page="carte">
+<body data-page="carte" data-i18n-title="carte_title">
 
   <header class="site-header">
     <div class="container">
@@ -21,20 +21,20 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </a>
-      <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" data-i18n-aria="nav_toggle_aria">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" data-page="accueil">Accueil</a></li>
-          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
-          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
-          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
-          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
-          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
-          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+          <li><a href="index.html" data-page="accueil" data-i18n="nav_accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur" data-i18n="nav_planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco" data-i18n="nav_eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture" data-i18n-html="nav_culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels" data-i18n="nav_hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte" data-i18n="nav_carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos" data-i18n="nav_apropos">À propos</a></li>
         </ul>
-        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+        <button type="button" class="nav-cta chat-trigger" data-i18n="nav_assistant">💬 Assistant IA</button>
       </nav>
     </div>
   </header>
@@ -42,38 +42,38 @@
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <span class="eyebrow">Explorer</span>
-        <h1>📍 Carte du Cameroun</h1>
-        <p>Explorez autour de vous, découvrez un lieu, puis ajoutez-le à votre voyage.</p>
+        <span class="eyebrow" data-i18n="carte_eyebrow">Explorer</span>
+        <h1 data-i18n="carte_h1">📍 Carte du Cameroun</h1>
+        <p data-i18n="carte_p">Explorez autour de vous, découvrez un lieu, puis ajoutez-le à votre voyage.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
         <div class="map-explore">
-          <button type="button" id="map-locate" class="btn btn-gold">📍 Explorer autour de moi</button>
-          <span class="map-explore-or">ou</span>
-          <label class="sr-only" for="map-city">Choisir une ville</label>
+          <button type="button" id="map-locate" class="btn btn-gold" data-i18n="carte_locate_btn">📍 Explorer autour de moi</button>
+          <span class="map-explore-or" data-i18n="carte_or">ou</span>
+          <label class="sr-only" for="map-city" data-i18n="carte_city_label">Choisir une ville</label>
           <select id="map-city">
-            <option value="">Choisir une ville…</option>
+            <option value="" data-i18n="carte_city_default">Choisir une ville…</option>
           </select>
           <p id="map-locate-status" class="map-locate-status" aria-live="polite"></p>
         </div>
 
         <div class="map-filters">
-          <button type="button" class="map-filter-btn active" data-filter="nature">🌿 Nature</button>
-          <button type="button" class="map-filter-btn active" data-filter="culture">🏛️ Culture</button>
-          <button type="button" class="map-filter-btn active" data-filter="gastronomie">🍲 Gastronomie</button>
-          <button type="button" class="map-filter-btn active" data-filter="artisanat">🎨 Artisanat</button>
-          <button type="button" class="map-filter-btn active" data-filter="hotels">🏨 Hôtels</button>
-          <button type="button" class="map-filter-btn active" data-filter="evenements">🎉 Événements</button>
+          <button type="button" class="map-filter-btn active" data-filter="nature" data-i18n="filter_nature">🌿 Nature</button>
+          <button type="button" class="map-filter-btn active" data-filter="culture" data-i18n="filter_culture">🏛️ Culture</button>
+          <button type="button" class="map-filter-btn active" data-filter="gastronomie" data-i18n="filter_gastronomie">🍲 Gastronomie</button>
+          <button type="button" class="map-filter-btn active" data-filter="artisanat" data-i18n="filter_artisanat">🎨 Artisanat</button>
+          <button type="button" class="map-filter-btn active" data-filter="hotels" data-i18n="filter_hotels">🏨 Hôtels</button>
+          <button type="button" class="map-filter-btn active" data-filter="evenements" data-i18n="filter_evenements">🎉 Événements</button>
         </div>
 
         <div class="map-layout">
           <div id="carte-cameroun" class="map-container"></div>
           <aside class="map-panel" aria-live="polite">
             <div id="map-detail" class="map-detail">
-              <p class="map-panel-hint">👆 Cliquez sur un lieu de la carte pour voir sa fiche, ou lancez « Explorer autour de moi ».</p>
+              <p class="map-panel-hint" data-i18n="map_panel_hint">👆 Cliquez sur un lieu de la carte pour voir sa fiche, ou lancez « Explorer autour de moi ».</p>
             </div>
             <div id="map-nearby" class="map-nearby" hidden></div>
           </aside>
@@ -90,12 +90,13 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </div>
-      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+      <p data-i18n-html="footer_text">&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
   </footer>
 
   <div id="chatbot-widget"></div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/map.js"></script>

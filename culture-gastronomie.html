@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Culture &amp; Gastronomie — CAMTOUR AI</title>
+  <title data-i18n-html="culture_title">Culture &amp; Gastronomie — CAMTOUR AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
 </head>
-<body data-page="culture">
+<body data-page="culture" data-i18n-title="culture_title">
 
   <header class="site-header">
     <div class="container">
@@ -19,20 +19,20 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </a>
-      <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" data-i18n-aria="nav_toggle_aria">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" data-page="accueil">Accueil</a></li>
-          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
-          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
-          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
-          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
-          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
-          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+          <li><a href="index.html" data-page="accueil" data-i18n="nav_accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur" data-i18n="nav_planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco" data-i18n="nav_eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture" data-i18n-html="nav_culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels" data-i18n="nav_hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte" data-i18n="nav_carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos" data-i18n="nav_apropos">À propos</a></li>
         </ul>
-        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+        <button type="button" class="nav-cta chat-trigger" data-i18n="nav_assistant">💬 Assistant IA</button>
       </nav>
     </div>
   </header>
@@ -40,22 +40,22 @@
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <span class="eyebrow">Traditions &amp; saveurs</span>
-        <h1>🍲 Culture &amp; Gastronomie</h1>
-        <p>Les 4 grandes aires culturelles et les 14 mets emblématiques du Cameroun.</p>
+        <span class="eyebrow" data-i18n-html="culture_eyebrow">Traditions &amp; saveurs</span>
+        <h1 data-i18n-html="culture_h1">🍲 Culture &amp; Gastronomie</h1>
+        <p data-i18n="culture_p">Les 4 grandes aires culturelles et les 14 mets emblématiques du Cameroun.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Peuples &amp; royaumes</span>
-          <h2>Aires culturelles</h2>
-          <p>Grassfields · Sawa · Sudano-Sahélienne · Fang-Beti</p>
+          <span class="eyebrow" data-i18n-html="culture_areas_eyebrow">Peuples &amp; royaumes</span>
+          <h2 data-i18n="culture_areas_h2">Aires culturelles</h2>
+          <p data-i18n="culture_areas_p">Grassfields · Sawa · Sudano-Sahélienne · Fang-Beti</p>
         </div>
         <div id="cultural-areas-grid" class="card-grid">
           <div class="placeholder-block">
-            <strong>Chargement des aires culturelles…</strong>
+            <strong data-i18n="culture_areas_loading">Chargement des aires culturelles…</strong>
           </div>
         </div>
       </div>
@@ -64,13 +64,13 @@
     <section id="mets">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Gastronomie</span>
-          <h2>Mets emblématiques</h2>
-          <p>Les 14 mets officiels du Cameroun, par aire socioculturelle</p>
+          <span class="eyebrow" data-i18n="culture_dishes_eyebrow">Gastronomie</span>
+          <h2 data-i18n="culture_dishes_h2">Mets emblématiques</h2>
+          <p data-i18n="culture_dishes_p">Les 14 mets officiels du Cameroun, par aire socioculturelle</p>
         </div>
         <div id="dishes-grid" class="card-grid">
           <div class="placeholder-block">
-            <strong>Chargement des mets emblématiques…</strong>
+            <strong data-i18n="culture_dishes_loading">Chargement des mets emblématiques…</strong>
           </div>
         </div>
       </div>
@@ -79,13 +79,13 @@
     <section id="artisanat">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Savoir-faire</span>
-          <h2>🎨 Route des artisans</h2>
-          <p>Les spécialités artisanales des 4 aires socioculturelles</p>
+          <span class="eyebrow" data-i18n="culture_artisanat_eyebrow">Savoir-faire</span>
+          <h2 data-i18n="culture_artisanat_h2">🎨 Route des artisans</h2>
+          <p data-i18n="culture_artisanat_p">Les spécialités artisanales des 4 aires socioculturelles</p>
         </div>
         <div id="artisanat-grid" class="card-grid">
           <div class="placeholder-block">
-            <strong>Chargement de l'artisanat…</strong>
+            <strong data-i18n="culture_artisanat_loading">Chargement de l'artisanat…</strong>
           </div>
         </div>
       </div>
@@ -98,12 +98,13 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </div>
-      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+      <p data-i18n-html="footer_text">&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
   </footer>
 
   <div id="chatbot-widget"></div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/render-cultural-areas.js"></script>
   <script src="js/render-dishes.js"></script>

@@ -4,21 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("chatbot-widget");
   if (!root) return;
 
+  const { t } = window.CamtourI18n;
+
   root.innerHTML = `
-    <button class="chatbot-launcher" aria-label="Ouvrir l'assistant IA">💬</button>
+    <button class="chatbot-launcher" aria-label="${esc(t("chat_launcher_aria"))}">💬</button>
     <div class="chatbot-panel" hidden>
       <div class="chatbot-header">
-        <span>🤖 Assistant CAMTOUR AI</span>
-        <button class="chatbot-close" aria-label="Fermer">✕</button>
+        <span data-i18n="chat_header">${esc(t("chat_header"))}</span>
+        <button class="chatbot-close" aria-label="${esc(t("chat_close_aria"))}">✕</button>
       </div>
       <div class="chatbot-messages" role="log" aria-live="polite"></div>
       <form class="chatbot-form">
-        <label for="chatbot-input" class="sr-only">Votre question pour l'assistant</label>
-        <input id="chatbot-input" type="text" class="chatbot-input" placeholder="Posez votre question..." autocomplete="off" />
-        <button type="submit" class="chatbot-send">Envoyer</button>
+        <label for="chatbot-input" class="sr-only">${esc(t("chat_input_label"))}</label>
+        <input id="chatbot-input" type="text" class="chatbot-input" placeholder="${esc(t("chat_input_placeholder"))}" autocomplete="off" />
+        <button type="submit" class="chatbot-send">${esc(t("chat_send"))}</button>
       </form>
     </div>
   `;
+
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  }
 
   const launcher = root.querySelector(".chatbot-launcher");
   const panel = root.querySelector(".chatbot-panel");
@@ -26,6 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const messagesEl = root.querySelector(".chatbot-messages");
   const form = root.querySelector(".chatbot-form");
   const input = root.querySelector(".chatbot-input");
+
+  // Retraduit les éléments fixes de la bulle quand la langue change (le contenu déjà écrit
+  // dans la conversation, lui, reste tel quel : il a été répondu dans la langue du moment).
+  window.addEventListener("camtour-lang-changed", () => {
+    launcher.setAttribute("aria-label", t("chat_launcher_aria"));
+    root.querySelector(".chatbot-header span").textContent = t("chat_header");
+    closeBtn.setAttribute("aria-label", t("chat_close_aria"));
+    input.placeholder = t("chat_input_placeholder");
+    form.querySelector(".chatbot-send").textContent = t("chat_send");
+  });
 
   const history = [];
   let hasGreeted = false;
@@ -44,10 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     launcher.hidden = true;
     if (!hasGreeted) {
       hasGreeted = true;
-      addMessage(
-        "assistant",
-        "Bonjour ! Je suis votre assistant pour découvrir le Cameroun : écotourisme, culture, gastronomie et hôtels. Posez-moi une question, dans la langue de votre choix."
-      );
+      addMessage("assistant", t("chat_greeting"));
     }
     input.focus();
   });
@@ -73,26 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: history, lang: window.CamtourI18n.getLang() }),
       });
 
       let data;
       try {
         data = await res.json();
       } catch (parseErr) {
-        throw new Error("Réponse inattendue du serveur.");
+        throw new Error(t("chat_server_error"));
       }
 
       if (!res.ok) {
-        thinkingBubble.textContent =
-          data.error || "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant.";
+        thinkingBubble.textContent = data.error || t("chat_unavailable");
       } else {
         thinkingBubble.textContent = data.reply;
         history.push({ role: "assistant", content: data.reply });
       }
     } catch (err) {
-      thinkingBubble.textContent =
-        "Impossible de contacter l'assistant IA. Vérifiez votre connexion internet et réessayez dans un instant.";
+      thinkingBubble.textContent = t("chat_network_error");
     } finally {
       input.disabled = false;
       input.focus();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAMTOUR AI — Votre voyage au Cameroun, construit par l'IA</title>
-  <meta name="description" content="Dites-nous ce que vous aimez, CAMTOUR AI construit votre voyage au Cameroun : itinéraire personnalisé, écotourisme, culture, gastronomie et hôtels, guidés par une IA multilingue." />
+  <title data-i18n="home_title">CAMTOUR AI — Votre voyage au Cameroun, construit par l'IA</title>
+  <meta name="description" content="Dites-nous ce que vous aimez, CAMTOUR AI construit votre voyage au Cameroun : itinéraire personnalisé, écotourisme, culture, gastronomie et hôtels, guidés par une IA multilingue." data-i18n-content="home_meta" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
 </head>
-<body data-page="accueil">
+<body data-page="accueil" data-i18n-title="home_title">
 
   <header class="site-header">
     <div class="container">
@@ -20,20 +20,20 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </a>
-      <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" data-i18n-aria="nav_toggle_aria">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" data-page="accueil">Accueil</a></li>
-          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
-          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
-          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
-          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
-          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
-          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+          <li><a href="index.html" data-page="accueil" data-i18n="nav_accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur" data-i18n="nav_planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco" data-i18n="nav_eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture" data-i18n-html="nav_culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels" data-i18n="nav_hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte" data-i18n="nav_carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos" data-i18n="nav_apropos">À propos</a></li>
         </ul>
-        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+        <button type="button" class="nav-cta chat-trigger" data-i18n="nav_assistant">💬 Assistant IA</button>
       </nav>
     </div>
   </header>
@@ -42,13 +42,13 @@
     <section class="hero">
       <div class="container">
         <div class="hero-inner">
-          <h1>Découvrez le Cameroun avec l'intelligence artificielle</h1>
-          <p>
+          <h1 data-i18n="home_hero_h1">Découvrez le Cameroun avec l'intelligence artificielle</h1>
+          <p data-i18n="home_hero_p">
             Rêve d'Afrique : visitez le Cameroun avec CAMTOUR IA.
           </p>
           <div class="hero-actions">
-            <a href="planificateur.html" class="btn btn-gold">🧳 Construire mon voyage</a>
-            <button type="button" class="btn btn-outline-light chat-trigger">🤖 Parler à CAMTOUR AI</button>
+            <a href="planificateur.html" class="btn btn-gold" data-i18n="home_hero_btn_build">🧳 Construire mon voyage</a>
+            <button type="button" class="btn btn-outline-light chat-trigger" data-i18n="home_hero_btn_chat">🤖 Parler à CAMTOUR AI</button>
           </div>
         </div>
       </div>
@@ -59,19 +59,19 @@
         <div class="quick-links-inner">
           <a class="quick-link" href="eco-tourisme.html">
             <span class="quick-link-icon">🌿</span>
-            Écotourisme
+            <span data-i18n="home_quicklink_eco">Écotourisme</span>
           </a>
           <a class="quick-link" href="culture-gastronomie.html">
             <span class="quick-link-icon">🍲</span>
-            Culture &amp; Gastronomie
+            <span data-i18n-html="home_quicklink_culture">Culture &amp; Gastronomie</span>
           </a>
           <a class="quick-link" href="hotels.html">
             <span class="quick-link-icon">🏨</span>
-            Hôtels
+            <span data-i18n="home_quicklink_hotels">Hôtels</span>
           </a>
           <a class="quick-link" href="carte.html">
             <span class="quick-link-icon">📍</span>
-            Carte
+            <span data-i18n="home_quicklink_carte">Carte</span>
           </a>
         </div>
       </div>
@@ -80,37 +80,37 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">À découvrir</span>
-          <h2>Quatre façons de découvrir le Cameroun</h2>
-          <p>Ce site rassemble en un seul endroit ce dont un visiteur a besoin.</p>
+          <span class="eyebrow" data-i18n="home_s1_eyebrow">À découvrir</span>
+          <h2 data-i18n="home_s1_h2">Quatre façons de découvrir le Cameroun</h2>
+          <p data-i18n="home_s1_p">Ce site rassemble en un seul endroit ce dont un visiteur a besoin.</p>
         </div>
         <div class="feature-grid">
           <a class="card feature-card" href="eco-tourisme.html">
             <div class="card-body">
               <div class="feature-icon">🌿</div>
-              <h3>Nature</h3>
-              <p>Parcs nationaux, réserves naturelles et tourisme durable, région par région.</p>
+              <h3 data-i18n="home_card_nature_h3">Nature</h3>
+              <p data-i18n="home_card_nature_p">Parcs nationaux, réserves naturelles et tourisme durable, région par région.</p>
             </div>
           </a>
           <a class="card feature-card" href="culture-gastronomie.html">
             <div class="card-body">
               <div class="feature-icon">🏛️</div>
-              <h3>Culture</h3>
-              <p>Les 4 grandes aires socioculturelles, leurs traditions, festivals et chefferies.</p>
+              <h3 data-i18n="home_card_culture_h3">Culture</h3>
+              <p data-i18n="home_card_culture_p">Les 4 grandes aires socioculturelles, leurs traditions, festivals et chefferies.</p>
             </div>
           </a>
           <a class="card feature-card" href="culture-gastronomie.html#mets">
             <div class="card-body">
               <div class="feature-icon">🍲</div>
-              <h3>Gastronomie</h3>
-              <p>Les 14 mets emblématiques officiels, classés par aire socioculturelle.</p>
+              <h3 data-i18n="home_card_gastro_h3">Gastronomie</h3>
+              <p data-i18n="home_card_gastro_p">Les 14 mets emblématiques officiels, classés par aire socioculturelle.</p>
             </div>
           </a>
           <a class="card feature-card" href="culture-gastronomie.html#artisanat">
             <div class="card-body">
               <div class="feature-icon">🎨</div>
-              <h3>Artisanat</h3>
-              <p>La route des artisans : sculpture, perlage, tissage et bronze, localité par localité.</p>
+              <h3 data-i18n="home_card_artisanat_h3">Artisanat</h3>
+              <p data-i18n="home_card_artisanat_p">La route des artisans : sculpture, perlage, tissage et bronze, localité par localité.</p>
             </div>
           </a>
         </div>
@@ -120,37 +120,37 @@
     <section>
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Explorer</span>
-          <h2>Où voulez-vous aller ?</h2>
-          <p>Les 4 grandes zones touristiques officielles du Cameroun.</p>
+          <span class="eyebrow" data-i18n="home_s2_eyebrow">Explorer</span>
+          <h2 data-i18n="home_s2_h2">Où voulez-vous aller ?</h2>
+          <p data-i18n="home_s2_p">Les 4 grandes zones touristiques officielles du Cameroun.</p>
         </div>
         <div class="feature-grid">
           <a class="card feature-card" href="carte.html">
             <div class="card-body">
               <div class="feature-icon">🏔️</div>
-              <h3>Zone des Montagnes</h3>
-              <p>Ouest &amp; Nord-Ouest — route des chefferies, artisanat, lacs et grottes.</p>
+              <h3 data-i18n="home_zone_mountains_h3">Zone des Montagnes</h3>
+              <p data-i18n-html="home_zone_mountains_p">Ouest &amp; Nord-Ouest — route des chefferies, artisanat, lacs et grottes.</p>
             </div>
           </a>
           <a class="card feature-card" href="carte.html">
             <div class="card-body">
               <div class="feature-icon">🏖️</div>
-              <h3>Zone Côtière</h3>
-              <p>Sud-Ouest, Littoral &amp; Sud — plages, Mont Cameroun, tortues marines.</p>
+              <h3 data-i18n="home_zone_coastal_h3">Zone Côtière</h3>
+              <p data-i18n-html="home_zone_coastal_p">Sud-Ouest, Littoral &amp; Sud — plages, Mont Cameroun, tortues marines.</p>
             </div>
           </a>
           <a class="card feature-card" href="carte.html">
             <div class="card-body">
               <div class="feature-icon">🌳</div>
-              <h3>Zone Forestière</h3>
-              <p>Centre, Sud &amp; Est — forêt équatoriale, gorilles, peuples Baka et Bagyeli.</p>
+              <h3 data-i18n="home_zone_forest_h3">Zone Forestière</h3>
+              <p data-i18n-html="home_zone_forest_p">Centre, Sud &amp; Est — forêt équatoriale, gorilles, peuples Baka et Bagyeli.</p>
             </div>
           </a>
           <a class="card feature-card" href="carte.html">
             <div class="card-body">
               <div class="feature-icon">🐪</div>
-              <h3>Zone Soudano-Sahélienne</h3>
-              <p>Adamaoua, Nord &amp; Extrême-Nord — safaris, paysages lunaires, sultanats.</p>
+              <h3 data-i18n="home_zone_sahel_h3">Zone Soudano-Sahélienne</h3>
+              <p data-i18n-html="home_zone_sahel_p">Adamaoua, Nord &amp; Extrême-Nord — safaris, paysages lunaires, sultanats.</p>
             </div>
           </a>
         </div>
@@ -165,12 +165,13 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </div>
-      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+      <p data-i18n-html="footer_text">&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
   </footer>
 
   <div id="chatbot-widget"></div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/chatbot-widget.js"></script>
 </body>

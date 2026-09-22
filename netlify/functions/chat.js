@@ -9,6 +9,12 @@ const anthropic = new Anthropic();
 
 const knowledge = loadKnowledge();
 
+const MESSAGES = {
+  fr: { badMethod: "Méthode non autorisée.", badRequest: "Requête invalide.", unavailable: "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant." },
+  en: { badMethod: "Method not allowed.", badRequest: "Invalid request.", unavailable: "The AI assistant is temporarily unavailable. Please try again shortly." },
+};
+const msg = (lang) => MESSAGES[lang] || MESSAGES.fr;
+
 const SYSTEM_PROMPT = `Tu es l'assistant touristique officiel du site "CAMTOUR AI".
 
 Règles :
@@ -23,19 +29,21 @@ Informations de référence (JSON) :
 ${JSON.stringify(knowledge)}`;
 
 exports.handler = async (event) => {
+  let lang = "fr";
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: JSON.stringify({ error: "Méthode non autorisée." }) };
+    return { statusCode: 405, body: JSON.stringify({ error: msg(lang).badMethod }) };
   }
 
   let messages;
   try {
     const body = JSON.parse(event.body || "{}");
     messages = body.messages;
+    if (body.lang === "en") lang = "en";
     if (!Array.isArray(messages) || messages.length === 0) {
       throw new Error("Liste de messages manquante ou vide.");
     }
   } catch (err) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Requête invalide." }) };
+    return { statusCode: 400, body: JSON.stringify({ error: msg(lang).badRequest }) };
   }
 
   try {
@@ -57,10 +65,6 @@ exports.handler = async (event) => {
       body: JSON.stringify({ reply }),
     };
   } catch (err) {
-    return apiErrorResponse(
-      "chat",
-      err,
-      "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant."
-    );
+    return apiErrorResponse("chat", err, msg(lang).unavailable);
   }
 };

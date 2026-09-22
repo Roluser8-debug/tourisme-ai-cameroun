@@ -3,112 +3,154 @@
     "id": "achu",
     "nom": "Achu",
     "region": "Aire socioculturelle Grassfields",
+    "region_en": "Grassfields sociocultural area",
     "image": "images/dishes/achu.jpg",
     "description": "Purée de taro jaune (« cocoyam »), servie avec une sauce jaune épicée à base de nkui, traditionnellement présentée lors de cérémonies.",
-    "accompagnement": "Se mange avec les doigts, en trempant l'achu dans la sauce"
+    "description_en": "Yellow taro (\"cocoyam\") pounded into a paste and served with a spicy yellow nkui-based sauce, traditionally served at ceremonies.",
+    "accompagnement": "Se mange avec les doigts, en trempant l'achu dans la sauce",
+    "accompagnement_en": "Eaten with the fingers, dipping the achu into the sauce"
   },
   {
     "id": "kondre",
     "nom": "Kondrè",
     "region": "Aire socioculturelle Grassfields",
+    "region_en": "Grassfields sociocultural area",
     "image": "images/dishes/kondre.jpg",
     "description": "Ragoût de plantain mijoté avec de la viande de bœuf ou de chèvre et de l'huile de palme, plat copieux en une seule marmite.",
-    "accompagnement": "Se mange seul"
+    "description_en": "A plantain stew simmered with beef or goat meat and palm oil, a hearty one-pot dish.",
+    "accompagnement": "Se mange seul",
+    "accompagnement_en": "Eaten on its own"
   },
   {
     "id": "sanga",
     "nom": "Sanga",
     "region": "Aire socioculturelle Fang-Béti",
+    "region_en": "Fang-Beti sociocultural area",
     "image": "images/dishes/sanga.jpg",
     "description": "Mélange traditionnel de maïs frais, de haricots et parfois d'arachides, mijoté à l'huile de palme.",
-    "accompagnement": "Se mange seul, en plat unique"
+    "description_en": "A traditional mix of fresh corn, beans and sometimes peanuts, simmered in palm oil.",
+    "accompagnement": "Se mange seul, en plat unique",
+    "accompagnement_en": "Eaten on its own, as a single dish"
   },
   {
     "id": "nnam-ngon",
     "nom": "Nnam Ngön",
     "region": "Aire socioculturelle Fang-Béti",
+    "region_en": "Fang-Beti sociocultural area",
     "image": "images/dishes/nnam-ngon.jpg",
     "description": "Gâteau à base de graines de courge ou de pistache (njansang/egusi), pilées puis cuites, souvent enveloppées dans des feuilles.",
-    "accompagnement": "Bâton de manioc ou plantain"
+    "description_en": "A cake made from pounded squash or pistachio seeds (njansang/egusi), then cooked, often wrapped in leaves.",
+    "accompagnement": "Bâton de manioc ou plantain",
+    "accompagnement_en": "Cassava stick (bâton de manioc) or plantain"
   },
   {
     "id": "domba",
     "nom": "Domba",
     "region": "Aire socioculturelle Fang-Béti",
+    "region_en": "Fang-Beti sociocultural area",
     "image": "images/dishes/domba.jpg",
     "description": "Poisson ou viande mariné aux légumes et épices, enveloppé et cuit à l'étouffée dans des feuilles de bananier.",
-    "accompagnement": "Plantains ou bâton de manioc"
+    "description_en": "Fish or meat marinated with vegetables and spices, wrapped and steam-cooked in banana leaves.",
+    "accompagnement": "Plantains ou bâton de manioc",
+    "accompagnement_en": "Plantains or cassava stick"
   },
   {
     "id": "bitoso",
     "nom": "Bitoso ri kipen ki bazi",
     "region": "Aire socioculturelle Fang-Béti",
+    "region_en": "Fang-Beti sociocultural area",
     "image": "images/dishes/bitoso.jpg",
     "description": "Spécialité traditionnelle de l'aire Fang-Béti, au nom issu des langues locales du Centre/Sud/Est.",
-    "accompagnement": "Selon la préparation locale"
+    "description_en": "A traditional specialty of the Fang-Beti area, whose name comes from local languages of the Centre/South/East.",
+    "accompagnement": "Selon la préparation locale",
+    "accompagnement_en": "Depending on the local preparation"
   },
   {
     "id": "okok",
     "nom": "Okok",
     "region": "Aire socioculturelle Fang-Béti",
+    "region_en": "Fang-Beti sociocultural area",
     "image": "images/dishes/okok.jpg",
     "description": "Feuilles d'okok (proches de l'eru) finement pilées, cuites avec de l'huile de palme et souvent des arachides ou du poisson.",
-    "accompagnement": "Bâton de manioc ou plantain"
+    "description_en": "Finely pounded okok leaves (close to eru), cooked with palm oil and often peanuts or fish.",
+    "accompagnement": "Bâton de manioc ou plantain",
+    "accompagnement_en": "Cassava stick or plantain"
   },
   {
     "id": "ndole",
     "nom": "Ndolé",
     "region": "Aire socioculturelle Sawa",
+    "region_en": "Sawa sociocultural area",
     "image": "images/dishes/ndole.jpg",
     "description": "Souvent considéré comme le plat national : feuilles de ndolé (légume à l'amertume caractéristique) mijotées avec des arachides pilées, du poisson fumé ou de la viande.",
-    "accompagnement": "Plantains, bâton de manioc ou riz"
+    "description_en": "Often regarded as the national dish: ndolé leaves (a vegetable with a distinctive bitterness) simmered with pounded peanuts, smoked fish or meat.",
+    "accompagnement": "Plantains, bâton de manioc ou riz",
+    "accompagnement_en": "Plantains, cassava stick or rice"
   },
   {
     "id": "bongo-o-tchobi",
     "nom": "Bongo'o Tchobi",
     "region": "Aire socioculturelle Sawa",
+    "region_en": "Sawa sociocultural area",
     "image": "images/dishes/mbongo-tchobi.jpg",
     "description": "« Sauce noire » emblématique de Douala, à base d'épices grillées et de champignons noirs, mijotée avec du poisson.",
-    "accompagnement": "Plantains mûrs ou riz blanc"
+    "description_en": "Douala's iconic \"black sauce\", made from roasted spices and black mushrooms, simmered with fish.",
+    "accompagnement": "Plantains mûrs ou riz blanc",
+    "accompagnement_en": "Ripe plantains or white rice"
   },
   {
     "id": "ekoki",
     "nom": "Ekoki",
     "region": "Aire socioculturelle Sawa",
+    "region_en": "Sawa sociocultural area",
     "image": "images/dishes/ekoki.jpg",
     "description": "Aussi appelé Ekwang : macabo (taro) finement râpé, enveloppé dans des feuilles de taro et cuit avec du poisson ou de la viande.",
-    "accompagnement": "Se mange seul, plat déjà complet"
+    "description_en": "Also called Ekwang: finely grated macabo (taro), wrapped in taro leaves and cooked with fish or meat.",
+    "accompagnement": "Se mange seul, plat déjà complet",
+    "accompagnement_en": "Eaten on its own, an already complete dish"
   },
   {
     "id": "eru",
     "nom": "Eru",
     "region": "Aire socioculturelle Sawa",
+    "region_en": "Sawa sociocultural area",
     "image": "images/dishes/eru.jpg",
     "description": "Feuilles d'eru finement émincées, mijotées avec de l'huile de palme, du waterleaf, et de la viande ou du poisson fumé.",
-    "accompagnement": "Fufu (pâte de manioc)"
+    "description_en": "Finely shredded eru leaves, simmered with palm oil, waterleaf, and meat or smoked fish.",
+    "accompagnement": "Fufu (pâte de manioc)",
+    "accompagnement_en": "Fufu (cassava dough)"
   },
   {
     "id": "kilichi",
     "nom": "Kilichi",
     "region": "Aire socioculturelle Soudano-Sahélienne",
+    "region_en": "Sudano-Sahelian sociocultural area",
     "image": "images/dishes/kilishi.jpg",
     "description": "Fines lamelles de viande de bœuf séchée et épicée, assaisonnées de pâte d'arachide et d'épices ; se consomme en encas.",
-    "accompagnement": "Se mange seul, en apéritif ou encas"
+    "description_en": "Thin strips of dried, spiced beef, seasoned with peanut paste and spices; eaten as a snack.",
+    "accompagnement": "Se mange seul, en apéritif ou encas",
+    "accompagnement_en": "Eaten on its own, as an appetiser or snack"
   },
   {
     "id": "nee-gouo-he",
     "nom": "Nèè Gouo Hè",
     "region": "Aire socioculturelle Soudano-Sahélienne",
+    "region_en": "Sudano-Sahelian sociocultural area",
     "image": "images/dishes/nee-gouo-he.jpg",
     "description": "Plat traditionnel du Nord, lié au couscous de mil rouge, blanc ou jaune.",
-    "accompagnement": "Couscous de mil"
+    "description_en": "A traditional northern dish, served with red, white or yellow millet couscous.",
+    "accompagnement": "Couscous de mil",
+    "accompagnement_en": "Millet couscous"
   },
   {
     "id": "mbokko-be-ngniiri",
     "nom": "Mbokko Bè Ngniiri",
     "region": "Aire socioculturelle Soudano-Sahélienne",
+    "region_en": "Sudano-Sahelian sociocultural area",
     "image": "images/dishes/mbokko-be-ngniiri.jpg",
     "description": "Plat traditionnel du Nord, préparé avec du couscous de maïs ou de mil.",
-    "accompagnement": "Couscous de maïs ou de mil"
+    "description_en": "A traditional northern dish, prepared with corn or millet couscous.",
+    "accompagnement": "Couscous de maïs ou de mil",
+    "accompagnement_en": "Corn or millet couscous"
   }
 ]

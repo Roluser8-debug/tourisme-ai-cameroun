@@ -64,6 +64,20 @@ ${JSON.stringify(knowledge)}`;
 
 const JOB_ID_PATTERN = /^[0-9a-f-]{36}$/;
 
+const MESSAGES = {
+  fr: {
+    badRequest: "Requête invalide.",
+    parseError: "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de réessayer ou de reformuler votre demande.",
+    unavailable: "Le planificateur est momentanément indisponible. Merci de réessayer dans un instant.",
+  },
+  en: {
+    badRequest: "Invalid request.",
+    parseError: "The assistant couldn't build a structured itinerary this time. Please try again or rephrase your request.",
+    unavailable: "The planner is temporarily unavailable. Please try again shortly.",
+  },
+};
+const msg = (lang) => MESSAGES[lang] || MESSAGES.fr;
+
 // Extrait l'objet JSON de la réponse, même si l'IA l'a entouré de texte ou de balises ```json.
 // Renvoie null si aucun JSON valide n'est trouvé (par exemple réponse coupée).
 function extractJson(text) {
@@ -85,10 +99,12 @@ exports.handler = async (event) => {
 
   let jobId;
   let messages;
+  let lang = "fr";
   try {
     const body = JSON.parse(event.body || "{}");
     jobId = body.jobId;
     messages = body.messages;
+    if (body.lang === "en") lang = "en";
     if (typeof jobId !== "string" || !JOB_ID_PATTERN.test(jobId)) {
       throw new Error("Identifiant de voyage invalide.");
     }
@@ -99,7 +115,7 @@ exports.handler = async (event) => {
     console.error("[trip-plan] Requête invalide :", err.message);
     // Sans identifiant valide, personne ne peut lire le résultat : on s'arrête là.
     if (typeof jobId === "string" && JOB_ID_PATTERN.test(jobId)) {
-      await store.setJSON(jobId, { status: "error", error: "Requête invalide." });
+      await store.setJSON(jobId, { status: "error", error: msg(lang).badRequest });
     }
     return { statusCode: 400 };
   }
@@ -123,22 +139,14 @@ exports.handler = async (event) => {
       console.error(
         `[trip-plan] Réponse non exploitable (stop_reason=${response.stop_reason}). Début : ${raw.slice(0, 300)} … Fin : ${raw.slice(-300)}`
       );
-      await store.setJSON(jobId, {
-        status: "error",
-        error:
-          "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de réessayer ou de reformuler votre demande.",
-      });
+      await store.setJSON(jobId, { status: "error", error: msg(lang).parseError });
       return { statusCode: 200 };
     }
 
     await store.setJSON(jobId, { status: "done", reply });
     return { statusCode: 200 };
   } catch (err) {
-    const error = visitorError(
-      "trip-plan",
-      err,
-      "Le planificateur est momentanément indisponible. Merci de réessayer dans un instant."
-    );
+    const error = visitorError("trip-plan", err, msg(lang).unavailable);
     await store.setJSON(jobId, { status: "error", error });
     return { statusCode: 200 };
   }

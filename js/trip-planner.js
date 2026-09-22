@@ -1,10 +1,14 @@
 // Planificateur de voyage IA — 4 écrans (envies, profil, trajet, budget), génération animée,
 // itinéraire détaillé et modification du voyage par conversation.
 // Parle à /api/trip-plan (lancement en tâche de fond) et /api/trip-plan-status (résultat prêt ?).
+// Bilingue : tous les textes passent par window.CamtourI18n.t(), y compris le message envoyé à
+// l'IA (buildPreferencesMessage) — important, car le serveur répond dans la langue de ce message.
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("trip-form");
   if (!form) return;
+
+  const { t } = window.CamtourI18n;
 
   const steps = Array.from(form.querySelectorAll(".trip-step"));
   const prevBtn = document.getElementById("trip-prev");
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fcfa(n) {
-    return `${Math.round(Number(n) || 0).toLocaleString("fr-FR")} FCFA`;
+    return `${Math.round(Number(n) || 0).toLocaleString(window.CamtourI18n.getLang() === "en" ? "en-US" : "fr-FR")} FCFA`;
   }
 
   function wait(ms) {
@@ -53,9 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.hidden = index === 0;
     nextBtn.hidden = index === steps.length - 1;
     submitBtn.hidden = index !== steps.length - 1;
-    progressLabel.textContent = `Étape ${index + 1} sur ${steps.length}`;
-    progressFill.style.width = `${((index + 1) / steps.length) * 100}%`;
+    progressLabel.textContent = t("plan_progress", { n: index + 1, total: steps.length });
   }
+  window.addEventListener("camtour-lang-changed", () => {
+    if (!form.hidden) showStep(currentStep); // le libellé "Étape X sur Y" doit rester à jour
+  });
 
   function validateStep(index) {
     const step = steps[index];
@@ -98,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- Budget : répartition indicative en direct ----------
 
   const BUDGET_SPLIT = [
-    ["🚗", "Transport estimé", 0.25],
-    ["🏨", "Hébergement estimé", 0.35],
-    ["🎟️", "Activités", 0.2],
-    ["🍲", "Repas", 0.2],
+    ["plan_budget_transport", 0.25],
+    ["plan_budget_hebergement", 0.35],
+    ["plan_budget_activites", 0.2],
+    ["plan_budget_repas", 0.2],
   ];
 
   function updateBudgetPreview() {
@@ -111,19 +117,17 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     budgetPreview.innerHTML = `
-      <p class="trip-budget-preview-title">CAMTOUR AI estime pour ${fcfa(budget)} :</p>
+      <p class="trip-budget-preview-title">${t("plan_budget_preview_title", { budget: fcfa(budget) })}</p>
       <ul>
-        ${BUDGET_SPLIT.map(
-          ([icon, label, share]) =>
-            `<li><span>${icon} ${label}</span><strong>≈ ${fcfa(budget * share)}</strong></li>`
-        ).join("")}
+        ${BUDGET_SPLIT.map(([key, share]) => `<li><span>${t(key)}</span><strong>≈ ${fcfa(budget * share)}</strong></li>`).join("")}
       </ul>
-      <p class="trip-budget-preview-note">Répartition indicative : l'IA l'affinera selon votre itinéraire.</p>
+      <p class="trip-budget-preview-note">${t("plan_budget_preview_note")}</p>
     `;
     budgetPreview.hidden = false;
   }
 
   budgetInput.addEventListener("input", updateBudgetPreview);
+  window.addEventListener("camtour-lang-changed", updateBudgetPreview);
 
   form.querySelectorAll("[data-budget]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -145,19 +149,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     placesEl.innerHTML = `
-      <h3>📍 Lieux choisis sur la carte (${list.length})</h3>
-      <p>CAMTOUR AI les intégrera à votre itinéraire.</p>
+      <h3>${t("plan_places_title", { n: list.length })}</h3>
+      <p>${t("plan_places_hint")}</p>
       <ul class="trip-places-list">
         ${list
           .map(
             (p) => `
           <li>${esc(p.icone)} ${esc(p.nom)}
-            <button type="button" data-remove="${esc(p.id)}" aria-label="Retirer ${esc(p.nom)}">✕</button>
+            <button type="button" data-remove="${esc(p.id)}" aria-label="${esc(t("remove_place_aria", { nom: p.nom }))}">✕</button>
           </li>`
           )
           .join("")}
       </ul>
-      <a href="carte.html">➕ Ajouter d'autres lieux depuis la carte</a>
+      <a href="carte.html">${t("plan_places_add_more")}</a>
     `;
     placesEl.hidden = false;
     placesEl.querySelectorAll("[data-remove]").forEach((btn) => {
@@ -167,20 +171,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderSelectedPlaces();
   window.addEventListener("camtour-trip-changed", renderSelectedPlaces);
+  window.addEventListener("camtour-lang-changed", renderSelectedPlaces);
 
   // ---------- Demande à l'IA ----------
 
+  // Important : ce message est envoyé comme "dernier message du visiteur". Le serveur répond dans
+  // la même langue, donc il doit toujours être construit dans la langue actuelle de la page.
   function buildPreferencesMessage(formData) {
     const depart = formData.get("depart");
     const duree = formData.get("duree");
     const budget = formData.get("budget");
-    const profil = formData.get("profil");
-    const interets = formData.getAll("interets");
+    const profilValue = formData.get("profil");
+    const profilLabels = {
+      "Seul(e)": "plan_profil_seul",
+      "En couple": "plan_profil_couple",
+      "En famille": "plan_profil_famille",
+      "Entre amis": "plan_profil_amis",
+      "Voyage professionnel": "plan_profil_pro",
+    };
+    const interetLabels = {
+      Nature: "plan_interest_nature",
+      Culture: "plan_interest_culture",
+      Gastronomie: "plan_interest_gastronomie",
+      Artisanat: "plan_interest_artisanat",
+      Faune: "plan_interest_faune",
+      Plages: "plan_interest_plages",
+      Montagnes: "plan_interest_montagnes",
+      Histoire: "plan_interest_histoire",
+    };
+    const profil = (t(profilLabels[profilValue]) || profilValue).replace(/^\S+\s/, ""); // retire l'emoji
+    const interets = formData
+      .getAll("interets")
+      .map((v) => (t(interetLabels[v]) || v).replace(/^\S+\s/, ""));
     const lieux = window.CamtourTrip.get();
 
-    let message = `Je pars de ${depart} pour ${duree} jour(s), avec un budget total d'environ ${budget} FCFA. Je voyage : ${profil}. Ce que je veux découvrir : ${interets.length ? interets.join(", ") : "pas de préférence particulière"}.`;
+    let message = t("plan_ai_message", {
+      depart,
+      duree,
+      budget,
+      profil,
+      interets: interets.length ? interets.join(", ") : t("plan_ai_no_preference"),
+    });
     if (lieux.length) {
-      message += ` Lieux que je veux absolument visiter : ${lieux.map((p) => `${p.nom} (${p.lieu})`).join(" ; ")}.`;
+      message += t("plan_ai_places_suffix", { list: lieux.map((p) => `${p.nom} (${p.lieu})`).join(" ; ") });
     }
     return message;
   }
@@ -196,10 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const startRes = await fetch("/api/trip-plan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jobId, messages: history }),
+      body: JSON.stringify({ jobId, messages: history, lang: window.CamtourI18n.getLang() }),
     });
     if (!startRes.ok) {
-      throw new Error("Le planificateur est momentanément indisponible. Merci de réessayer dans un instant.");
+      throw new Error(t("plan_start_unavailable"));
     }
 
     let data;
@@ -217,12 +250,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (data.status === "done") break;
       if (data.status === "error") {
-        throw new Error(data.error || "Le planificateur est momentanément indisponible.");
+        throw new Error(data.error || t("plan_start_unavailable"));
       }
       if (Date.now() - startedAt > POLL_MAX_WAIT_MS) {
-        throw new Error(
-          "La création du voyage prend plus de temps que prévu. Merci de réessayer dans un instant."
-        );
+        throw new Error(t("plan_wait_too_long"));
       }
     }
 
@@ -231,9 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
       itinerary = JSON.parse(data.reply);
       if (!Array.isArray(itinerary.jours) || itinerary.jours.length === 0) throw new Error("vide");
     } catch (err) {
-      throw new Error(
-        "L'assistant n'a pas pu construire un itinéraire structuré cette fois-ci. Merci de reformuler votre demande."
-      );
+      throw new Error(t("plan_parse_error"));
     }
 
     history.push({ role: "assistant", content: data.reply });
@@ -242,13 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- Animation pendant la génération ----------
 
-  const LOADER_MESSAGES = [
-    "Analyse de vos envies…",
-    "Sélection des lieux à visiter…",
-    "Choix des repas et des hébergements…",
-    "Calcul de votre budget…",
-    "Dernières touches à votre itinéraire…",
-  ];
+  const LOADER_KEYS = ["plan_loader_1", "plan_loader_2", "plan_loader_3", "plan_loader_4", "plan_loader_5"];
   let loaderTimer = null;
 
   function startLoader() {
@@ -257,16 +280,16 @@ document.addEventListener("DOMContentLoaded", () => {
     resultEl.innerHTML = `
       <div class="trip-loader" role="status">
         <div class="trip-loader-icon" aria-hidden="true">🤖</div>
-        <p class="trip-loader-title">CAMTOUR AI prépare votre expérience...</p>
-        <p class="trip-loader-step" id="trip-loader-step">${LOADER_MESSAGES[0]}</p>
+        <p class="trip-loader-title">${t("plan_loader_title")}</p>
+        <p class="trip-loader-step" id="trip-loader-step">${t(LOADER_KEYS[0])}</p>
         <div class="trip-loader-bar" aria-hidden="true"><span></span></div>
       </div>
     `;
     resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
     const stepEl = document.getElementById("trip-loader-step");
     loaderTimer = setInterval(() => {
-      i = (i + 1) % LOADER_MESSAGES.length;
-      stepEl.textContent = LOADER_MESSAGES[i];
+      i = (i + 1) % LOADER_KEYS.length;
+      stepEl.textContent = t(LOADER_KEYS[i]);
     }, 4000);
   }
 
@@ -280,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function costLabel(value) {
     if (value === null || value === undefined || value === "") return null;
     const n = Number(value);
-    if (Number.isFinite(n)) return n === 0 ? "Gratuit" : `≈ ${fcfa(n)}`;
+    if (Number.isFinite(n)) return n === 0 ? t("map_budget_free") : `≈ ${fcfa(n)}`;
     return String(value);
   }
 
@@ -319,47 +342,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderBudget(b) {
     const rows = [
-      ["🚗", "Transport", Number(b.transport) || 0],
-      ["🏨", "Hébergement", Number(b.hebergement) || 0],
-      ["🎟️", "Activités", Number(b.activites) || 0],
-      ["🍲", "Repas", Number(b.repas) || 0],
+      ["🚗", "plan_budget_transport_row", Number(b.transport) || 0],
+      ["🏨", "plan_budget_hebergement_row", Number(b.hebergement) || 0],
+      ["🎟️", "plan_budget_activites_row", Number(b.activites) || 0],
+      ["🍲", "plan_budget_repas_row", Number(b.repas) || 0],
     ];
     // Le total est recalculé ici : plus fiable qu'une addition faite par l'IA.
     const total = rows.reduce((sum, [, , value]) => sum + value, 0);
 
     const over =
       tripMeta && tripMeta.budget && total > tripMeta.budget * 1.05
-        ? `<p class="trip-budget-warning">⚠️ Cette estimation dépasse un peu votre budget de ${fcfa(tripMeta.budget)}. Demandez à CAMTOUR AI de l'adapter ci-dessous.</p>`
+        ? `<p class="trip-budget-warning">${t("plan_budget_over", { budget: fcfa(tripMeta.budget) })}</p>`
         : "";
 
     return `
       <div class="trip-budget">
-        <h3>💰 Budget estimatif</h3>
+        <h3>${t("plan_budget_title")}</h3>
         <ul>
           ${rows
             .map(
-              ([icon, label, value]) => `
+              ([icon, key, value]) => `
             <li>
-              <span>${icon} ${label}</span>
+              <span>${icon} ${t(key)}</span>
               <strong>${fcfa(value)}</strong>
               <i class="trip-budget-bar" style="width:${total ? Math.round((value / total) * 100) : 0}%"></i>
             </li>`
             )
             .join("")}
-          <li class="trip-budget-total"><span>Total estimé</span><strong>${fcfa(total)}</strong></li>
+          <li class="trip-budget-total"><span>${t("plan_budget_total")}</span><strong>${fcfa(total)}</strong></li>
         </ul>
         ${over}
-        <p class="trip-budget-note">${esc(b.note || "Estimation indicative, à confirmer sur place — pas de prix garanti.")}</p>
+        <p class="trip-budget-note">${esc(b.note || t("plan_budget_default_note"))}</p>
       </div>
     `;
   }
 
-  const REFINE_SUGGESTIONS = [
-    "Je n'ai finalement que 80 000 FCFA.",
-    "Je voyage maintenant avec mes deux enfants.",
-    "Je veux plus de gastronomie et moins de musées.",
-    "Ajoute un jour de plus.",
-  ];
+  const REFINE_SUGGESTION_KEYS = ["plan_suggestion_budget", "plan_suggestion_famille", "plan_suggestion_gastro", "plan_suggestion_days"];
 
   function renderItinerary(itinerary) {
     // L'IA renvoie un "resume" à jour (durée, budget, profil) après chaque modification.
@@ -369,13 +387,8 @@ document.addEventListener("DOMContentLoaded", () => {
       budget: Number(r.budget) || (tripMeta && tripMeta.budget) || 0,
       profil: r.profil || (tripMeta && tripMeta.profil) || "",
     };
-    const metaLine = [
-      `${tripMeta.jours} jour${tripMeta.jours > 1 ? "s" : ""}`,
-      tripMeta.budget ? fcfa(tripMeta.budget) : "",
-      tripMeta.profil,
-    ]
-      .filter(Boolean)
-      .join(" · ");
+    const dayWord = tripMeta.jours > 1 ? t("plan_days_plural") : t("plan_days");
+    const metaLine = [`${tripMeta.jours} ${dayWord}`, tripMeta.budget ? fcfa(tripMeta.budget) : "", tripMeta.profil].filter(Boolean).join(" · ");
 
     const days = itinerary.jours
       .map(
@@ -404,8 +417,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultEl.innerHTML = `
       <div class="trip-hero">
-        <p class="trip-ready">✅ Votre voyage est prêt.</p>
-        <h2>🌍 Mon voyage au Cameroun</h2>
+        <p class="trip-ready">${t("plan_ready")}</p>
+        <h2>${t("plan_hero_title")}</h2>
         <p class="trip-hero-meta">${esc(metaLine)}</p>
       </div>
       ${introMessage ? `<p class="trip-message">${esc(introMessage)}</p>` : ""}
@@ -413,20 +426,20 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="trip-days">${days}</div>
       ${renderBudget(itinerary.budget_estime || {})}
       <div class="trip-refine">
-        <h3>💬 Modifier mon voyage</h3>
-        <p class="trip-refine-hint">Dites à CAMTOUR AI ce qui change : il réorganise tout l'itinéraire pour vous.</p>
+        <h3>${t("plan_refine_h3")}</h3>
+        <p class="trip-refine-hint">${t("plan_refine_hint")}</p>
         <div class="trip-suggestions">
-          ${REFINE_SUGGESTIONS.map((s) => `<button type="button" class="trip-suggestion">${esc(s)}</button>`).join("")}
+          ${REFINE_SUGGESTION_KEYS.map((key) => `<button type="button" class="trip-suggestion">${esc(t(key))}</button>`).join("")}
         </div>
         <form id="trip-refine-form" class="trip-refine-form">
-          <label class="sr-only" for="trip-refine-input">Modifier mon voyage</label>
-          <input id="trip-refine-input" type="text" placeholder="Ex. « Réduis le budget à 80 000 FCFA »" autocomplete="off" />
-          <button type="submit" class="btn btn-gold">Envoyer</button>
+          <label class="sr-only" for="trip-refine-input">${t("plan_refine_h3")}</label>
+          <input id="trip-refine-input" type="text" placeholder="${esc(t("plan_refine_placeholder"))}" autocomplete="off" />
+          <button type="submit" class="btn btn-gold">${t("plan_refine_send")}</button>
         </form>
         <p id="trip-refine-status" class="trip-refine-status" aria-live="polite"></p>
       </div>
       <div class="trip-restart">
-        <button type="button" id="trip-restart" class="btn btn-outline-dark">🔄 Créer un nouveau voyage</button>
+        <button type="button" id="trip-restart" class="btn btn-outline-dark">${t("plan_restart")}</button>
       </div>
     `;
     resultEl.hidden = false;
@@ -454,11 +467,11 @@ document.addEventListener("DOMContentLoaded", () => {
       history.push({ role: "user", content: text });
       refineInput.disabled = true;
       refineBtn.disabled = true;
-      refineStatus.textContent = "🤖 CAMTOUR AI adapte votre voyage… cela peut prendre une minute.";
+      refineStatus.textContent = t("plan_refine_loading");
 
       try {
         const updated = await callTripPlan();
-        chatLog.push({ user: text, ai: updated.message || "J'ai mis à jour votre voyage." });
+        chatLog.push({ user: text, ai: updated.message || t("plan_ready") });
         renderItinerary(updated);
       } catch (err) {
         history.pop(); // la demande n'a pas abouti : on ne la garde pas dans la conversation
@@ -520,7 +533,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultEl.innerHTML = `
         <p class="trip-message trip-message--error">${esc(err.message)}</p>
         <div class="trip-restart">
-          <button type="button" id="trip-retry" class="btn btn-gold">↩︎ Revenir au formulaire</button>
+          <button type="button" id="trip-retry" class="btn btn-gold">${t("plan_retry")}</button>
         </div>
       `;
       document.getElementById("trip-retry").addEventListener("click", () => {

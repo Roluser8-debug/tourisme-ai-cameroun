@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon voyage — CAMTOUR AI</title>
-  <meta name="description" content="Construisez votre voyage au Cameroun avec l'intelligence artificielle : itinéraire personnalisé et budget estimé selon vos envies." />
+  <title data-i18n="plan_title">Mon voyage — CAMTOUR AI</title>
+  <meta name="description" content="Construisez votre voyage au Cameroun avec l'intelligence artificielle : itinéraire personnalisé et budget estimé selon vos envies." data-i18n-content="plan_meta" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="images/favicon-32.png" />
   <link rel="apple-touch-icon" href="images/favicon-180.png" />
 </head>
-<body data-page="planificateur">
+<body data-page="planificateur" data-i18n-title="plan_title">
 
   <header class="site-header">
     <div class="container">
@@ -20,20 +20,20 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </a>
-      <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" data-i18n-aria="nav_toggle_aria">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" data-page="accueil">Accueil</a></li>
-          <li><a href="planificateur.html" data-page="planificateur">🧳 Mon voyage</a></li>
-          <li><a href="eco-tourisme.html" data-page="eco">Écotourisme</a></li>
-          <li><a href="culture-gastronomie.html" data-page="culture">Culture &amp; Gastronomie</a></li>
-          <li><a href="hotels.html" data-page="hotels">Hôtels</a></li>
-          <li><a href="carte.html" data-page="carte">📍 Carte</a></li>
-          <li><a href="a-propos.html" data-page="apropos">À propos</a></li>
+          <li><a href="index.html" data-page="accueil" data-i18n="nav_accueil">Accueil</a></li>
+          <li><a href="planificateur.html" data-page="planificateur" data-i18n="nav_planificateur">🧳 Mon voyage</a></li>
+          <li><a href="eco-tourisme.html" data-page="eco" data-i18n="nav_eco">Écotourisme</a></li>
+          <li><a href="culture-gastronomie.html" data-page="culture" data-i18n-html="nav_culture">Culture &amp; Gastronomie</a></li>
+          <li><a href="hotels.html" data-page="hotels" data-i18n="nav_hotels">Hôtels</a></li>
+          <li><a href="carte.html" data-page="carte" data-i18n="nav_carte">📍 Carte</a></li>
+          <li><a href="a-propos.html" data-page="apropos" data-i18n="nav_apropos">À propos</a></li>
         </ul>
-        <button type="button" class="nav-cta chat-trigger">💬 Assistant IA</button>
+        <button type="button" class="nav-cta chat-trigger" data-i18n="nav_assistant">💬 Assistant IA</button>
       </nav>
     </div>
   </header>
@@ -41,66 +41,66 @@
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <span class="eyebrow">Planificateur IA</span>
-        <h1>🧳 Construire mon voyage</h1>
-        <p>Dites-nous ce que vous aimez, CAMTOUR AI construit votre expérience.</p>
+        <span class="eyebrow" data-i18n="plan_eyebrow">Planificateur IA</span>
+        <h1 data-i18n="plan_h1">🧳 Construire mon voyage</h1>
+        <p data-i18n="plan_p">Dites-nous ce que vous aimez, CAMTOUR AI construit votre expérience.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
-        <p class="info-banner">ℹ️ L'itinéraire et le budget proposés sont générés par l'IA à partir du contenu réel du site (parcs, mets, hôtels, circuits) — le budget reste une estimation indicative, à confirmer sur place.</p>
+        <p class="info-banner" data-i18n="plan_info_banner">ℹ️ L'itinéraire et le budget proposés sont générés par l'IA à partir du contenu réel du site (parcs, mets, hôtels, circuits) — le budget reste une estimation indicative, à confirmer sur place.</p>
 
         <div id="trip-places" class="trip-places" hidden></div>
 
         <form id="trip-form" class="trip-form">
           <div class="trip-progress" aria-live="polite">
-            <p id="trip-progress-label" class="trip-progress-label">Étape 1 sur 4</p>
+            <p id="trip-progress-label" class="trip-progress-label" data-i18n="plan_progress">Étape 1 sur 4</p>
             <div class="trip-progress-bar"><span id="trip-progress-fill"></span></div>
           </div>
 
           <div class="trip-step" data-step="1" data-min-checked="1">
-            <h2>Quel voyage souhaitez-vous vivre au Cameroun ?</h2>
-            <p class="trip-step-hint">Je veux découvrir :</p>
+            <h2 data-i18n="plan_step1_h2">Quel voyage souhaitez-vous vivre au Cameroun ?</h2>
+            <p class="trip-step-hint" data-i18n="plan_step1_hint">Je veux découvrir :</p>
             <div class="trip-choices trip-choices--big">
-              <label><input type="checkbox" name="interets" value="Nature" /> 🌿 Nature</label>
-              <label><input type="checkbox" name="interets" value="Culture" /> 🏛️ Culture</label>
-              <label><input type="checkbox" name="interets" value="Gastronomie" /> 🍲 Gastronomie</label>
-              <label><input type="checkbox" name="interets" value="Artisanat" /> 🎨 Artisanat</label>
-              <label><input type="checkbox" name="interets" value="Faune" /> 🐘 Faune</label>
-              <label><input type="checkbox" name="interets" value="Plages" /> 🏖️ Plages</label>
-              <label><input type="checkbox" name="interets" value="Montagnes" /> 🏔️ Montagnes</label>
-              <label><input type="checkbox" name="interets" value="Histoire" /> 🏺 Histoire</label>
+              <label><input type="checkbox" name="interets" value="Nature" /> <span data-i18n="plan_interest_nature">🌿 Nature</span></label>
+              <label><input type="checkbox" name="interets" value="Culture" /> <span data-i18n="plan_interest_culture">🏛️ Culture</span></label>
+              <label><input type="checkbox" name="interets" value="Gastronomie" /> <span data-i18n="plan_interest_gastronomie">🍲 Gastronomie</span></label>
+              <label><input type="checkbox" name="interets" value="Artisanat" /> <span data-i18n="plan_interest_artisanat">🎨 Artisanat</span></label>
+              <label><input type="checkbox" name="interets" value="Faune" /> <span data-i18n="plan_interest_faune">🐘 Faune</span></label>
+              <label><input type="checkbox" name="interets" value="Plages" /> <span data-i18n="plan_interest_plages">🏖️ Plages</span></label>
+              <label><input type="checkbox" name="interets" value="Montagnes" /> <span data-i18n="plan_interest_montagnes">🏔️ Montagnes</span></label>
+              <label><input type="checkbox" name="interets" value="Histoire" /> <span data-i18n="plan_interest_histoire">🏺 Histoire</span></label>
             </div>
-            <p class="trip-step-error" hidden>Choisissez au moins une envie pour continuer.</p>
+            <p class="trip-step-error" hidden data-i18n="plan_step1_error">Choisissez au moins une envie pour continuer.</p>
           </div>
 
           <div class="trip-step" data-step="2" hidden>
-            <h2>Avec qui voyagez-vous ?</h2>
+            <h2 data-i18n="plan_step2_h2">Avec qui voyagez-vous ?</h2>
             <div class="trip-choices trip-choices--big">
-              <label><input type="radio" name="profil" value="Seul(e)" required /> 🧍 Seul</label>
-              <label><input type="radio" name="profil" value="En couple" /> 💑 Couple</label>
-              <label><input type="radio" name="profil" value="En famille" /> 👨‍👩‍👧 Famille</label>
-              <label><input type="radio" name="profil" value="Entre amis" /> 🧑‍🤝‍🧑 Amis</label>
-              <label><input type="radio" name="profil" value="Voyage professionnel" /> 💼 Voyage professionnel</label>
+              <label><input type="radio" name="profil" value="Seul(e)" required /> <span data-i18n="plan_profil_seul">🧍 Seul</span></label>
+              <label><input type="radio" name="profil" value="En couple" /> <span data-i18n="plan_profil_couple">💑 Couple</span></label>
+              <label><input type="radio" name="profil" value="En famille" /> <span data-i18n="plan_profil_famille">👨‍👩‍👧 Famille</span></label>
+              <label><input type="radio" name="profil" value="Entre amis" /> <span data-i18n="plan_profil_amis">🧑‍🤝‍🧑 Amis</span></label>
+              <label><input type="radio" name="profil" value="Voyage professionnel" /> <span data-i18n="plan_profil_pro">💼 Voyage professionnel</span></label>
             </div>
-            <p class="trip-step-error" hidden>Choisissez avec qui vous voyagez pour continuer.</p>
+            <p class="trip-step-error" hidden data-i18n="plan_step2_error">Choisissez avec qui vous voyagez pour continuer.</p>
           </div>
 
           <div class="trip-step" data-step="3" hidden>
-            <h2>D'où partez-vous, et pour combien de temps ?</h2>
-            <label class="trip-field-label" for="trip-depart">Ville de départ</label>
-            <input id="trip-depart" name="depart" type="text" placeholder="Ex. Yaoundé, Douala..." required />
-            <label class="trip-field-label" for="trip-duree">Durée du séjour (en jours)</label>
-            <input id="trip-duree" name="duree" type="number" min="1" max="14" placeholder="Ex. 3" required />
-            <p class="trip-step-error" hidden>Indiquez une ville de départ et une durée entre 1 et 14 jours.</p>
+            <h2 data-i18n="plan_step3_h2">D'où partez-vous, et pour combien de temps ?</h2>
+            <label class="trip-field-label" for="trip-depart" data-i18n="plan_depart_label">Ville de départ</label>
+            <input id="trip-depart" name="depart" type="text" placeholder="Ex. Yaoundé, Douala..." required data-i18n-placeholder="plan_depart_placeholder" />
+            <label class="trip-field-label" for="trip-duree" data-i18n="plan_duree_label">Durée du séjour (en jours)</label>
+            <input id="trip-duree" name="duree" type="number" min="1" max="14" placeholder="Ex. 3" required data-i18n-placeholder="plan_duree_placeholder" />
+            <p class="trip-step-error" hidden data-i18n="plan_step3_error">Indiquez une ville de départ et une durée entre 1 et 14 jours.</p>
           </div>
 
           <div class="trip-step" data-step="4" hidden>
-            <h2>Votre budget</h2>
+            <h2 data-i18n="plan_step4_h2">Votre budget</h2>
             <label class="sr-only" for="trip-budget">Budget total en FCFA</label>
-            <input id="trip-budget" name="budget" type="number" min="10000" step="1000" placeholder="Ex. 150000 (FCFA)" required />
-            <div class="trip-budget-chips" aria-label="Budgets rapides">
+            <input id="trip-budget" name="budget" type="number" min="10000" step="1000" placeholder="Ex. 150000 (FCFA)" required data-i18n-placeholder="plan_budget_placeholder" />
+            <div class="trip-budget-chips" data-i18n-aria="budget_chips_aria" aria-label="Budgets rapides">
               <button type="button" data-budget="50000">50 000</button>
               <button type="button" data-budget="100000">100 000</button>
               <button type="button" data-budget="150000">150 000</button>
@@ -108,13 +108,13 @@
               <button type="button" data-budget="500000">500 000</button>
             </div>
             <div id="trip-budget-preview" class="trip-budget-preview" hidden></div>
-            <p class="trip-step-error" hidden>Indiquez un budget d'au moins 10 000 FCFA.</p>
+            <p class="trip-step-error" hidden data-i18n="plan_step4_error">Indiquez un budget d'au moins 10 000 FCFA.</p>
           </div>
 
           <div class="trip-form-nav">
-            <button type="button" id="trip-prev" class="btn btn-outline-dark" hidden>Précédent</button>
-            <button type="button" id="trip-next" class="btn btn-gold">Suivant</button>
-            <button type="submit" id="trip-submit" class="btn btn-gold" hidden>✨ Créer mon voyage</button>
+            <button type="button" id="trip-prev" class="btn btn-outline-dark" hidden data-i18n="plan_prev">Précédent</button>
+            <button type="button" id="trip-next" class="btn btn-gold" data-i18n="plan_next">Suivant</button>
+            <button type="submit" id="trip-submit" class="btn btn-gold" hidden data-i18n="plan_submit">✨ Créer mon voyage</button>
           </div>
         </form>
 
@@ -129,12 +129,13 @@
         <img src="images/logo.png" alt="" class="brand-logo" aria-hidden="true">
         CAMTOUR AI
       </div>
-      <p>&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
+      <p data-i18n-html="footer_text">&copy; 2026 — Explorez le Cameroun : nature, culture, gastronomie et hébergements. <a href="a-propos.html">En savoir plus sur le projet</a>.</p>
     </div>
   </footer>
 
   <div id="chatbot-widget"></div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/trip-planner.js"></script>
   <script src="js/chatbot-widget.js"></script>
