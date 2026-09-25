@@ -1152,6 +1152,34 @@ a.feature-card {
   color: var(--color-green-dark);
 }
 
+/* Journée arrivée pendant l'écriture du voyage : apparaît en douceur */
+/* (seule la dernière journée arrivée, juste avant la carte d'attente) */
+.trip-days--live .trip-day:nth-last-child(2) {
+  animation: trip-day-in 0.5s ease-out;
+}
+
+.trip-day--pending {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-style: dashed;
+  box-shadow: none;
+  background: var(--color-green-pale);
+  color: var(--color-green-dark);
+  font-weight: 600;
+}
+
+.trip-day-spinner {
+  font-size: 1.8rem;
+  display: inline-block;
+  animation: trip-bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes trip-day-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
 .trip-activities {
   list-style: none;
   margin: 0;

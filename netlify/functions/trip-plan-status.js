@@ -1,5 +1,6 @@
 // Fonction serveur rapide : dit à la page si le voyage demandé (voir trip-plan-background.js) est prêt.
-// Réponses possibles : { status: "pending" } | { status: "done", reply } | { status: "error", error }
+// Réponses possibles : { status: "pending" } | { status: "partial", partial } (les premières journées
+// déjà écrites) | { status: "done", reply } | { status: "error", error }
 
 const { connectLambda, getStore } = require("@netlify/blobs");
 

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let tripMeta = null; // { jours, budget, profil } affichés dans l'en-tête du voyage
   let introMessage = ""; // phrase d'accueil de la première proposition
   let chatLog = []; // modifications demandées : { user, ai }
+  let lastItinerary = null; // dernier voyage complet affiché (remis en place si une modification échoue)
 
   // ---------- Petits outils ----------
 
@@ -218,12 +219,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return message;
   }
 
-  const POLL_INTERVAL_MS = 2500;
+  const POLL_INTERVAL_MS = 1500;
   const POLL_MAX_WAIT_MS = 5 * 60 * 1000;
 
   // Écrire un voyage prend plus de 10 s : le serveur travaille en tâche de fond,
-  // et on vient demander régulièrement si le résultat est prêt.
-  async function callTripPlan() {
+  // et on vient demander régulièrement où il en est. Dès que des journées sont écrites,
+  // onPartial(itinérairePartiel) est appelé pour les afficher sans attendre la fin.
+  async function callTripPlan(onPartial) {
     const jobId = crypto.randomUUID();
 
     const startRes = await fetch("/api/trip-plan", {
@@ -236,6 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let data;
+    let shownDays = 0;
     const startedAt = Date.now();
     while (true) {
       await wait(POLL_INTERVAL_MS);
@@ -249,6 +252,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (data.status === "done") break;
+      if (data.status === "partial" && onPartial) {
+        try {
+          const partial = JSON.parse(data.partial);
+          if (Array.isArray(partial.jours) && partial.jours.length > shownDays) {
+            shownDays = partial.jours.length;
+            onPartial(partial);
+          }
+        } catch (err) {
+          /* aperçu illisible : on attend simplement la suite */
+        }
+      }
       if (data.status === "error") {
         throw new Error(data.error || t("plan_start_unavailable"));
       }
@@ -379,7 +393,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const REFINE_SUGGESTION_KEYS = ["plan_suggestion_budget", "plan_suggestion_famille", "plan_suggestion_gastro", "plan_suggestion_days"];
 
-  function renderItinerary(itinerary) {
+  // pending = true : itinéraire encore en cours d'écriture (seules les premières journées sont là) ;
+  // on affiche ces journées, une carte « jour suivant en préparation », et pas encore le budget ni
+  // la zone de modification. scroll = true : remonter en haut du voyage (seulement au premier affichage,
+  // pour ne pas déplacer la page pendant que le visiteur lit les journées déjà arrivées).
+  function renderItinerary(itinerary, { pending = false, scroll = true } = {}) {
     // L'IA renvoie un "resume" à jour (durée, budget, profil) après chaque modification.
     const r = itinerary.resume || {};
     tripMeta = {
@@ -394,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .map(
         (jour, i) => `
         <div class="trip-day">
-          <h3>Jour ${esc(jour.jour ?? i + 1)}${jour.titre ? ` — <span class="trip-day-title">${esc(jour.titre)}</span>` : ""}</h3>
+          <h3>${t("plan_day_label")} ${esc(jour.jour ?? i + 1)}${jour.titre ? ` — <span class="trip-day-title">${esc(jour.titre)}</span>` : ""}</h3>
           <ul class="trip-activities">
             ${(jour.activites || []).map(renderActivity).join("")}
           </ul>
@@ -402,6 +420,15 @@ document.addEventListener("DOMContentLoaded", () => {
       `
       )
       .join("");
+
+    // Carte d'attente : le jour suivant, ou le budget une fois toutes les journées écrites.
+    const nextDay = itinerary.jours.length + 1;
+    const pendingDay = pending
+      ? `<div class="trip-day trip-day--pending" role="status">
+          <span class="trip-day-spinner" aria-hidden="true">🤖</span>
+          ${nextDay <= tripMeta.jours ? t("plan_day_pending", { n: nextDay }) : t("plan_loader_4")}
+        </div>`
+      : "";
 
     const chat = chatLog.length
       ? `<div class="trip-chat">
@@ -415,13 +442,31 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`
       : "";
 
+    const intro = introMessage || (pending && !chatLog.length ? itinerary.message : "");
+
+    if (pending) {
+      resultEl.innerHTML = `
+        <div class="trip-hero">
+          <p class="trip-ready">${t("plan_partial_ready")}</p>
+          <h2>${t("plan_hero_title")}</h2>
+          <p class="trip-hero-meta">${esc(metaLine)}</p>
+        </div>
+        ${intro ? `<p class="trip-message">${esc(intro)}</p>` : ""}
+        ${chat}
+        <div class="trip-days trip-days--live">${days}${pendingDay}</div>
+      `;
+      resultEl.hidden = false;
+      if (scroll) resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
     resultEl.innerHTML = `
       <div class="trip-hero">
         <p class="trip-ready">${t("plan_ready")}</p>
         <h2>${t("plan_hero_title")}</h2>
         <p class="trip-hero-meta">${esc(metaLine)}</p>
       </div>
-      ${introMessage ? `<p class="trip-message">${esc(introMessage)}</p>` : ""}
+      ${intro ? `<p class="trip-message">${esc(intro)}</p>` : ""}
       ${chat}
       <div class="trip-days">${days}</div>
       ${renderBudget(itinerary.budget_estime || {})}
@@ -443,7 +488,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
     resultEl.hidden = false;
-    resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll) resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    lastItinerary = itinerary;
 
     const refineForm = document.getElementById("trip-refine-form");
     const refineInput = document.getElementById("trip-refine-input");
@@ -469,15 +515,33 @@ document.addEventListener("DOMContentLoaded", () => {
       refineBtn.disabled = true;
       refineStatus.textContent = t("plan_refine_loading");
 
+      // Pendant la modification, le nouvel itinéraire s'affiche lui aussi jour par jour.
+      const entry = { user: text, ai: t("plan_refine_loading") };
+      const previous = lastItinerary;
+      let showedPartial = false;
       try {
-        const updated = await callTripPlan();
-        chatLog.push({ user: text, ai: updated.message || t("plan_ready") });
-        renderItinerary(updated);
+        const updated = await callTripPlan((partial) => {
+          if (!showedPartial) chatLog.push(entry);
+          if (partial.message) entry.ai = partial.message;
+          renderItinerary(partial, { pending: true, scroll: false });
+          showedPartial = true;
+        });
+        entry.ai = updated.message || t("plan_ready");
+        if (!showedPartial) chatLog.push(entry);
+        renderItinerary(updated, { scroll: false });
       } catch (err) {
         history.pop(); // la demande n'a pas abouti : on ne la garde pas dans la conversation
-        refineStatus.textContent = err.message;
-        refineInput.disabled = false;
-        refineBtn.disabled = false;
+        if (showedPartial) {
+          // L'ancien voyage avait été remplacé par l'aperçu : on le remet.
+          chatLog.pop();
+          renderItinerary(previous, { scroll: false });
+        }
+        const status = document.getElementById("trip-refine-status");
+        status.textContent = err.message;
+        if (!showedPartial) {
+          refineInput.disabled = false;
+          refineBtn.disabled = false;
+        }
       }
     });
   }
@@ -488,6 +552,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatLog = [];
     introMessage = "";
     tripMeta = null;
+    lastItinerary = null;
     resultEl.hidden = true;
     resultEl.innerHTML = "";
     form.hidden = false;
@@ -523,11 +588,17 @@ document.addEventListener("DOMContentLoaded", () => {
     form.hidden = true;
     startLoader();
 
+    let showedPartial = false;
     try {
-      const itinerary = await callTripPlan();
+      // Dès que le jour 1 est écrit, l'animation laisse place au voyage, qui se complète jour par jour.
+      const itinerary = await callTripPlan((partial) => {
+        stopLoader();
+        renderItinerary(partial, { pending: true, scroll: !showedPartial });
+        showedPartial = true;
+      });
       stopLoader();
       introMessage = itinerary.message || "";
-      renderItinerary(itinerary);
+      renderItinerary(itinerary, { scroll: !showedPartial });
     } catch (err) {
       stopLoader();
       resultEl.innerHTML = `

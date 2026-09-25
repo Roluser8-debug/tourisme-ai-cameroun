@@ -13,6 +13,7 @@ const Anthropic = require("@anthropic-ai/sdk");
 const { connectLambda, getStore } = require("@netlify/blobs");
 const { visitorError } = require("../lib/api-error");
 const { loadKnowledge } = require("../lib/knowledge");
+const { PartialItinerary } = require("../lib/partial-itinerary");
 
 const anthropic = new Anthropic();
 
@@ -46,6 +47,7 @@ Règles :
   ],
   "budget_estime": { "transport": 0, "activites": 0, "repas": 0, "hebergement": 0, "total": 0, "note": "Estimation indicative en FCFA, à confirmer sur place — pas de prix garanti." }
 }
+- Écris les clés dans cet ordre exact : "message", puis "resume", puis "jours" (dans l'ordre des jours), puis "budget_estime" en dernier — le site affiche chaque journée dès qu'elle est écrite.
 - "resume" reprend la durée (nombre de jours), le budget total en FCFA (nombre) et le profil de voyageur tels qu'ils sont ACTUELLEMENT demandés par le visiteur (à mettre à jour si le visiteur les change).
 - Chaque journée suit un vrai rythme : matin, déjeuner, après-midi, dîner si pertinent, et l'hébergement du soir (icône 🏨, avec un hôtel des informations de référence quand il y en a un dans la zone). 4 à 6 activités par jour.
 - "cout_fcfa" est un nombre (coût estimé pour l'ensemble du groupe de voyageurs, 0 si gratuit). "duree" est un texte court (ex. "1 h 30"). Si tu ne sais pas raisonnablement estimer un champ facultatif (deplacement, impact, infos), mets null plutôt que d'inventer un détail précis (horaire d'ouverture, tarif exact).
@@ -121,7 +123,9 @@ exports.handler = async (event) => {
   }
 
   try {
-    const response = await anthropic.messages.create({
+    // Réponse reçue en direct (streaming) : dès qu'une journée est entièrement écrite, on range
+    // l'itinéraire partiel pour que la page l'affiche sans attendre les journées suivantes.
+    const stream = anthropic.messages.stream({
       model: "claude-opus-5",
       max_tokens: 16000,
       output_config: { effort: "medium" },
@@ -129,10 +133,22 @@ exports.handler = async (event) => {
       messages,
     });
 
-    const raw = response.content
-      .filter((block) => block.type === "text")
-      .map((block) => block.text)
-      .join("");
+    const partial = new PartialItinerary();
+    for await (const streamEvent of stream) {
+      if (streamEvent.type !== "content_block_delta" || streamEvent.delta.type !== "text_delta") continue;
+      if (!partial.push(streamEvent.delta.text)) continue;
+      const snapshot = partial.snapshot();
+      if (snapshot) {
+        try {
+          await store.setJSON(jobId, { status: "partial", partial: snapshot });
+        } catch (err) {
+          // Un aperçu manqué n'est pas grave : le voyage complet sera rangé à la fin.
+          console.error("[trip-plan] Aperçu partiel non enregistré :", err.message);
+        }
+      }
+    }
+    const response = await stream.finalMessage();
+    const raw = partial.text;
 
     const reply = extractJson(raw);
     if (!reply) {
