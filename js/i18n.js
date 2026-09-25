@@ -345,6 +345,15 @@ window.CamtourI18n = (() => {
     chat_server_error: { fr: "Réponse inattendue du serveur.", en: "Unexpected response from the server." },
     chat_unavailable: { fr: "L'assistant IA est momentanément indisponible. Merci de réessayer dans un instant.", en: "The AI assistant is temporarily unavailable. Please try again shortly." },
     chat_network_error: { fr: "Impossible de contacter l'assistant IA. Vérifiez votre connexion internet et réessayez dans un instant.", en: "Couldn't reach the AI assistant. Check your internet connection and try again shortly." },
+
+    // ---- Guide vocal (dans la bulle de chat) ----
+    voice_toggle_on: { fr: "Guide vocal activé : les réponses sont lues à voix haute", en: "Voice guide on: answers are read aloud" },
+    voice_toggle_off: { fr: "Activer le guide vocal (lecture des réponses à voix haute)", en: "Turn on the voice guide (read answers aloud)" },
+    voice_replay: { fr: "🔊 Écouter", en: "🔊 Listen" },
+    voice_stop: { fr: "⏹ Arrêter", en: "⏹ Stop" },
+    voice_mic_aria: { fr: "Poser ma question à voix haute", en: "Ask my question out loud" },
+    voice_listening: { fr: "Je vous écoute…", en: "Listening…" },
+    voice_mic_error: { fr: "Micro indisponible. Vérifiez l'autorisation du micro dans votre navigateur.", en: "Microphone unavailable. Check the microphone permission in your browser." },
   };
 
   function detectDefault() {

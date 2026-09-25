@@ -867,6 +867,72 @@ body[data-page="apropos"] .page-header {
   padding: 4px;
 }
 
+.chatbot-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chatbot-voice-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 5px 9px;
+  cursor: pointer;
+}
+
+.chatbot-voice-toggle[aria-pressed="true"] {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.chatbot-listen {
+  margin-top: 8px;
+  background: var(--color-green-pale);
+  color: var(--color-green-dark);
+  border: none;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.chatbot-listen:hover {
+  background: var(--color-gold-pale);
+}
+
+.chatbot-mic {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.chatbot-mic.is-listening {
+  background: var(--color-rust);
+  border-color: var(--color-rust);
+  animation: chatbot-pulse 1.2s ease-in-out infinite;
+}
+
+.chatbot-mic:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@keyframes chatbot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(179, 80, 47, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(179, 80, 47, 0); }
+}
+
 .chatbot-messages {
   flex: 1;
   overflow-y: auto;
@@ -911,6 +977,7 @@ body[data-page="apropos"] .page-header {
 
 .chatbot-input {
   flex: 1;
+  min-width: 0;
   padding: 10px 14px;
   border: 1px solid var(--color-border);
   border-radius: 999px;
